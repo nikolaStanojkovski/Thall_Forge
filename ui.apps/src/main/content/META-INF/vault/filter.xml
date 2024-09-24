@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/${appId}/clientlibs"/>
+    <filter root="/apps/${appId}/components"/>
+    <filter root="/apps/${appId}/i18n"/>
+#if ( $includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y")
+#if ($aemVersion == "cloud")
+    <filter root="/apps/fd/af/themes" mode="merge"/>
+#else
+    <filter root="/apps/fd/af/theme-clientlibs" mode="merge"/>
+#end
+
+#end
+#if ( $includeErrorHandler == "y" )
+    <filter root="/apps/sling" />
+#end
+#if ( $singleCountry  == "n" )
+    <filter root="/apps/msm/${appId}_blueprint" mode="merge"/>
+#end
+</workspaceFilter>

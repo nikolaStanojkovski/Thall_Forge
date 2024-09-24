@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:rep="internal" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="cq:Page">
+    <page-content/>
+    <xf-web-variation/>
+#if ( $isSpaProject )
+    <spa-app-template />
+    <spa-page-template />
+#end
+#if ( $includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y" )
+    <blank-af-v2/>
+#end
+    <rep:policy/>
+</jcr:root>

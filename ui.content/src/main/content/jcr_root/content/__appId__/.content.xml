@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="[/conf/${appId}/settings/wcm/templates/(?!xf-).*]"
+        cq:conf="/conf/${appId}"
+#if ( $isSpaProject )
+        cq:redirectTarget="/content/${appId}/${country}/${language}/home"
+        cq:template="/conf/${appId}/settings/wcm/templates/spa-app-template"
+#else
+        cq:redirectTarget="/content/${appId}/${country}/${language}"
+        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
+#end
+        jcr:primaryType="cq:PageContent"
+        jcr:title="${appTitle}"
+        sling:configRef="/conf/${appId}"
+        sling:redirect="{Boolean}true"
+        sling:redirectStatus="{Long}302"
+        sling:resourceType="${appId}/components/page">
+        <image jcr:primaryType="nt:unstructured">
+            <file/>
+        </image>
+    </jcr:content>
+#if ( $singleCountry == "n" )
+    <language-masters/>
+#end
+    <${country}/>
+</jcr:root>

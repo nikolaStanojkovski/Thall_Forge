@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:deviceGroups="[mobile/groups/responsive]"
+        cq:template="/conf/${appId}/settings/wcm/templates/page-content"
+        jcr:primaryType="cq:PageContent"
+        sling:resourceType="${appId}/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="${appId}/components/container"
+            layout="responsiveGrid">
+            <experiencefragment-header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/experiencefragment"
+#if ( $singleCountry == "n" )
+                fragmentVariationPath="/content/experience-fragments/${appId}/language-masters/${language}/site/header/master"/>
+#else
+                fragmentVariationPath="/content/experience-fragments/${appId}/${country}/${language}/site/header/master"/>
+#end
+#if ( $includeCif == "y" )
+            <container jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/container"
+                layout="responsiveGrid">
+                <breadcrumb jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/commerce/breadcrumb"
+                    startLevel="3"
+                    structureDepth="2"/>
+                <container jcr:primaryType="nt:unstructured"
+                    sling:resourceType="${appId}/components/container"
+                   editable="{Boolean}true" />
+            </container>
+#else
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="${appId}/components/container"
+                editable="{Boolean}true"
+                layout="responsiveGrid"/>
+#end
+        </root>
+        <cq:responsive jcr:primaryType="nt:unstructured">
+            <breakpoints jcr:primaryType="nt:unstructured">
+                <phone
+                    jcr:primaryType="nt:unstructured"
+                    title="Smaller Screen"
+                    width="{Long}768"/>
+                <tablet
+                    jcr:primaryType="nt:unstructured"
+                    title="Tablet"
+                    width="{Long}1200"/>
+            </breakpoints>
+        </cq:responsive>
+    </jcr:content>
+</jcr:root>
