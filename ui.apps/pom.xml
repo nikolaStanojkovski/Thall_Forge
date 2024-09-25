@@ -5,24 +5,19 @@
     <!-- ====================================================================== -->
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
+
     <parent>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}</artifactId>
-        <version>${version}</version>
+        <groupId>com.musicdistribution</groupId>
+        <artifactId>thallforge</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <!-- ====================================================================== -->
-    <!-- P R O J E C T  D E S C R I P T I O N                                   -->
-    <!-- ====================================================================== -->
-    <artifactId>${artifactId}</artifactId>
+    <artifactId>thallforge.ui.apps</artifactId>
     <packaging>content-package</packaging>
     <name>${appTitle} - UI apps</name>
     <description>UI apps package for ${appTitle}</description>
 
-    <!-- ====================================================================== -->
-    <!-- B U I L D   D E F I N I T I O N                                        -->
-    <!-- ====================================================================== -->
     <build>
         <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
@@ -36,21 +31,18 @@
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
-                    <group>${groupId}</group>
-                    <name>${artifactId}</name>
+                    <group>com.musicdistribution</group>
+                    <name>thallforge.ui.apps</name>
                     <packageType>application</packageType>
-#if (($includeForms == "y" || $includeFormsenrollment == "y" || $includeFormscommunications == "y" || $includeFormsheadless == "y") && $aemVersion == "cloud")
                     <skipSubPackageValidation>true</skipSubPackageValidation>
                     <accessControlHandling>merge</accessControlHandling>
-#end
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
-                            <groupId>${groupId}</groupId>
-                            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
+                            <groupId>com.musicdistribution</groupId>
+                            <artifactId>thallforge.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <dependencies>
-#if ( $aemVersion != "cloud" )
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.content</artifactId>
@@ -59,19 +51,14 @@
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.config</artifactId>
                         </dependency>
-#if( $amp == "y")
                         <dependency>
                             <groupId>com.adobe.cq</groupId>
                             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
                         </dependency>
-#end
-#end
-#if ( $includeCif == "y" )
                         <dependency>
                             <groupId>com.adobe.commerce.cif</groupId>
                             <artifactId>core-cif-components-apps</artifactId>
                         </dependency>
-#end
                     </dependencies>
                 </configuration>
             </plugin>
@@ -97,9 +84,7 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <generateJavaClasses>true</generateJavaClasses>
-#if ( $precompiledScripts == "n")
                             <generatedJavaClassesPrefix>org.apache.sling.scripting.sightly</generatedJavaClassesPrefix>
-#end
                             <sourceDirectory>${project.build.sourceDirectory}</sourceDirectory>
                             <allowedExpressionOptions>
                                 <allowedExpressionOption>cssClassName</allowedExpressionOption>
@@ -114,7 +99,6 @@
         </plugins>
     </build>
 
-#if ( $precompiledScripts == "y" and $aemVersion == "cloud" )
     <profiles>
         <profile>
             <id>precompiledScripts</id>
@@ -179,61 +163,30 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             </build>
         </profile>
     </profiles>
-#end
 
-    <!-- ====================================================================== -->
-    <!-- D E P E N D E N C I E S                                                -->
-    <!-- ====================================================================== -->
     <dependencies>
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>com.musicdistribution</groupId>
             <artifactId>${rootArtifactId}.core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-#if ( $frontendModule != "none" && $frontendModule != "decoupled" )
         <dependency>
-            <groupId>${groupId}</groupId>
+            <groupId>com.musicdistribution</groupId>
             <artifactId>${rootArtifactId}.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-#end
-
-#if ( $includeFormsheadless == "y")
-      <dependency>
-        <groupId>${groupId}</groupId>
-        <artifactId>${rootArtifactId}.ui.frontend.react.forms.af</artifactId>
-        <version>${project.version}</version>
-        <type>zip</type>
-      </dependency>
-#end
-
-#if ( $isSpaProject )
-        <!-- SPA Project Core (includes hierarchy page) -->
         <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.ui.apps</artifactId>
+            <groupId>com.musicdistribution</groupId>
+            <artifactId>thallforge.ui.apps.structure</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
             <type>zip</type>
         </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>spa.project.core.core</artifactId>
-        </dependency>
-#end
-        <dependency>
-            <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}.ui.apps.structure</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
-#if ( $aemVersion != "cloud" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.core</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.content</artifactId>
@@ -244,50 +197,36 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <artifactId>core.wcm.components.config</artifactId>
             <type>zip</type>
         </dependency>
-
-#if ( $amp == "y" )
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.extensions.amp.content</artifactId>
             <type>zip</type>
         </dependency>
-#end
-
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>uber-jar</artifactId>
-#if ( $includeClassifierOnUberJar)
             <classifier>apis</classifier>
-#end
         </dependency>
-
         <dependency>
             <groupId>javax.jcr</groupId>
             <artifactId>jcr</artifactId>
         </dependency>
-
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.day.cq.wcm</groupId>
             <artifactId>cq-wcm-taglib</artifactId>
         </dependency>
-#else
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
         </dependency>
-#end
-
-#if ( $includeCif == "y" )
         <!-- Adobe CIF Dependencies -->
         <dependency>
             <groupId>com.adobe.commerce.cif</groupId>
@@ -307,39 +246,6 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <artifactId>aem-cif-sdk-api</artifactId>
             <scope>provided</scope>
         </dependency>
-#end
-#if ($includeForms == "y" or $includeFormsenrollment == "y" or $includeFormscommunications == "y" or $includeFormsheadless == "y")
-        <!-- AEM Forms Dependencies -->
-      #if ($aemVersion == "cloud")
-      <dependency>
-        <groupId>com.adobe.aem</groupId>
-        <artifactId>aem-forms-sdk-api</artifactId>
-      </dependency>
-      #else
-      <dependency>
-        <groupId>com.adobe.aemfd</groupId>
-        <artifactId>aemfd-client-sdk</artifactId>
-      </dependency>
-      #end
-        <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-apps</artifactId>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-core</artifactId>
-        </dependency>
-        <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-af-apps</artifactId>
-          <type>zip</type>
-        </dependency>
-        <dependency>
-          <groupId>com.adobe.aem</groupId>
-          <artifactId>core-forms-components-af-core</artifactId>
-        </dependency>
-#end
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
         <dependency>
             <groupId>org.apache.sling</groupId>
