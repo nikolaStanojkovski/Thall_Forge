@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="38698fe4-8a3d-48bf-a08d-f78149d9690c">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicated_publish="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:name="john-doe"
+        cq:parentPath="/content/dam/thallforge/en"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2024-07-24T16:28:41.965Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="John Doe"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-07-24T16:20:19.814Z">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/person"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biographyText="&lt;p>John Doe is a prominent artist influencer recognized for his innovative approach to art and his influential presence in the art community. With a background in various artistic mediums, John has made a name for himself through a blend of creativity and digital savvy. His work often pushes the boundaries of traditional art, incorporating modern techniques and concepts. As an influencer, John leverages his platform to showcase emerging artists, share insights on art trends, and engage with a global audience. His influence extends beyond his own art, shaping conversations and trends within the art world.&lt;/p>"
+                biographyText_x0040_ContentType="text/html"
+                biographyText_x0040_LastModified="{Date}2024-07-24T15:27:25.930Z"
+                biographyText_x0040_LastModifiedBy="admin"
+                fullName="John Doe"
+                fullName_x0040_LastModified="{Date}2024-07-24T10:16:46.095Z"
+                fullName_x0040_LastModifiedBy="admin"
+                occupation="[Artist,Influencer]"
+                occupation_x0040_LastModified="{Date}2024-07-24T10:30:21.415Z"
+                occupation_x0040_LastModifiedBy="admin"
+                profilePicture="/content/dam/thallforge/en/john-doe.jpg"
+                profilePicture_x0040_LastModified="{Date}2024-07-24T16:28:41.965Z"
+                profilePicture_x0040_LastModifiedBy="admin"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="36fde0a2-5af6-423b-9d93-046f150dd3c9"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/person"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_biographyText="&lt;p>John Doe is a prominent artist influencer recognized for his innovative approach to art and his influential presence in the art community. With a background in various artistic mediums, John has made a name for himself through a blend of creativity and digital savvy. His work often pushes the boundaries of traditional art, incorporating modern techniques and concepts. As an influencer, John leverages his platform to showcase emerging artists, share insights on art trends, and engage with a global audience. His influence extends beyond his own art, shaping conversations and trends within the art world.&lt;/p>"
+                string_x0040_fullName="John Doe"
+                stringArray_x0040_occupation="[Artist,Influencer]"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

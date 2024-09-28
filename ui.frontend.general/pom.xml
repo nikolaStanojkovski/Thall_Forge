@@ -10,11 +10,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>thallforge.ui.frontend</artifactId>
+    <artifactId>ui.frontend.general</artifactId>
     <packaging>pom</packaging>
     <name>${appTitle} - UI Frontend</name>
     <description>Frontend bundle for ${appTitle}</description>
 
+
+    <!-- ====================================================================== -->
+    <!-- P R O F I L E S                                                        -->
+    <!-- ====================================================================== -->
     <build>
         <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
@@ -55,6 +59,9 @@
         </plugins>
     </build>
 
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
     <profiles>
         <profile>
             <id>fedDev</id>
@@ -83,4 +90,5 @@
             </build>
         </profile>
     </profiles>
+
 </project>

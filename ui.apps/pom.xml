@@ -2,10 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- ====================================================================== -->
-    <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
-    <!-- ====================================================================== -->
-
     <parent>
         <groupId>com.musicdistribution</groupId>
         <artifactId>thallforge</artifactId>
@@ -18,6 +14,9 @@
     <name>${appTitle} - UI apps</name>
     <description>UI apps package for ${appTitle}</description>
 
+    <!-- ====================================================================== -->
+    <!-- B U I L D   D E F I N I T I O N                                        -->
+    <!-- ====================================================================== -->
     <build>
         <sourceDirectory>src/main/content/jcr_root</sourceDirectory>
         <plugins>
@@ -34,8 +33,6 @@
                     <group>com.musicdistribution</group>
                     <name>thallforge.ui.apps</name>
                     <packageType>application</packageType>
-                    <skipSubPackageValidation>true</skipSubPackageValidation>
-                    <accessControlHandling>merge</accessControlHandling>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
                             <groupId>com.musicdistribution</groupId>
@@ -43,22 +40,6 @@
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                     <dependencies>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.content</artifactId>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.config</artifactId>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.adobe.cq</groupId>
-                            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-                        </dependency>
-                        <dependency>
-                            <groupId>com.adobe.commerce.cif</groupId>
-                            <artifactId>core-cif-components-apps</artifactId>
-                        </dependency>
                     </dependencies>
                 </configuration>
             </plugin>
@@ -99,153 +80,36 @@
         </plugins>
     </build>
 
-    <profiles>
-        <profile>
-            <id>precompiledScripts</id>
-            <activation>
-                <property>
-                    <name>skipScriptPrecompilation</name>
-                    <value>!true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>biz.aQute.bnd</groupId>
-                        <artifactId>bnd-maven-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>bnd-process</id>
-                                <goals>
-                                    <goal>bnd-process</goal>
-                                </goals>
-                                <configuration>
-                                    <packagingTypes>content-package</packagingTypes>
-                                    <bnd><![CDATA[
-Bundle-Name: ${project.name} - precompiled scripts
-Bundle-SymbolicName: ${project.groupId}.${project.artifactId}.precompiled-scripts
--plugin:  org.apache.sling.scriptingbundle.plugin.bnd.BundledScriptsScannerPlugin; \
-          sourceDirectories="src/main/content/jcr_root"; \
-          includes="**/.content.xml,**/*.html"
-Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(version>=1.0.0)(!(version>=2.0.0)))"
-                            ]]>
-                                    </bnd>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-jar-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                                <configuration>
-                                    <classifier>precompiled-scripts</classifier>
-                                    <archive>
-                                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-                                    </archive>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>sling-maven-plugin</artifactId>
-                        <configuration>
-                            <bundleFileName>${project.build.directory}/${project.build.finalName}-precompiled-scripts.jar</bundleFileName>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
+    <!-- ====================================================================== -->
+    <!-- D E P E N D E N C I E S                                                -->
+    <!-- ====================================================================== -->
     <dependencies>
         <dependency>
             <groupId>com.musicdistribution</groupId>
-            <artifactId>${rootArtifactId}.core</artifactId>
+            <artifactId>thallforge.core</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.musicdistribution</groupId>
-            <artifactId>${rootArtifactId}.ui.frontend</artifactId>
+            <artifactId>thallforge.ui.frontend</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
+
+
         <dependency>
             <groupId>com.musicdistribution</groupId>
             <artifactId>thallforge.ui.apps.structure</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
+            <version>${project.version}</version>
             <type>zip</type>
         </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.content</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.config</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.extensions.amp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.extensions.amp.content</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>uber-jar</artifactId>
-            <classifier>apis</classifier>
-        </dependency>
-        <dependency>
-            <groupId>javax.jcr</groupId>
-            <artifactId>jcr</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.day.cq.wcm</groupId>
-            <artifactId>cq-wcm-taglib</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.adobe.aem</groupId>
             <artifactId>aem-sdk-api</artifactId>
         </dependency>
-        <!-- Adobe CIF Dependencies -->
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>core-cif-components-apps</artifactId>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>core-cif-components-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.commerce.cif</groupId>
-            <artifactId>magento-graphql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.adobe.aem</groupId>
-            <artifactId>aem-cif-sdk-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
         <!-- HTL dependencies needed for the HTL Maven Plugin source code generation -->
         <dependency>
             <groupId>org.apache.sling</groupId>
@@ -254,4 +118,5 @@ Require-Capability: osgi.extender;filter:="(&(osgi.extender=sling.scripting)(ver
             <scope>provided</scope>
         </dependency>
     </dependencies>
+
 </project>

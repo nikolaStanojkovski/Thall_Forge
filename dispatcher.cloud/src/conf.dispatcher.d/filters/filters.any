@@ -11,3 +11,5 @@ $include "./default_filters.any"
 
 # Allow manifest.webmanifest files located in the content
 /0102 { /type "allow" /extension "webmanifest" /path "/content/*/manifest" }
+
+/1000 { /type "allow" /url "/bin/*" }
