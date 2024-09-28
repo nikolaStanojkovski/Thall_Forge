@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dam="http://www.day.com/dam/1.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  jcr:mixinTypes="[mix:referenceable]"
+  jcr:primaryType="dam:Asset">
+  <jcr:content
+    dam:assetState="processed"
+    dam:relativePath="thallforge/linkedin.svg"
+    jcr:lastModified="{Date}2017-10-12T15:13:24.086Z"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="dam:AssetContent">
+    <metadata
+      dam:extracted="{Date}2017-10-12T15:13:23.317Z"
+      dam:sha1="3e64ec16562e6faa1244f81fe28ec68a4a2bcd32"
+      dam:size="{Long}1234"
+      dc:format="image/svg+xml"
+      jcr:mixinTypes="[cq:Taggable]"
+      jcr:primaryType="nt:unstructured"/>
+    <related jcr:primaryType="nt:unstructured"/>
+  </jcr:content>
+</jcr:root>

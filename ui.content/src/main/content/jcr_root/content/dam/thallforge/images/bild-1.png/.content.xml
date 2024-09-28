@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dam="http://www.day.com/dam/1.0"
+  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+  xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+  xmlns:tiff="http://ns.adobe.com/tiff/1.0/"
+  jcr:mixinTypes="[mix:referenceable]"
+  jcr:primaryType="dam:Asset">
+  <jcr:content
+    dam:assetState="processed"
+    dam:relativePath="thallforge/images/bild-1.png"
+    jcr:lastModified="{Date}2017-10-29T17:16:45.419Z"
+    jcr:lastModifiedBy="admin"
+    jcr:primaryType="dam:AssetContent">
+    <metadata
+      dam:Bitsperpixel="{Long}32"
+      dam:Fileformat="PNG"
+      dam:MIMEtype="image/png"
+      dam:Numberofimages="{Long}1"
+      dam:Numberoftextualcomments="{Long}0"
+      dam:Physicalheightindpi="{Long}-1"
+      dam:Physicalheightininches="{Decimal}-1.0"
+      dam:Physicalwidthindpi="{Long}-1"
+      dam:Physicalwidthininches="{Decimal}-1.0"
+      dam:Progressive="no"
+      dam:extracted="{Date}2017-10-29T17:16:40.880Z"
+      dam:sha1="7e7a8b8d895a77009bab13d6a480bc8d89013b9e"
+      dam:size="{Long}7388957"
+      dc:altDE="Lorem ipsum Muller"
+      dc:altEN="Lorem ipsum Tea"
+      dc:altFR="Lorem ipsum Merci"
+      dc:altIT="Lorem ipsum Milano"
+      dc:descriptionDE="Lorem ipsum Muller"
+      dc:descriptionEN="Lorem ipsum Tea"
+      dc:descriptionFR="Lorem ipsum Merci"
+      dc:descriptionIT="Lorem ipsum Milano"
+      dc:format="image/png"
+      jcr:mixinTypes="[cq:Taggable]"
+      jcr:primaryType="nt:unstructured"
+      tiff:ImageLength="{Long}1896"
+      tiff:ImageWidth="{Long}3360"/>
+    <related jcr:primaryType="nt:unstructured"/>
+  </jcr:content>
+</jcr:root>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="4d451c7e-a3a6-4c05-85dc-c1afd2e85e82">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicated_publish="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:name="team-nexus"
+        cq:parentPath="/content/dam/thallforge/en"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2024-07-24T16:29:45.693Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Team Nexus"
+        contentFragment="{Boolean}true">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/team"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                description="&lt;p>Team Nexus is a cohesive unit of talented professionals who excel in bridging the gap between client requirements and technical execution. Known for their seamless integration of diverse skills, they ensure project success through efficient communication and expert implementation.&lt;/p>"
+                description_x0040_ContentType="text/html"
+                description_x0040_LastModified="{Date}2024-07-24T14:31:33.197Z"
+                description_x0040_LastModifiedBy="admin"
+                shortName="team-nexus"
+                shortName_x0040_LastModified="{Date}2024-07-24T14:31:44.133Z"
+                shortName_x0040_LastModifiedBy="admin"
+                teamMembers="[/content/dam/thallforge/en/john-doe,/content/dam/thallforge/en/emily-carter,/content/dam/thallforge/en/james-turner]"
+                teamMembers_x0040_LastModified="{Date}2024-07-24T16:29:45.693Z"
+                teamMembers_x0040_LastModifiedBy="admin"
+                title="Team Nexus"
+                title_x0040_LastModified="{Date}2024-07-24T14:31:36.003Z"
+                title_x0040_LastModifiedBy="admin"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="a1ee81e1-1928-4b8c-a394-02dc605ece7c"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/team"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_description="&lt;p>Team Nexus is a cohesive unit of talented professionals who excel in bridging the gap between client requirements and technical execution. Known for their seamless integration of diverse skills, they ensure project success through efficient communication and expert implementation.&lt;/p>"
+                string_x0040_shortName="team-nexus"
+                string_x0040_title="Team Nexus"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

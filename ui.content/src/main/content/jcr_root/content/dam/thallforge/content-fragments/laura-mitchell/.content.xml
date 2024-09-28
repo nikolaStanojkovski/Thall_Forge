@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c8316c22-afbe-4e99-8196-14c823511506">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicated_publish="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:name="laura-mitchell"
+        cq:parentPath="/content/dam/thallforge/en"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2024-07-24T16:24:18.287Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Laura Mitchell"
+        contentFragment="{Boolean}true">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/person"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biographyText="&lt;p>Laura Mitchell is a renowned artist and influencer celebrated for her innovative creations and influential presence in the art world. Specializing in contemporary art, Laura's work often features bold colors, dynamic compositions, and thought-provoking themes that captivate audiences. Her artistic journey began with a passion for self-expression and a keen eye for detail, leading her to explore various mediums including painting, sculpture, and digital art. As an influencer, Laura leverages her substantial social media following to promote emerging artists, share behind-the-scenes glimpses of her creative process, and engage with a global community of art enthusiasts. Through her impactful art and engaging content, Laura inspires others to explore their creativity and appreciate the beauty of the artistic world.&lt;/p>"
+                biographyText_x0040_ContentType="text/html"
+                biographyText_x0040_LastModified="{Date}2024-07-24T16:24:18.287Z"
+                biographyText_x0040_LastModifiedBy="admin"
+                fullName="Laura Mitchell"
+                fullName_x0040_LastModified="{Date}2024-07-24T16:23:37.395Z"
+                fullName_x0040_LastModifiedBy="admin"
+                occupation="[Artist,Influencer]"
+                occupation_x0040_LastModified="{Date}2024-07-24T16:23:54.868Z"
+                occupation_x0040_LastModifiedBy="admin"
+                profilePicture="/content/dam/thallforge/en/laura-mitchell.jpg"
+                profilePicture_x0040_LastModified="{Date}2024-07-24T16:23:47.907Z"
+                profilePicture_x0040_LastModifiedBy="admin"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="ec1bd156-6d5d-4b3e-b3ef-c27d164b1777"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/person"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_biographyText="&lt;p>Laura Mitchell is a renowned artist and influencer celebrated for her innovative creations and influential presence in the art world. Specializing in contemporary art, Laura's work often features bold colors, dynamic compositions, and thought-provoking themes that captivate audiences. Her artistic journey began with a passion for self-expression and a keen eye for detail, leading her to explore various mediums including painting, sculpture, and digital art. As an influencer, Laura leverages her substantial social media following to promote emerging artists, share behind-the-scenes glimpses of her creative process, and engage with a global community of art enthusiasts. Through her impactful art and engaging content, Laura inspires others to explore their creativity and appreciate the beauty of the artistic world.&lt;/p>"
+                string_x0040_fullName="Laura Mitchell"
+                stringArray_x0040_occupation="[Artist,Influencer]"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

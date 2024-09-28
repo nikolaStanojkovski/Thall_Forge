@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="c8f9d237-7a96-4785-a68b-94cb051faa96">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicated_publish="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:name="alison-smith"
+        cq:parentPath="/content/dam/thallforge/en"
+        jcr:description="\0"
+        jcr:lastModified="{Date}2024-07-24T16:28:55.067Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Alison Smith"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-07-24T16:20:20.550Z">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/person"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biographyText="&lt;p>Alison Smith is a seasoned traveller and photographer known for her captivating imagery and unique perspectives on global cultures. With a passion for exploring new destinations and capturing the essence of each place through her lens, Alison has built a reputation for her stunning travel photography. Her work often reflects a deep appreciation for diverse landscapes, local traditions, and the nuances of everyday life around the world. Through her travels, Alison aims to inspire others to explore and appreciate the beauty and diversity of our planet.&lt;/p>"
+                biographyText_x0040_ContentType="text/html"
+                biographyText_x0040_LastModified="{Date}2024-07-24T15:26:29.701Z"
+                biographyText_x0040_LastModifiedBy="admin"
+                fullName="Alison Smith"
+                fullName_x0040_LastModified="{Date}2024-07-24T10:31:46.434Z"
+                fullName_x0040_LastModifiedBy="admin"
+                occupation="[Photographer,Traveler]"
+                occupation_x0040_LastModified="{Date}2024-07-24T10:32:18.510Z"
+                occupation_x0040_LastModifiedBy="admin"
+                profilePicture="/content/dam/thallforge/en/alison-smith.jpg"
+                profilePicture_x0040_LastModified="{Date}2024-07-24T16:28:55.067Z"
+                profilePicture_x0040_LastModifiedBy="admin"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="9a4ab0d9-860d-49f0-8090-7c24df945f4f"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/person"
+                _x0040_stringArray_x0040_variations="[]"
+                string_x0040_biographyText="&lt;p>Alison Smith is a seasoned traveller and photographer known for her captivating imagery and unique perspectives on global cultures. With a passion for exploring new destinations and capturing the essence of each place through her lens, Alison has built a reputation for her stunning travel photography. Her work often reflects a deep appreciation for diverse landscapes, local traditions, and the nuances of everyday life around the world. Through her travels, Alison aims to inspire others to explore and appreciate the beauty and diversity of our planet.&lt;/p>"
+                string_x0040_fullName="Alison Smith"
+                stringArray_x0040_occupation="[Photographer,Traveler]"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

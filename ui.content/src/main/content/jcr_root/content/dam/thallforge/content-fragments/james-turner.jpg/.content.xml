@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:photoshop="http://ns.adobe.com/photoshop/1.0/" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="eb53ef51-9b26-4c1d-8761-b831c77779d3">
+    <jcr:content
+        cq:isDelivered="{Boolean}false"
+        cq:lastReplicated="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicated_publish="{Date}2024-07-24T20:44:03.146Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicatedBy_publish="admin"
+        cq:lastReplicationAction="Activate"
+        cq:lastReplicationAction_publish="Activate"
+        cq:name="james-turner.jpg"
+        cq:parentPath="/content/dam/thallforge/en"
+        dam:assetState="processed"
+        dam:jobId="aac092d7-745b-490d-9f88-04d511264b80"
+        dam:processingId="f588dc2d-f2e1-4326-b973-befdd459cb77"
+        dam:processingRenditions="[cqdam.metadata.xml,cq5dam.thumbnail.140.100.png,cq5dam.web.1280.1280.jpeg,cqdam.machine.metadata.tags.json,cq5dam.thumbnail.319.319.png,cq5dam.preview.pdf,cqdam.machine.metadata.colors.json,cq5dam.zoom.2048.2048.jpeg,cq5dam.preview.mp4,cqdam.machine.metadata.features.json,cq5dam.thumbnail.48.48.png,cqdam.text.txt]"
+        dam:processingRequestedDate="{Date}2024-07-24T16:19:54.326Z"
+        dam:runDMProcess="{Boolean}true"
+        dam:runPostProcess="{Boolean}true"
+        jcr:lastModified="{Date}2024-07-24T16:20:10.382Z"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent">
+        <dam:failedRenditions jcr:primaryType="nt:unstructured">
+            <cq5dam.preview.mp4
+                jcr:primaryType="nt:unstructured"
+                message="Format mp4 is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.preview.pdf
+                jcr:primaryType="nt:unstructured"
+                message="Format pdf is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cqdam.machine.metadata.features.json
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/8hKvCDxR/work/17370565826f4b07b70565826fcb0774/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cqdam.machine.metadata.colors.json
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/ojJNXsRG/work/3b3b310d79f54406bb310d79f5640688/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cqdam.machine.metadata.tags.json
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/VaoGkeSi/work/2e9a2d74aaeb4d449a2d74aaeb1d446f/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cqdam.text.txt
+                jcr:primaryType="nt:unstructured"
+                message="Text extraction (fmt=txt) is not supported for jpg files"
+                reason="RenditionFormatUnsupported"/>
+            <cq5dam.zoom.2048.2048.jpeg
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/eTlrPJdZ/work/5f6ed144a5864504aed144a586d504d4/in/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cq5dam.thumbnail.140.100.png
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/eTlrPJdZ/work/5f6ed144a5864504aed144a586d504d4/in/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cq5dam.thumbnail.319.319.png
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/eTlrPJdZ/work/5f6ed144a5864504aed144a586d504d4/in/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cq5dam.web.1280.1280.jpeg
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/eTlrPJdZ/work/5f6ed144a5864504aed144a586d504d4/in/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+            <cq5dam.thumbnail.48.48.png
+                jcr:primaryType="nt:unstructured"
+                message="Source asset seems to be corrupt (Input file has corrupt header: magickload: Magick: ImproperImageHeader `/nodejsAction/eTlrPJdZ/work/5f6ed144a5864504aed144a586d504d4/in/source.jpg' @ error/tga.c/ReadTGAImage/233 (null))"
+                reason="SourceCorrupt"/>
+        </dam:failedRenditions>
+        <metadata
+            dam:extracted="{Date}2024-07-24T16:20:10.297Z"
+            dam:sha1="5f3e7bac8f57f290061effeaeb857c810f77897f"
+            dam:size="{Long}341919"
+            dc:format="image/jpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"
+            photoshop:ColorMode="{Long}3"
+            photoshop:ICCProfile="sRGB IEC61966-2.1"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
