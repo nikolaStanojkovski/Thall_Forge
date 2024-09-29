@@ -8,23 +8,23 @@
     function HelloWorld(config) {
 
         function init(config) {
-            config.element.removeAttribute("data-cmp-is");
+            const element = config.element;
+            element.removeAttribute("data-cmp-is");
 
             document.addEventListener('DOMContentLoaded', function () {
-                const audioPlayer = document.getElementById('audioPlayer');
-                const playPauseBtn = document.getElementById('playPauseBtn');
-                const seekBar = document.getElementById('seekBar');
-                const currentTimeElem = document.getElementById('currentTime');
-                const trackDurationElem = document.getElementById('trackDuration');
-                const volumeBar = document.getElementById('volumeBar');
-                const repeatBtn = document.getElementById('repeatBtn');
-                const shuffleBtn = document.getElementById('shuffleBtn');
+                const audioPlayer = element.querySelector(".mdl-music-player__audio");
+                const playPauseBtn = element.querySelector(".mdl-music-player__play-pause");
+                const seekBar = element.querySelector(".mdl-music-player__seek-bar");
+                const currentTime = element.querySelector(".mdl-music-player__current-time");
+                const trackDuration = element.querySelector(".mdl-music-player__track-duration");
+                const volumeBar = element.querySelector(".mdl-music-player__volume-control");
+                const repeatBtn = element.querySelector(".mdl-music-player__repeat-button");
+                const shuffleBtn = element.querySelector(".mdl-music-player__shuffle-button");
 
                 let isPlaying = false;
                 let isShuffle = false;
                 let isRepeat = false;
 
-                // Play/Pause functionality
                 playPauseBtn.addEventListener('click', function () {
                     if (isPlaying) {
                         audioPlayer.pause();
@@ -39,7 +39,7 @@
                 // Update seek bar max value when metadata is loaded
                 audioPlayer.addEventListener('loadedmetadata', function () {
                     seekBar.max = audioPlayer.duration;
-                    trackDurationElem.textContent = formatTime(audioPlayer.duration);
+                    trackDuration.textContent = formatTime(audioPlayer.duration);
                 });
 
                 // Seek track when user changes the seek bar
@@ -48,7 +48,7 @@
                 });
 
                 // Update seek bar as the audio plays
-                audioPlayer.addEventListener('timeupdate', updateSeekBar);
+                audioPlayer.addEventListener('timeupdate', () => updateSeekBar(seekBar, audioPlayer, currentTime));
 
                 // Volume control
                 volumeBar.addEventListener('input', function () {
@@ -75,22 +75,17 @@
         }
     }
 
-    // Format time in mm:ss
     function formatTime(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainingSeconds = Math.floor(seconds % 60);
         return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
     }
 
-    // Update the seek bar and time display
-    function updateSeekBar() {
+    function updateSeekBar(seekBar, audioPlayer, currentTime) {
         seekBar.value = audioPlayer.currentTime;
-        currentTimeElem.textContent = formatTime(audioPlayer.currentTime);
+        currentTime.textContent = formatTime(audioPlayer.currentTime);
     }
 
-    // Best practice:
-    // Use a method like this mutation obeserver to also properly initialize the component
-    // when an author drops it onto the page or modified it with the dialog.
     function onDocumentReady() {
         const elements = document.querySelectorAll(selectors.self);
         for (let i = 0; i < elements.length; i++) {
@@ -106,7 +101,7 @@
                 if (nodesArray.length > 0) {
                     nodesArray.forEach(function(addedNode) {
                         if (addedNode.querySelectorAll) {
-                            var elementsArray = [].slice.call(addedNode.querySelectorAll(selectors.self));
+                            const elementsArray = [].slice.call(addedNode.querySelectorAll(selectors.self));
                             elementsArray.forEach(function(element) {
                                 new HelloWorld({ element: element });
                             });

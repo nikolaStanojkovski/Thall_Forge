@@ -1,5 +1,7 @@
 <sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.musicplayer.MusicPlayerController"></sly>
-<div data-sly-test.hasContent="${controller.model.hasContent}" class="mdl-music-player">
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     data-cmp-is="musicplayer"
+     class="mdl-music-player">
     <div class="mdl-music-player__track-info">
         <img data-sly-test.trackCoverLink="${controller.model.trackCoverLink}"
              data-sly-attribute.src="${trackCoverLink}"

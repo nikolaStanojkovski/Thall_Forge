@@ -71,17 +71,17 @@
     display: flex;
     justify-content: space-between;
   }
-}
 
-button {
-  background-color: #444;
-  color: #fff;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
+  button {
+    background-color: #444;
+    color: #fff;
+    border: none;
+    padding: 8px;
+    border-radius: 5px;
+    cursor: pointer;
 
-  &:hover {
-    background-color: #666;
+    &:hover {
+      background-color: #666;
+    }
   }
 }
