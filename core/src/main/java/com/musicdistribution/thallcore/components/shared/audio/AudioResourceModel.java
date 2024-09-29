@@ -13,4 +13,7 @@ public interface AudioResourceModel {
 
     @ValueMapValue
     String getFileReference();
+
+    @ValueMapValue(name = "dc:duration")
+    String getDuration();
 }

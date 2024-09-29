@@ -1,8 +1,11 @@
 package com.musicdistribution.thallcore.components.content.musicplayer;
 
 import com.musicdistribution.thallcore.components.ViewModelProvider;
+import com.musicdistribution.thallcore.components.shared.audio.AudioDurationViewModel;
 import com.musicdistribution.thallcore.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallcore.components.shared.audio.AudioViewModelProvider;
+import com.musicdistribution.thallcore.components.shared.image.ImageViewModel;
+import com.musicdistribution.thallcore.components.shared.image.ImageViewModelProvider;
 import com.musicdistribution.thallcore.utils.NavUtils;
 import com.musicdistribution.thallcore.utils.ResourceUtils;
 import lombok.AccessLevel;
@@ -59,9 +62,9 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .resourceId(ResourceUtils.generateId(resource))
                 .trackTitle(trackResourceModel.getTitle())
                 .trackArtist(trackResourceModel.getArtist())
-                .trackDuration(audioTrackModel.getDuration().toString())
-                .trackAudioLink(audioTrackModel.getLink())
-                .trackCoverLink(getTrackCoverLink(resourceModel))
+                .trackDuration(getTrackDuration(audioTrackModel))
+                .trackAudioLink(getTrackAudioLink(audioTrackModel))
+                .trackCoverLink(getTrackCoverLink(trackResourceModel))
                 .browserSupportErrorMessage(resourceModel.getBrowserSupportErrorMessage())
                 .playLabel(resourceModel.getPlayLabel())
                 .stopLabel(resourceModel.getStopLabel())
@@ -74,17 +77,44 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .build();
     }
 
+    private String getTrackDuration(AudioViewModel audioTrackModel) {
+        return Optional.ofNullable(audioTrackModel.getDuration())
+                .map(AudioDurationViewModel::toString)
+                .filter(StringUtils::isNotBlank)
+                .orElse("00:00");
+    }
+
     private String getShuffleAlbumPath(MusicPlayerResourceModel resourceModel) {
-        return Optional.ofNullable(resourceModel.getShuffleAlbumPath())
+        return getPathLink(resourceModel.getShuffleAlbumPath());
+    }
+
+    private String getTrackCoverLink(MusicPlayerTrackResourceModel trackResourceModel) {
+        ImageViewModel imageModel = ImageViewModelProvider.builder()
+                .imageResource(trackResourceModel.getTrackCover())
+                .build()
+                .getViewModel();
+        if (imageModel != null && imageModel.isHasContent()) {
+            return getPathLink(imageModel.getLink());
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
+    private String getTrackAudioLink(AudioViewModel audioTrackModel) {
+        if (audioTrackModel.isHasContent()) {
+            return getPathLink(audioTrackModel.getLink());
+        } else {
+            return StringUtils.EMPTY;
+        }
+    }
+
+    private String getPathLink(String path) {
+        return Optional.ofNullable(path)
                 .filter(StringUtils::isNotBlank)
                 .map(resourceResolver::getResource)
                 .map(Resource::getPath)
                 .map(NavUtils::addHtmlExtension)
                 .orElse(StringUtils.EMPTY);
-    }
-
-    private String getTrackCoverLink(MusicPlayerResourceModel resourceModel) {
-        // TODO: Implement logic for getting the track-cover link
     }
 
     private MusicPlayerViewModel createViewModelWithoutContent() {

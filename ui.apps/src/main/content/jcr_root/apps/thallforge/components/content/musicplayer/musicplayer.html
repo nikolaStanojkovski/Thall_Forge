@@ -1,16 +1,21 @@
 <sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.musicplayer.MusicPlayerController"></sly>
 <div data-sly-test.hasContent="${controller.model.hasContent}" class="mdl-music-player">
     <div class="mdl-music-player__track-info">
-        <img data-sly-attribute.src="${controller.model.trackCoverLink}"
+        <img data-sly-test.trackCoverLink="${controller.model.trackCoverLink}"
+             data-sly-attribute.src="${trackCoverLink}"
              data-sly-attribute.alt="The cover of the track could not be loaded"
              class="mdl-music-player__album-cover" />
-        <div class="mdl-music-player__track-details">
-            <h3 class="mdl-music-player__track-title">${controller.model.trackTitle}</h3>
-            <p class="mdl-music-player__track-artist">${controller.model.trackArtist}</p>
+        <div data-sly-set.trackTitle="${controller.model.trackTitle}"
+             data-sly-set.trackArtist="${controller.model.trackArtist}"
+             data-sly-test="${trackTitle && trackArtist}"
+             class="mdl-music-player__track-details">
+            <h3 class="mdl-music-player__track-title">${trackTitle}</h3>
+            <p class="mdl-music-player__track-artist">${trackArtist}</p>
         </div>
     </div>
-    <audio class="mdl-music-player__audio" preload="metadata">
-        <source data-sly-attribute.src="${controller.model.trackAudioLink}" type="audio/mpeg">
+    <audio data-sly-test.trackAudioLink="${controller.model.trackAudioLink}"
+            class="mdl-music-player__audio" preload="metadata">
+        <source data-sly-attribute.src="${trackAudioLink}" type="audio/mpeg">
         ${controller.model.browserSupportErrorMessage}
     </audio>
     <div class="mdl-music-player__controls">

@@ -9,5 +9,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AudioViewModel {
 
+    private final String link;
+    private final AudioDurationViewModel duration;
     private final boolean hasContent;
 }

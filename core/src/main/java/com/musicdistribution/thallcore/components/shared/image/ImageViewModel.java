@@ -9,5 +9,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ImageViewModel {
 
+    private final String link;
+    private final String alt;
+    private final String caption;
     private final boolean hasContent;
 }

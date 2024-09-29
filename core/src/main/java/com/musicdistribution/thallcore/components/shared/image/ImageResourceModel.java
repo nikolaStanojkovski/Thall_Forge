@@ -9,6 +9,12 @@ import org.osgi.resource.Resource;
 public interface ImageResourceModel {
 
     @ValueMapValue
+    String getAlt();
+
+    @ValueMapValue
+    String getCaption();
+
+    @ValueMapValue
     String getFileName();
 
     @ValueMapValue
