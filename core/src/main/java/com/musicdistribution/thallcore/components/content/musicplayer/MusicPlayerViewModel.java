@@ -21,7 +21,7 @@ public class MusicPlayerViewModel {
     private final String volumeControlLabel;
     private final String repeatLabel;
     private final boolean enableShuffle;
-    private final String shuffleAlbumPath;
+    private final String shuffleEndpointPath;
     private final String shuffleLabel;
     private final boolean hasContent;
 }

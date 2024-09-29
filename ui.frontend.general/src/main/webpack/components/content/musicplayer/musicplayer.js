@@ -1,8 +1,9 @@
-(function() {
+(function () {
     "use strict";
 
     let selectors = {
-        self:      '[data-cmp-is="musicplayer"]'
+        self: '[data-cmp-is="musicplayer"]',
+        shuffleEndpointAttr: 'data-shuffle-endpoint',
     };
 
     function HelloWorld(config) {
@@ -66,6 +67,10 @@
                 shuffleBtn.addEventListener('click', function () {
                     isShuffle = !isShuffle;
                     shuffleBtn.style.backgroundColor = isShuffle ? '#4caf50' : '#444';
+
+                    if (isShuffle) {
+                        fetchRandomTrack(element, audioPlayer, seekBar, trackDuration);
+                    }
                 });
             });
         }
@@ -75,10 +80,43 @@
         }
     }
 
-    function formatTime(seconds) {
-        const minutes = Math.floor(seconds / 60);
-        const remainingSeconds = Math.floor(seconds % 60);
-        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    function fetchRandomTrack(element, audioPlayer, seekBar, trackDuration) {
+        if (element.hasAttribute(selectors.shuffleEndpointAttr)) {
+            const shuffleEndpoint = element.getAttribute(selectors.shuffleEndpointAttr);
+            fetch(shuffleEndpoint, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data) {
+                        updateTrackDetails(element, audioPlayer, seekBar, trackDuration, data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching shuffled track:', error);
+                });
+        }
+    }
+
+    function updateTrackDetails(element, audioPlayer, seekBar, trackDuration, trackData) {
+        const titleElement = element.querySelector(".mdl-music-player__track-title");
+        const artistElement = element.querySelector(".mdl-music-player__track-artist");
+        const albumCoverElement = element.querySelector(".mdl-music-player__album-cover");
+        const audioTrackElement = element.querySelector(".mdl-music-player__audio");
+
+        titleElement.textContent = trackData['title'];
+        artistElement.textContent = trackData['artist'];
+        albumCoverElement.src = trackData['coverLink'];
+        audioTrackElement.src = trackData['trackLink'];
+        audioPlayer.load();
+
+        audioPlayer.addEventListener('loadedmetadata', function () {
+            seekBar.max = audioPlayer.duration;
+            trackDuration.textContent = formatTime(audioPlayer.duration);
+        });
     }
 
     function updateSeekBar(seekBar, audioPlayer, currentTime) {
@@ -86,24 +124,30 @@
         currentTime.textContent = formatTime(audioPlayer.currentTime);
     }
 
+    function formatTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = Math.floor(seconds % 60);
+        return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+    }
+
     function onDocumentReady() {
         const elements = document.querySelectorAll(selectors.self);
         for (let i = 0; i < elements.length; i++) {
-            new HelloWorld({ element: elements[i] });
+            new HelloWorld({element: elements[i]});
         }
 
         const MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-        const body             = document.querySelector("body");
-        const observer         = new MutationObserver(function(mutations) {
-            mutations.forEach(function(mutation) {
+        const body = document.querySelector("body");
+        const observer = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
                 // needed for IE
                 const nodesArray = [].slice.call(mutation.addedNodes);
                 if (nodesArray.length > 0) {
-                    nodesArray.forEach(function(addedNode) {
+                    nodesArray.forEach(function (addedNode) {
                         if (addedNode.querySelectorAll) {
                             const elementsArray = [].slice.call(addedNode.querySelectorAll(selectors.self));
-                            elementsArray.forEach(function(element) {
-                                new HelloWorld({ element: element });
+                            elementsArray.forEach(function (element) {
+                                new HelloWorld({element: element});
                             });
                         }
                     });

@@ -6,6 +6,7 @@ import com.musicdistribution.thallcore.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallcore.components.shared.audio.AudioViewModelProvider;
 import com.musicdistribution.thallcore.components.shared.image.ImageViewModel;
 import com.musicdistribution.thallcore.components.shared.image.ImageViewModelProvider;
+import com.musicdistribution.thallcore.constants.ThallforgeConstants;
 import com.musicdistribution.thallcore.utils.NavUtils;
 import com.musicdistribution.thallcore.utils.ResourceUtils;
 import lombok.AccessLevel;
@@ -71,10 +72,16 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .volumeControlLabel(resourceModel.getVolumeControlLabel())
                 .repeatLabel(resourceModel.getRepeatLabel())
                 .enableShuffle(resourceModel.isEnableShuffle())
-                .shuffleAlbumPath(getShuffleAlbumPath(resourceModel))
+                .shuffleEndpointPath(getShuffleEndpointPath())
                 .shuffleLabel(resourceModel.getShuffleLabel())
                 .hasContent(true)
                 .build();
+    }
+
+    private String getShuffleEndpointPath() {
+        return String.format("%s.%s.%s", resource.getPath(),
+                ThallforgeConstants.Endpoints.MUSIC_PLAYER_SHUFFLE_SELECTOR,
+                ThallforgeConstants.Extensions.JSON);
     }
 
     private String getTrackDuration(AudioViewModel audioTrackModel) {
@@ -82,10 +89,6 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .map(AudioDurationViewModel::toString)
                 .filter(StringUtils::isNotBlank)
                 .orElse("00:00");
-    }
-
-    private String getShuffleAlbumPath(MusicPlayerResourceModel resourceModel) {
-        return getPathLink(resourceModel.getShuffleAlbumPath());
     }
 
     private String getTrackCoverLink(MusicPlayerTrackResourceModel trackResourceModel) {
