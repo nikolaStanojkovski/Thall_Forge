@@ -3,7 +3,44 @@
 ### **Overview:**
 **ThallForge** is a Progressive Metal streaming platform dedicated to discovering, streaming, and promoting underground and well-known progressive metal bands, including subgenres like **djent, thall**, and **alt-metal**. It provides personalized playlists, band recommendations, and access to exclusive content such as live sessions, behind-the-scenes footage, and music tutorials.
 
-### **Requirements:**
+## Modules
+
+The main parts of the template are:
+
+* **[all]** - A single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
+* **[core]** - Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
+* **[ui.apps]** - Contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
+* **[ui.config]** - Contains runmode specific OSGi configs for the project
+* **[ui.content]** - Contains sample content using the components from the ui.apps
+* **[ui.frontend]** - An optional dedicated front-end build mechanism (General Webpack project)
+
+## How to build
+
+To build all the modules run in the project root directory the following command with Maven 3:
+
+    mvn clean install
+
+To build all the modules and deploy the `all` package to a local instance of AEM, run in the project root directory the following command:
+
+    mvn clean install -PautoInstallSinglePackage
+
+Or to deploy it to a publish instance, run
+
+    mvn clean install -PautoInstallSinglePackagePublish
+
+Or alternatively
+
+    mvn clean install -PautoInstallSinglePackage -Daem.port=4503
+
+Or to deploy only the bundle to the author, run
+
+    mvn clean install -PautoInstallBundle
+
+Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
+
+    mvn clean install -PautoInstallPackage
+
+## **Requirements:**
 
 #### **1. Core Functionalities:**
 
@@ -106,41 +143,3 @@
 
 - Deploy on **AEM Cloud Service** or an **AEM on-premise instance** depending on the project needs.
 - Automate deployments using **Maven**, **Jenkins**, or **Cloud Manager**.
-
-
-## Modules
-
-The main parts of the template are:
-
-* **[all]** - A single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
-* **[core]** - Java bundle containing all core functionality like OSGi services, listeners or schedulers, as well as component-related Java code such as servlets or request filters.
-* **[ui.apps]** - Contains the /apps (and /etc) parts of the project, ie JS&CSS clientlibs, components, and templates
-* **[ui.config]** - Contains runmode specific OSGi configs for the project
-* **[ui.content]** - Contains sample content using the components from the ui.apps
-* **[ui.frontend]** - An optional dedicated front-end build mechanism (General Webpack project)
-
-## How to build
-
-To build all the modules run in the project root directory the following command with Maven 3:
-
-    mvn clean install
-
-To build all the modules and deploy the `all` package to a local instance of AEM, run in the project root directory the following command:
-
-    mvn clean install -PautoInstallSinglePackage
-
-Or to deploy it to a publish instance, run
-
-    mvn clean install -PautoInstallSinglePackagePublish
-
-Or alternatively
-
-    mvn clean install -PautoInstallSinglePackage -Daem.port=4503
-
-Or to deploy only the bundle to the author, run
-
-    mvn clean install -PautoInstallBundle
-
-Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
-
-    mvn clean install -PautoInstallPackage

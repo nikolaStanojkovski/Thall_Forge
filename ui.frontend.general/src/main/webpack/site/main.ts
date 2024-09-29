@@ -1,4 +1,3 @@
-
 // Stylesheets
 import "./main.scss";
 
