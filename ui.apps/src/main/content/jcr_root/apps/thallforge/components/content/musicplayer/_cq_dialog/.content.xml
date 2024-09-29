@@ -147,7 +147,7 @@
                                                     granite:class="shuffle-showhide-target"
                                                     granite:hidden="true">
                                                 <shuffleAlbumPath
-                                                        jcr:primarytype="nt:unstructured"
+                                                        jcr:primaryType="nt:unstructured"
                                                         sling:resourcetype="granite/ui/components/coral/foundation/form/pathbrowser"
                                                         fieldLabel="Shuffle Album Path"
                                                         rootPath="/content/dam"
