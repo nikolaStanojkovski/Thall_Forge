@@ -15,4 +15,9 @@ public final class ThallforgeConstants {
         public static final String MP3 = "mp3";
         public static final String WAV = "wav";
     }
+
+    public static final class ResourceTypes {
+
+        public static final String MUSIC_PLAYER = "thallforge/components/content/musicplayer";
+    }
 }
