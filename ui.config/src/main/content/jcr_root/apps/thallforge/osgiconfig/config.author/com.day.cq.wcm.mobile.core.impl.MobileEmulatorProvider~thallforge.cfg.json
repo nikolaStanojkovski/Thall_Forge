@@ -1,6 +1,6 @@
 {
   "mobile.resourceTypes": [
-    "thallforge/components/page"
+    "thallforge/components/basepage"
   ],
   "README": "Indicate which page resource types should display the mobile emulators."
 }

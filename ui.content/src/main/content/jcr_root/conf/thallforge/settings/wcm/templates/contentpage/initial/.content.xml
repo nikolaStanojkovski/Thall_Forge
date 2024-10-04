@@ -4,7 +4,7 @@
     <jcr:content
         cq:template="/conf/thallforge/settings/wcm/templates/page-content"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="thallforge/components/page">
+        sling:resourceType="thallforge/components/basepage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="thallforge/components/container"
