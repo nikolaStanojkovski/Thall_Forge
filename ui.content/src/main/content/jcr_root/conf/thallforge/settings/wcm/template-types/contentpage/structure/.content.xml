@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/thallforge/settings/wcm/templates/page-content"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="thallforge/components/basepage">
         <root

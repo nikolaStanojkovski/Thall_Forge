@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
-    <filter root="/apps/thallforge" />
+    <filter root="/apps/thallforge/clientlibs" />
+    <filter root="/apps/thallforge/components" />
+    <filter root="/apps/thallforge/i18n" />
+    <filter root="/apps/thallforge/pages" />
 </workspaceFilter>
