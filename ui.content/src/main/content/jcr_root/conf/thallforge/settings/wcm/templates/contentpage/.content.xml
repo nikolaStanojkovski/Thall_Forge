@@ -4,7 +4,7 @@
     <jcr:content
         cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
         cq:lastModifiedBy="admin"
-        cq:templateType="/conf/thallforge/settings/wcm/template-types/page"
+        cq:templateType="/conf/thallforge/settings/wcm/template-types/contentpage"
         jcr:description="My Site Page Template"
         jcr:primaryType="cq:PageContent"
         jcr:title="Content Page"
