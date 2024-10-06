@@ -1,10 +1,15 @@
-<div class="mdl-album-tracklist">
-    <h2>Album Title</h2>
+<sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.albumtracklist.AlbumTrackListController"></sly>
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     class="mdl-album-tracklist">
+    <h2>${controller.model.title}</h2>
     <div class="mdl-album-tracklist__album-cover">
-        <img src="path/to/album-cover.jpg" alt="Album Cover">
+        <img src="${controller.model.thumbnail}" alt="Album Cover" />
     </div>
-    <div class="mdl-album-tracklist__item">
-        <div class="mdl-album-tracklist__item-title">Song Title 1</div>
-        <a class="mdl-album-tracklist__item-download-link" href="path/to/song1.mp3" download>Download</a>
+    <div data-sly-list.track="${controller.model.tracks}" class="mdl-album-tracklist__item">
+        <div class="mdl-album-tracklist__item-title">${track.title}</div>
+        <a class="mdl-album-tracklist__item-download-link"
+           data-sly-attribute.href="${track.link}" download>${controller.model.downloadLabel}</a>
     </div>
 </div>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>

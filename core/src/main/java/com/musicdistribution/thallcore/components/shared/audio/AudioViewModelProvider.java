@@ -31,11 +31,18 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
     private AudioViewModel createViewModelWithContent(AudioResourceModel resourceModel) {
         return getAudioAsset(resourceModel)
                 .map(asset -> AudioViewModel.builder()
+                        .title(getTitle(asset))
                         .link(asset.getPath())
                         .duration(getDuration(resourceModel))
                         .hasContent(true)
                         .build())
                 .orElseGet(this::createViewModelWithoutContent);
+    }
+
+    private String getTitle(Asset audioAsset) {
+        return Optional.ofNullable(audioAsset.getMetadataValue("jcr:title"))
+                .filter(StringUtils::isNotBlank)
+                .orElse(audioAsset.getName());
     }
 
     private AudioDurationViewModel getDuration(AudioResourceModel resourceModel) {

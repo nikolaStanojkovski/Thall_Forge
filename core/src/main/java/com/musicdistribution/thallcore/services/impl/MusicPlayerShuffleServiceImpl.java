@@ -1,11 +1,8 @@
 package com.musicdistribution.thallcore.services.impl;
 
 import com.musicdistribution.thallcore.components.shared.audio.AudioViewModel;
-import com.musicdistribution.thallcore.components.shared.audio.AudioViewModelProvider;
+import com.musicdistribution.thallcore.services.AlbumTrackListService;
 import com.musicdistribution.thallcore.services.MusicPlayerShuffleService;
-import com.musicdistribution.thallcore.services.ResourceResolverRetrievalService;
-import org.apache.commons.collections4.IteratorUtils;
-import org.apache.sling.api.resource.Resource;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -16,28 +13,17 @@ import java.util.Optional;
 public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService {
 
     @Reference
-    private ResourceResolverRetrievalService resourceResolverRetrievalService;
+    private AlbumTrackListService albumTracklistService;
 
     @Override
     public Optional<AudioViewModel> shuffle(final String albumPath) {
-        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
-                .map(resourceResolver -> resourceResolver.getResource(albumPath))
-                .map(albumAsset -> albumAsset.getChildren().iterator())
-                .map(IteratorUtils::toList)
-                .flatMap(this::getRandomSong)
-                .map(this::getSongViewModel);
+        List<AudioViewModel> tracks = albumTracklistService.getTracks(albumPath);
+        return getRandomSong(tracks);
     }
 
-    private AudioViewModel getSongViewModel(Resource songResource) {
-        return AudioViewModelProvider.builder()
-                .audioResource(songResource)
-                .build()
-                .getViewModel();
-    }
-
-    private Optional<Resource> getRandomSong(List<Resource> songs) {
-        int randomSongIndex = generateRandomIndex(songs.size());
-        return Optional.ofNullable(songs.get(randomSongIndex));
+    private Optional<AudioViewModel> getRandomSong(List<AudioViewModel> tracks) {
+        int randomSongIndex = generateRandomIndex(tracks.size());
+        return Optional.ofNullable(tracks.get(randomSongIndex));
     }
 
     private int generateRandomIndex(int albumLength) {

@@ -1,6 +1,6 @@
-package com.musicdistribution.thallcore.components.content.musicplayer;
+package com.musicdistribution.thallcore.components.content.albumtracklist;
 
-import com.musicdistribution.thallcore.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallcore.services.AlbumTrackListService;
 import lombok.Getter;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -12,7 +12,7 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 import javax.annotation.PostConstruct;
 
 @Model(adaptables = SlingHttpServletRequest.class)
-public class MusicPlayerController {
+public class AlbumTrackListController {
 
     @Self
     private SlingHttpServletRequest request;
@@ -21,17 +21,17 @@ public class MusicPlayerController {
     private Resource resource;
 
     @OSGiService
-    private ResourceResolverRetrievalService resourceResolverRetrievalService;
+    private AlbumTrackListService albumTrackListService;
 
     @Getter
-    private MusicPlayerViewModel model;
+    private AlbumTrackListViewModel model;
 
     @PostConstruct
     private void init() {
-        model = MusicPlayerViewModelProvider.builder()
+        model = AlbumTrackListViewModelProvider.builder()
                 .request(request)
                 .resource(resource)
-                .resourceResolverRetrievalService(resourceResolverRetrievalService)
+                .albumTrackListService(albumTrackListService)
                 .build()
                 .getViewModel();
     }

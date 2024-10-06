@@ -33,6 +33,7 @@
                                                     sling:resourcetype="granite/ui/components/coral/foundation/form/pathbrowser"
                                                     fieldLabel="Album Path"
                                                     rootPath="/content/dam"
+                                                    required="{Boolean}true"
                                                     name="./albumPath"/>
                                             <downloadLabel
                                                     jcr:primaryType="nt:unstructured"

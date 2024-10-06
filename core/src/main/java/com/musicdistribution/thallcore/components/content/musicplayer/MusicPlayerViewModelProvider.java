@@ -7,6 +7,7 @@ import com.musicdistribution.thallcore.components.shared.audio.AudioViewModelPro
 import com.musicdistribution.thallcore.components.shared.image.ImageViewModel;
 import com.musicdistribution.thallcore.components.shared.image.ImageViewModelProvider;
 import com.musicdistribution.thallcore.constants.ThallforgeConstants;
+import com.musicdistribution.thallcore.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallcore.utils.NavUtils;
 import com.musicdistribution.thallcore.utils.ResourceUtils;
 import lombok.AccessLevel;
@@ -28,10 +29,10 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
     private final SlingHttpServletRequest request;
 
     @NonNull
-    private final ResourceResolver resourceResolver;
+    private final Resource resource;
 
     @NonNull
-    private final Resource resource;
+    private final ResourceResolverRetrievalService resourceResolverRetrievalService;
 
     @Override
     public MusicPlayerViewModel getViewModel() {
@@ -46,8 +47,11 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
         AudioViewModel audioTrackModel = AudioViewModelProvider.builder()
                 .audioResource(trackResourceModel.getAudioTrack())
                 .build().getViewModel();
-        if (hasTrackContent(trackResourceModel, audioTrackModel)) {
-            return createViewModelWithContent(resourceModel, trackResourceModel, audioTrackModel);
+        Optional<ResourceResolver> resourceResolver
+                = resourceResolverRetrievalService.getAdministrativeResourceResolver();
+        if (hasTrackContent(trackResourceModel, audioTrackModel) && resourceResolver.isPresent()) {
+            return createViewModelWithContent(resourceModel, trackResourceModel,
+                    audioTrackModel, resourceResolver.get());
         } else {
             return createViewModelWithoutContent();
         }
@@ -60,15 +64,16 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
 
     private MusicPlayerViewModel createViewModelWithContent(MusicPlayerResourceModel resourceModel,
                                                             MusicPlayerTrackResourceModel trackResourceModel,
-                                                            AudioViewModel audioTrackModel) {
+                                                            AudioViewModel audioTrackModel,
+                                                            ResourceResolver resourceResolver) {
 
         return MusicPlayerViewModel.builder()
                 .resourceId(ResourceUtils.generateId(resource))
                 .trackTitle(trackResourceModel.getTitle())
                 .trackArtist(trackResourceModel.getArtist())
                 .trackDuration(getTrackDuration(audioTrackModel))
-                .trackAudioLink(getTrackAudioLink(audioTrackModel))
-                .trackCoverLink(getTrackCoverLink(trackResourceModel))
+                .trackAudioLink(getTrackAudioLink(audioTrackModel, resourceResolver))
+                .trackCoverLink(getTrackCoverLink(trackResourceModel, resourceResolver))
                 .browserSupportErrorMessage(resourceModel.getBrowserSupportErrorMessage())
                 .playLabel(resourceModel.getPlayLabel())
                 .stopLabel(resourceModel.getStopLabel())
@@ -94,27 +99,28 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .orElse("00:00");
     }
 
-    private String getTrackCoverLink(MusicPlayerTrackResourceModel trackResourceModel) {
+    private String getTrackCoverLink(MusicPlayerTrackResourceModel trackResourceModel,
+                                     ResourceResolver resourceResolver) {
         ImageViewModel imageModel = ImageViewModelProvider.builder()
                 .imageResource(trackResourceModel.getTrackCover())
                 .build()
                 .getViewModel();
         if (imageModel != null && imageModel.isHasContent()) {
-            return getPathLink(imageModel.getLink());
+            return getPathLink(imageModel.getLink(), resourceResolver);
         } else {
             return StringUtils.EMPTY;
         }
     }
 
-    private String getTrackAudioLink(AudioViewModel audioTrackModel) {
+    private String getTrackAudioLink(AudioViewModel audioTrackModel, ResourceResolver resourceResolver) {
         if (audioTrackModel.isHasContent()) {
-            return getPathLink(audioTrackModel.getLink());
+            return getPathLink(audioTrackModel.getLink(), resourceResolver);
         } else {
             return StringUtils.EMPTY;
         }
     }
 
-    private String getPathLink(String path) {
+    private String getPathLink(String path, ResourceResolver resourceResolver) {
         return Optional.ofNullable(path)
                 .filter(StringUtils::isNotBlank)
                 .map(resourceResolver::getResource)
