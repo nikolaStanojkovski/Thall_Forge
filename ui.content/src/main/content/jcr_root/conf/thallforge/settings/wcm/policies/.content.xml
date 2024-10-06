@@ -189,7 +189,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Thallforge - Content,/apps/thallforge/components/form/container,group:Thallforge - Structure]">
+                    components="[group:Thallforge - Content,group:Thallforge - Core]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                 </policy_1574694950110>
                 <policy_1574695586800
@@ -197,7 +197,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="Page Content"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Thallforge - Content,/apps/thallforge/components/form/container]">
+                    components="[group:Thallforge - Content,group:Thallforge - Core]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
@@ -235,7 +235,7 @@
                     jcr:primaryType="nt:unstructured"
                     jcr:title="XF Root"
                     sling:resourceType="wcm/core/components/policy/policy"
-                    components="[group:Thallforge - Content,/apps/thallforge/components/form/container]">
+                    components="[group:Thallforge - Content,group:Thallforge - Core]">
                     <jcr:content jcr:primaryType="nt:unstructured"/>
                     <cq:authoring jcr:primaryType="nt:unstructured">
                         <assetToComponentMapping jcr:primaryType="nt:unstructured">
