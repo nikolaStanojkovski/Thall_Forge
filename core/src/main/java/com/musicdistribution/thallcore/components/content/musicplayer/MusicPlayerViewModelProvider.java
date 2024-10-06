@@ -35,19 +35,22 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
 
     @Override
     public MusicPlayerViewModel getViewModel() {
-        MusicPlayerResourceModel resourceModel = resource.adaptTo(MusicPlayerResourceModel.class);
-        if (resourceModel != null) {
-            MusicPlayerTrackResourceModel trackResourceModel = resourceModel.getTrackInfo();
-            if (trackResourceModel != null) {
-                AudioViewModel audioTrackModel = AudioViewModelProvider.builder()
-                        .audioResource(trackResourceModel.getAudioTrack())
-                        .build().getViewModel();
-                if (hasTrackContent(trackResourceModel, audioTrackModel)) {
-                    return createViewModelWithContent(resourceModel, trackResourceModel, audioTrackModel);
-                }
-            }
+        return Optional.ofNullable(resource.adaptTo(MusicPlayerResourceModel.class))
+                .flatMap(resourceModel -> Optional.ofNullable(resourceModel.getTrackInfo())
+                        .map(trackResourceModel -> createViewModel(resourceModel, trackResourceModel)))
+                .orElseGet(this::createViewModelWithoutContent);
+    }
+
+    private MusicPlayerViewModel createViewModel(MusicPlayerResourceModel resourceModel,
+                                                 MusicPlayerTrackResourceModel trackResourceModel) {
+        AudioViewModel audioTrackModel = AudioViewModelProvider.builder()
+                .audioResource(trackResourceModel.getAudioTrack())
+                .build().getViewModel();
+        if (hasTrackContent(trackResourceModel, audioTrackModel)) {
+            return createViewModelWithContent(resourceModel, trackResourceModel, audioTrackModel);
+        } else {
+            return createViewModelWithoutContent();
         }
-        return createViewModelWithoutContent();
     }
 
     private boolean hasTrackContent(MusicPlayerTrackResourceModel trackResourceModel, AudioViewModel audioTrackModel) {
