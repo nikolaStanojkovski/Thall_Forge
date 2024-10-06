@@ -8,7 +8,6 @@ import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -23,8 +22,8 @@ public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRet
 
     @Override
     public Optional<ResourceResolver> getAdministrativeResourceResolver() {
-        Map<String, Object> param = new HashMap<>();
-        param.put(ResourceResolverFactory.SUBSERVICE, ADMIN_SERVICE_NAME);
+        Map<String, Object> param = Map.of(
+                ResourceResolverFactory.SUBSERVICE, ADMIN_SERVICE_NAME);
         try {
             return Optional.of(resourceResolverFactory.getServiceResourceResolver(param));
         } catch (LoginException e) {

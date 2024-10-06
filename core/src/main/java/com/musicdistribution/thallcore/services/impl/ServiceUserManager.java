@@ -1,5 +1,6 @@
 package com.musicdistribution.thallcore.services.impl;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.jackrabbit.api.JackrabbitSession;
 import org.apache.jackrabbit.api.security.user.Authorizable;
 import org.apache.jackrabbit.api.security.user.UserManager;
@@ -11,20 +12,19 @@ import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 import java.util.HashMap;
 import java.util.Map;
 
+@Slf4j
 @Component(immediate = true, service = ServiceUserManager.class)
 public class ServiceUserManager {
 
-    private static final Logger log = LoggerFactory.getLogger(ServiceUserManager.class);
     private static final String SERVICE_USER_NAME = "admin-service-user";
     private static final String SERVICE_USER_PATH = "/home/users/system";
+
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
     @Reference
@@ -38,7 +38,6 @@ public class ServiceUserManager {
     @Activate
     public void activate() {
         try {
-            // Create the service user upon activation
             createServiceUser();
         } catch (Exception e) {
             log.error("Could not create service user", e);
@@ -66,13 +65,13 @@ public class ServiceUserManager {
         param.put(ResourceResolverFactory.SUBSERVICE, "my-admin-subservice"); // Use a service user with admin rights
 
         resourceResolver = resourceResolverFactory.getServiceResourceResolver(param);
-
         Session session = resourceResolver.adaptTo(Session.class);
         JackrabbitSession jackrabbitSession = (JackrabbitSession) session;
+
         if (jackrabbitSession != null) {
             UserManager userManager = jackrabbitSession.getUserManager();
-
             Authorizable user = userManager.getAuthorizable(SERVICE_USER_NAME);
+
             if (user == null) {
                 userManager.createSystemUser(SERVICE_USER_NAME, SERVICE_USER_PATH);
                 session.save();

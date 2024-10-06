@@ -41,6 +41,6 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
     }
 
     private int generateRandomIndex(int albumLength) {
-        return (int) (Math.random() * albumLength);
+        return (int) (Math.random() * (albumLength - 1));
     }
 }
