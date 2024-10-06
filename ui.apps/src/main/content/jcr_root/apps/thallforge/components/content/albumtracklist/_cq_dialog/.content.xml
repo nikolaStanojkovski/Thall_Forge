@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Music Player"
+          extraClientLibs="[acs-commons.widgets.showhidedialogfields]"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <configuration
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Track Information"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <audioTrack
+                                                    granite:class="cmp-image__editor-file-upload"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    class="cq-droptarget"
+                                                    enableNextGenDynamicMedia="{Boolean}true"
+                                                    fileNameParameter="./trackInfo/audioTrack/fileName"
+                                                    fileReferenceParameter="./trackInfo/audioTrack/fileReference"
+                                                    required="{Boolean}true"
+                                                    mimeTypes="[audio/mpeg,audio/wav,audio/aac,audio/ogg]"
+                                                    name="./trackInfo/audioTrack"/>
+                                            <trackTitle
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Track Title"
+                                                    required="{Boolean}true"
+                                                    name="./trackInfo/title"/>
+                                            <trackArtist
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="Track Artist"
+                                                    required="{Boolean}true"
+                                                    name="./trackInfo/artist"/>
+                                            <trackCover
+                                                    granite:class="cmp-image__editor-file-upload"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                    required="{Boolean}true"
+                                                    class="cq-droptarget"
+                                                    enableNextGenDynamicMedia="{Boolean}true"
+                                                    fileNameParameter="./trackInfo/trackCover/fileName"
+                                                    fileReferenceParameter="./trackInfo/trackCover/fileReference"
+                                                    mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
+                                                    name="./trackInfo/trackCover"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </configuration>
+                    <labels
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Player Labels"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <playLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="If not configured, the default label 'Play' is taken"
+                                                    fieldLabel="Play Label"
+                                                    name="./playLabel"/>
+                                            <stopLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="If not configured, the default label 'Stop' is taken"
+                                                    fieldLabel="Stop Label"
+                                                    name="./stopLabel"/>
+                                            <volumeControlLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="If not configured, the default label 'Volume' is taken"
+                                                    fieldLabel="Volume Control Label"
+                                                    name="./volumeControlLabel"/>
+                                            <browserSupportErrorMessage
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Displayed when the audio player is not supported by the browser"
+                                                    fieldLabel="Browser-Support Error Message"
+                                                    name="./browserSupportErrorMessage"/>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </labels>
+                    <shuffle
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Shuffle"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <enableShuffle
+                                                    granite:class="cmp-form-option-item-active"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                    name="./enableShuffle"
+                                                    text="Enable Shuffle"
+                                                    uncheckedValue="false"
+                                                    value="{Boolean}true">
+                                                <granite:data jcr:primaryType="nt:unstructured"
+                                                              acs-cq-dialog-dropdown-checkbox-showhide=""
+                                                              acs-cq-dialog-dropdown-checkbox-showhide-target=".shuffle-showhide-target" />
+                                            </enableShuffle>
+                                            <shuffleContainer
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    granite:class="shuffle-showhide-target"
+                                                    granite:hidden="true">
+                                                <shuffleAlbumPath
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourcetype="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                        fieldLabel="Shuffle Album Path"
+                                                        rootPath="/content/dam"
+                                                        name="./shuffleAlbumPath"/>
+                                                <shuffleLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="If not configured, the default label 'Shuffle' is taken"
+                                                        fieldLabel="Shuffle Label"
+                                                        name="./shuffleLabel"/>
+                                            </shuffleContainer>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </shuffle>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
