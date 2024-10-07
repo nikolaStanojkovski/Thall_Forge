@@ -4,18 +4,61 @@
     <jcr:content
         cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
         cq:lastModifiedBy="admin"
-        cq:policy="thallforge/components/basepage/policy"
+        cq:policy="thallforge/components/page/policy"
         jcr:primaryType="nt:unstructured"
         sling:resourceType="wcm/core/components/policies/mappings">
         <root
-            cq:policy="thallforge/components/container/policy_1574694950110"
+            cq:policy="thallforge/components/core/container/policy_1574694950110"
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping">
-            <main
-                    cq:policy="thallforge/components/container/policy_1574695586800"
+            <experiencefragment-header
+                cq:policy="thallforge/components/core/experiencefragment/policy_header"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+            <experiencefragment-footer
+                cq:policy="thallforge/components/core/experiencefragment/policy_footer"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"/>
+            <container
+                cq:policy="thallforge/components/core/container/policy_649128221558427"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping">
+                <container
+                    cq:policy="thallforge/components/core/container/policy_1574695586800"
                     jcr:primaryType="nt:unstructured"
                     sling:resourceType="wcm/core/components/policies/mapping">
-            </main>
+                    <thallforge jcr:primaryType="nt:unstructured">
+                        <core jcr:primaryType="nt:unstructured">
+                            <components jcr:primaryType="nt:unstructured">
+                                <title
+                                    cq:policy="thallforge/components/core/title/policy_641528232375303"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <text
+                                    cq:policy="thallforge/components/core/text/policy_641562756958017"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <teaser
+                                    cq:policy="thallforge/components/core/teaser/policy_1575031387650"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <image
+                                    cq:policy="thallforge/components/core/image/policy_651483963895698"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                                <download
+                                    cq:policy="thallforge/components/core/download/policy_1575032193319"
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="wcm/core/components/policies/mapping"/>
+                            </components>
+                        </core>
+                    </thallforge>
+                </container>
+                <title
+                    cq:policy="thallforge/components/core/title/policy_641475696923109"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="wcm/core/components/policies/mapping"/>
+            </container>
         </root>
     </jcr:content>
 </jcr:root>

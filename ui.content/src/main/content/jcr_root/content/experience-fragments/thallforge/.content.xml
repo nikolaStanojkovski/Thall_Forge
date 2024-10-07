@@ -4,7 +4,7 @@
     cq:allowedTemplates="[/conf/thallforge/settings/wcm/templates/(?!page-).*]"
     cq:conf="/conf/thallforge"
     jcr:primaryType="sling:OrderedFolder"
-    jcr:title="thallforge Fragments"
+    jcr:title="Thallforge Fragments"
     sling:configRef="/conf/thallforge">
     <language-masters/>
     <us/>

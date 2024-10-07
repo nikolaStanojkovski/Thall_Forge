@@ -9,7 +9,7 @@
         sling:resourceType="thallforge/components/xfpage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="thallforge/components/container"
+            sling:resourceType="thallforge/components/core/container"
             layout="responsiveGrid"/>
     </jcr:content>
 </jcr:root>

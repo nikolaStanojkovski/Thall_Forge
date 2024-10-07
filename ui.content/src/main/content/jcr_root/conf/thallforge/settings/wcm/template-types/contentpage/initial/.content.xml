@@ -4,14 +4,14 @@
     <jcr:content
         cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="thallforge/components/basepage">
+        sling:resourceType="thallforge/pages/basepage">
         <root
             jcr:primaryType="nt:unstructured"
-            sling:resourceType="thallforge/components/container"
+            sling:resourceType="thallforge/components/core/container"
             layout="responsiveGrid">
             <container
                 jcr:primaryType="nt:unstructured"
-                sling:resourceType="thallforge/components/container"
+                sling:resourceType="thallforge/components/core/container"
                 layout="responsiveGrid"/>
         </root>
     </jcr:content>
