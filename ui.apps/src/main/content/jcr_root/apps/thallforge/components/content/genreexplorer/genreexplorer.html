@@ -1,20 +1,26 @@
 <sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.genreexplorer.GenreExplorerController"></sly>
-<div class="mdl-genre-explorer" data-sly-test.hasContent="${controller.model.hasContent}">
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     class="mdl-genre-explorer"
+     data-sly-attribute.data-cmp-is="genreexplorer">
     <div class="mdl-genre-explorer__selected-genre">Selected Genre: ${controller.model.selectedGenre}</div>
     <div class="mdl-genre-explorer__album-container">
         <div data-sly-list.album="${controller.model.albums}"
              class="mdl-genre-explorer__album-card"
              data-sly-attribute.data-album-id="${album.id}">
-            <img alt="Album Cover" class="mdl-genre-explorer__album-cover" src="${album.thumbnail}"/>
-            <div class="mdl-genre-explorer__album-title">${album.title}</div>
-            <div class="mdl-genre-explorer__artist-name">${album.artist}</div>
+            <img alt="Album Cover" class="mdl-genre-explorer__album-card__album-cover" src="${album.thumbnail}"/>
+            <div class="mdl-genre-explorer__album-card__album-title">${album.title}</div>
+            <div class="mdl-genre-explorer__album-card__artist-name">${album.artist}</div>
         </div>
     </div>
     <div data-sly-list.albumSongs="${controller.model.albumSongs}"
          class="mdl-genre-explorer__song-list"
          data-sly-attribute.songs-container-id="${albumSongs.albumId}-songs">
-        <div class="mdl-genre-explorer__song-item"
-             data-sly-list.songName="${albumSongs.songs}">${songName}
+        <div class="mdl-genre-explorer__song-list__song-item"
+             data-sly-list.song="${albumSongs.songs}">
+            <a class="mdl-genre-explorer__song-list__song-item__song-link"
+               data-sly-attribute.href="${song.link}">
+                ${song.title}
+            </a>
         </div>
     </div>
 </div>
