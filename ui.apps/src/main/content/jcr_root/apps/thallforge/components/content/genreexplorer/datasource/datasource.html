@@ -1,0 +1,6 @@
+<sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.genreexplorer.datasource.GenreExplorerDatasourceController">
+    <sly data-sly-list="${controller.genreDataSource}">
+        <sly data-sly-attribute.value="${item.value}"
+             data-sly-attribute.text="${item.text}"></sly>
+    </sly>
+</sly>

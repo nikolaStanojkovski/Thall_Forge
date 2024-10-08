@@ -1,0 +1,22 @@
+<sly data-sly-use.controller="com.musicdistribution.thallcore.components.content.genreexplorer.GenreExplorerController"></sly>
+<div class="mdl-genre-explorer" data-sly-test.hasContent="${controller.model.hasContent}">
+    <div class="mdl-genre-explorer__selected-genre">Selected Genre: ${controller.model.selectedGenre}</div>
+    <div class="mdl-genre-explorer__album-container">
+        <div data-sly-list.album="${controller.model.albums}"
+             class="mdl-genre-explorer__album-card"
+             data-sly-attribute.data-album-id="${album.id}">
+            <img alt="Album Cover" class="mdl-genre-explorer__album-cover" src="${album.thumbnail}"/>
+            <div class="mdl-genre-explorer__album-title">${album.title}</div>
+            <div class="mdl-genre-explorer__artist-name">${album.artist}</div>
+        </div>
+    </div>
+    <div data-sly-list.albumSongs="${controller.model.albumSongs}"
+         class="mdl-genre-explorer__song-list"
+         data-sly-attribute.songs-container-id="${albumSongs.albumId}-songs">
+        <div class="mdl-genre-explorer__song-item"
+             data-sly-list.songName="${albumSongs.songs}">${songName}
+        </div>
+    </div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
