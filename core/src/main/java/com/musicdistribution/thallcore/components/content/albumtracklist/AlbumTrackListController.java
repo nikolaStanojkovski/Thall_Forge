@@ -2,22 +2,17 @@ package com.musicdistribution.thallcore.components.content.albumtracklist;
 
 import com.musicdistribution.thallcore.services.AlbumTrackListService;
 import lombok.Getter;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.models.annotations.injectorspecific.OSGiService;
 import org.apache.sling.models.annotations.injectorspecific.Self;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
 
-@Model(adaptables = SlingHttpServletRequest.class)
+@Model(adaptables = Resource.class)
 public class AlbumTrackListController {
 
     @Self
-    private SlingHttpServletRequest request;
-
-    @SlingObject
     private Resource resource;
 
     @OSGiService
@@ -29,7 +24,6 @@ public class AlbumTrackListController {
     @PostConstruct
     private void init() {
         model = AlbumTrackListViewModelProvider.builder()
-                .request(request)
                 .resource(resource)
                 .albumTrackListService(albumTrackListService)
                 .build()

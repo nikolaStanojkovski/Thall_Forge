@@ -1,10 +1,10 @@
 package com.musicdistribution.thallcore.components.content.genreexplorer.datasource;
 
+import com.adobe.granite.ui.components.ds.DataSource;
 import com.adobe.granite.ui.components.ds.SimpleDataSource;
 import com.adobe.granite.ui.components.ds.ValueMapResource;
 import com.musicdistribution.thallcore.components.shared.genre.Genre;
 import com.musicdistribution.thallcore.services.ResourceResolverRetrievalService;
-import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
@@ -16,7 +16,6 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Map;
 
 @Model(adaptables = SlingHttpServletRequest.class)
@@ -28,21 +27,18 @@ public class GenreExplorerDatasourceController {
     @OSGiService
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
 
-    @Getter
-    private SimpleDataSource genreDataSource;
-
     @PostConstruct
     protected void init() {
-        this.genreDataSource = resourceResolverRetrievalService.getAdministrativeResourceResolver()
-                .map(this::createGenreResources)
-                .map(SimpleDataSource::new)
-                .orElse(null);
+        request.setAttribute(DataSource.class.getName(), getGenreDataSource());
     }
 
-    private Iterator<Resource> createGenreResources(ResourceResolver resourceResolver) {
-        return Arrays.stream(Genre.values())
-                .map(genre -> createResource(resourceResolver, genre))
-                .iterator();
+    private DataSource getGenreDataSource() {
+        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
+                .map(resourceResolver -> Arrays.stream(Genre.values())
+                        .map(genre -> createResource(resourceResolver, genre))
+                        .iterator())
+                .map(SimpleDataSource::new)
+                .orElse(null);
     }
 
     private Resource createResource(ResourceResolver resourceResolver, Genre genre) {

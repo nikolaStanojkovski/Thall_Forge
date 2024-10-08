@@ -12,6 +12,7 @@ import java.util.List;
 public class GenreExplorerAlbumViewModel {
 
     private final String id;
+    private final String link;
     private final String thumbnail;
     private final String title;
     private final String artist;

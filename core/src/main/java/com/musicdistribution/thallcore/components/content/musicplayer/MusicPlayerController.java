@@ -11,13 +11,10 @@ import org.apache.sling.models.annotations.injectorspecific.SlingObject;
 
 import javax.annotation.PostConstruct;
 
-@Model(adaptables = SlingHttpServletRequest.class)
+@Model(adaptables = Resource.class)
 public class MusicPlayerController {
 
     @Self
-    private SlingHttpServletRequest request;
-
-    @SlingObject
     private Resource resource;
 
     @OSGiService
@@ -29,7 +26,6 @@ public class MusicPlayerController {
     @PostConstruct
     private void init() {
         model = MusicPlayerViewModelProvider.builder()
-                .request(request)
                 .resource(resource)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)
                 .build()

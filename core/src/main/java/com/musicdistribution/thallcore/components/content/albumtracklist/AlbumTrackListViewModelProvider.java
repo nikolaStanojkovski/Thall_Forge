@@ -11,7 +11,6 @@ import lombok.Builder;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 
@@ -21,9 +20,6 @@ import java.util.Optional;
 @Builder
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumTrackListViewModel> {
-
-    @NonNull
-    private final SlingHttpServletRequest request;
 
     @NonNull
     private final Resource resource;

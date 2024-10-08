@@ -39,7 +39,7 @@
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2024.9.17689.20240905T073330Z-240800</aem.sdk.api>
+        <aem.sdk.api>2023.11.14227.20231108T162349Z-231100</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
         <groovy.console.cloud.version>17.0.0</groovy.console.cloud.version>
         <componentGroupName>thallforge</componentGroupName>
