@@ -24,6 +24,7 @@ import org.apache.sling.api.resource.ResourceResolver;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Builder
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -61,12 +62,15 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .map(resourceResolver -> resourceResolver.findResources(getQuery(resourceModel), "JCR-SQL2"))
                 .map(IteratorUtils::toList)
                 .orElse(Collections.emptyList());
-        results.stream()
+        // TODO: Do logic for mapping albums to songs
+        return results.stream()
                 .map(resource -> GenreExplorerAlbumViewModel.builder()
                         .id(ResourceUtils.generateId(resource))
                         .title(resource.getName())
-                        .thumbnail()
+                        // TODO: Implement thumbnail fetching logic
+                        .thumbnail(StringUtils.EMPTY)
                         .build())
+                .collect(Collectors.toList());
     }
 
     private String getQuery(GenreExplorerResourceModel resourceModel) {
