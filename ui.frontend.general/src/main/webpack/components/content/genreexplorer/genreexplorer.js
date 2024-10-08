@@ -25,7 +25,7 @@
 
             Array.from(element.querySelectorAll('.mdl-genre-explorer__song-list'))
                 .forEach(songListContainer => {
-                    const songListId = songListContainer['songs-container-id'];
+                    let songListId = songListContainer['album-songs-container-id'];
                     if (songListId) {
                         if (songListId !== albumId) {
                             // Hide other albums' songs
