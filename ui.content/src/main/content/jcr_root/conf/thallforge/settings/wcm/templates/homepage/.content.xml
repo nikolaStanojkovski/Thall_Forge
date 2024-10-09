@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-    jcr:primaryType="cq:Template"
-    allowedChildren="[/conf/thallforge/settings/wcm/templates/contentpage]">
+    jcr:primaryType="cq:Template">
     <jcr:content
         cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
         cq:lastModifiedBy="admin"
-        cq:templateType="/conf/thallforge/settings/wcm/template-types/empty-page"
-        jcr:description="Thallforge Content Page Template"
+        jcr:description="Thallforge Home Page Template"
+        cq:templateType="/conf/wknd/settings/wcm/template-types/empty-page"
         jcr:primaryType="cq:PageContent"
-        jcr:title="Thallforge Content Page"
+        jcr:title="Thallforge Home Page"
+        allowedChildren="[/conf/thallforge/settings/wcm/templates/contentpage]"
         allowedPaths="[^/content/?$]"
         status="enabled"/>
 </jcr:root>

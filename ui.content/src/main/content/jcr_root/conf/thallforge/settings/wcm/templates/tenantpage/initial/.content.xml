@@ -2,14 +2,18 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
     jcr:primaryType="cq:Page">
     <jcr:content
-        cq:tags="[experience-fragments:variation/web]"
-        cq:template="/conf/thallforge/settings/wcm/templates/empty-experience-fragment"
-        cq:xfVariantType="web"
+        cq:template="/conf/thallforge/settings/wcm/templates/tenantpage"
         jcr:primaryType="cq:PageContent"
-        sling:resourceType="thallforge/components/xfpage">
+        sling:resourceType="thallforge/pages/tenantpage">
         <root
             jcr:primaryType="nt:unstructured"
             sling:resourceType="thallforge/components/core/container"
-            layout="responsiveGrid"/>
+            layout="responsiveGrid">
+            <main
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/container"
+                layout="responsiveGrid">
+            </main>
+        </root>
     </jcr:content>
 </jcr:root>
