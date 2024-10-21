@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:jcr="http://www.jcp.org/jcr/1.0"
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0"
           jcr:primaryType="nt:unstructured"
           jcr:title="Album Tracklist"
           sling:resourceType="cq/gui/components/authoring/dialog">
@@ -30,9 +32,11 @@
                                         <items jcr:primaryType="nt:unstructured">
                                             <albumPath
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourcetype="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                    fieldLabel="Album Path"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                     rootPath="/content/dam"
+                                                    fieldLabel="Album Path"
+                                                    renderReadOnly="{Boolean}true"
+                                                    cq:showOnCreate="{Boolean}true"
                                                     required="{Boolean}true"
                                                     name="./albumPath"/>
                                             <downloadLabel
