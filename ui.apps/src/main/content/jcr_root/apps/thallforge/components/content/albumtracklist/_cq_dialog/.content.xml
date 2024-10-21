@@ -35,7 +35,6 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                     rootPath="/content/dam"
                                                     fieldLabel="Album Path"
-                                                    renderReadOnly="{Boolean}true"
                                                     cq:showOnCreate="{Boolean}true"
                                                     required="{Boolean}true"
                                                     name="./albumPath"/>
