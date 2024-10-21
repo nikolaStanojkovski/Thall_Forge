@@ -12,6 +12,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
 import java.util.List;
@@ -33,38 +34,52 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     @Override
     public AlbumTrackListViewModel getViewModel() {
         return Optional.ofNullable(resource.adaptTo(AlbumTrackListResourceModel.class))
-                .map(this::createViewModelWithContent)
+                .filter(this::hasContent)
+                .map(this::createViewModel)
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel) {
-        List<AudioViewModel> tracks = albumTrackListService.getTracks(resourceModel.getAlbumPath());
+    private boolean hasContent(AlbumTrackListResourceModel resourceModel) {
+        return resourceModel != null && StringUtils.isNotBlank(resourceModel.getAlbumPath());
+    }
+
+    private AlbumTrackListViewModel createViewModel(AlbumTrackListResourceModel resourceModel) {
+        String albumPath = resourceModel.getAlbumPath();
+        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
+                .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
+                        .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
+                .orElseGet(this::createViewModelWithoutContent);
+    }
+
+    private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel,
+                                                               Resource albumResource, String albumPath,
+                                                               ResourceResolver resourceResolver) {
+        List<AudioViewModel> tracks = albumTrackListService.getTracks(albumPath);
         return AlbumTrackListViewModel.builder()
-                .title(getAlbumTitle())
-                .thumbnail(getAlbumThumbnail())
+                .title(getAlbumTitle(albumResource))
+                .thumbnail(getAlbumThumbnail(albumResource, resourceResolver))
                 .downloadLabel(resourceModel.getDownloadLabel())
                 .tracks(tracks)
                 .hasContent(!tracks.isEmpty())
                 .build();
     }
 
-    private String getAlbumTitle() {
-        String title = Optional.ofNullable(resource.adaptTo(ValueMap.class))
+    private String getAlbumTitle(Resource albumResource) {
+        String title = Optional.ofNullable(albumResource.adaptTo(ValueMap.class))
                 .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(resource.getName());
+                .orElse(albumResource.getName());
         return StringUtils.defaultString(title);
     }
 
-    private String getAlbumThumbnail() {
-        return Optional.ofNullable(resource.adaptTo(ValueMap.class))
+    private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
+        return Optional.ofNullable(albumResource.adaptTo(ValueMap.class))
                 .map(properties -> properties.get("jcr:thumbnail", String.class))
-                .filter(this::isValidAlbumThumbnail)
+                .filter(thumbnailPath -> isValidAlbumThumbnail(thumbnailPath, resourceResolver))
                 .orElse(StringUtils.EMPTY);
     }
 
-    private boolean isValidAlbumThumbnail(String albumThumbnail) {
-        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
-                .map(resourceResolver -> resourceResolver.getResource(albumThumbnail))
+    private boolean isValidAlbumThumbnail(String albumThumbnail, ResourceResolver resourceResolver) {
+        return Optional.ofNullable(resourceResolver.getResource(albumThumbnail))
                 .map(r -> r.adaptTo(Asset.class))
                 .map(DamUtil::isImage)
                 .orElse(false);
