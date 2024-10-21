@@ -5,10 +5,9 @@
         cq:lastModified="{Date}2019-12-02T17:37:24.544+01:00"
         cq:lastModifiedBy="admin"
         jcr:description="Thallforge Tenant Page Template"
-        cq:templateType="/conf/wknd/settings/wcm/template-types/empty-page"
+        cq:templateType="/conf/thallforge/settings/wcm/template-types/empty-page"
         jcr:primaryType="cq:PageContent"
         jcr:title="Thallforge Tenant Page"
-        allowedChildren="[/conf/thallforge/settings/wcm/templates/homepage]"
-        allowedPaths="[^/content/?$]"
+        allowedPaths="[/content/?]"
         status="enabled"/>
 </jcr:root>
