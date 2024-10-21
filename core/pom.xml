@@ -33,6 +33,14 @@
                         <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
+Export-Package: !*impl.*,\
+                                    com.musicdistribution.thallforge.components.*,\
+                                    com.musicdistribution.thallforge.filters.*,\
+                                    com.musicdistribution.thallforge.listeners.*,\
+                                    com.musicdistribution.thallforge.schedulers.*,\
+                                    com.musicdistribution.thallforge.services.*,\
+                                    com.musicdistribution.thallforge.servlets.*,\
+                                    com.musicdistribution.thallforge.utils.*
                                 ]]></bnd>
                         </configuration>
                     </execution>
