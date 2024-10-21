@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:lastModified="{Date}2024-10-21T22:55:06.247+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Album 2"
+        metadataSchema="System Default"
+        processingProfile="System Default"
+        sourcing="false">
+        <manualThumbnail.jpg/>
+    </jcr:content>
+    <rep:policy/>
+    <In_x0020_Flames_x0020_-_x0020_Stay_x0020_With_x0020_Me_x0020__x0028_Official_x0020_Music_x0020_Video_x0029_.mp3/>
+    <Danny_x0020_Worsnop_x0020__x0020__x0020_Simple_x0020_Man.mp3/>
+</jcr:root>

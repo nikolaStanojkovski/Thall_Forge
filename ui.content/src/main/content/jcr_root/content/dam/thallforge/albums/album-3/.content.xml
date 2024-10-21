@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:rep="internal" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:mixinTypes="[rep:AccessControllable]"
+    jcr:primaryType="sling:OrderedFolder">
+    <jcr:content
+        jcr:lastModified="{Date}2024-10-21T22:55:19.991+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="nt:unstructured"
+        jcr:title="Album 3"
+        metadataSchema="System Default"
+        processingProfile="System Default"
+        sourcing="false">
+        <manualThumbnail.jpg/>
+    </jcr:content>
+    <rep:policy/>
+    <Periphery_x0020_-_x0020_Satellites_x0020__x0028_Audio_x0029_.mp3/>
+    <Periphery_x0020_-_x0020_Reptile_x0020__x0028_Audio_x0029_.mp3/>
+</jcr:root>

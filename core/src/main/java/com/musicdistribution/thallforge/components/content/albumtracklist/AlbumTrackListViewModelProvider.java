@@ -4,6 +4,7 @@ import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
+import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.AccessLevel;
@@ -72,10 +73,15 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     }
 
     private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:thumbnail", String.class))
+        return Optional.ofNullable(resourceResolver.getResource(getAlbumThumbnailPath(albumResource)))
+                .map(Resource::getPath)
                 .filter(thumbnailPath -> isValidAlbumThumbnail(thumbnailPath, resourceResolver))
                 .orElse(StringUtils.EMPTY);
+    }
+
+    private String getAlbumThumbnailPath(Resource albumResource) {
+        return String.format("%s/manualThumbnail.%s",
+                albumResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private boolean isValidAlbumThumbnail(String albumThumbnail, ResourceResolver resourceResolver) {
