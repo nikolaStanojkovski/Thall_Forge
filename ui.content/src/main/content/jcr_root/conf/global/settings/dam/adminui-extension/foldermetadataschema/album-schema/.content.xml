@@ -38,7 +38,7 @@
                                     resourceType="granite/ui/components/coral/foundation/form/textfield">
                                     <granite:data
                                         jcr:primaryType="nt:unstructured"
-                                        cq-msm-lockable="./metadata/genre"
+                                        cq-msm-lockable="./metadata/metadata/genre"
                                         metaType="text"
                                         requiredCascading="default"
                                         visibilityCascading="default"/>
@@ -48,7 +48,7 @@
                                     sling:resourceType="dam/gui/components/admin/schemafield"
                                     displayedFormat="YYYY-MM-DD HH:mm"
                                     fieldLabel="Date Published"
-                                    name="./jcr:content/date"
+                                    name="./jcr:content/metadata/date"
                                     resourceType="granite/ui/components/coral/foundation/form/datepicker"
                                     type="datetime">
                                     <granite:data

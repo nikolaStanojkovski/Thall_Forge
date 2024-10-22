@@ -6,22 +6,28 @@ import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.utils.QueryUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.collections4.IteratorUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Builder
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreExplorerViewModel> {
@@ -70,11 +76,24 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
 
     private List<GenreExplorerAlbumViewModel> getAlbums(GenreExplorerResourceModel resourceModel,
                                                         ResourceResolver resourceResolver) {
-        return IteratorUtils.toList(resourceResolver
-                        .findResources(getAlbumSearchQuery(resourceModel), "JCR-SQL2"))
-                .stream()
-                .map(albumResource -> getAlbumViewModel(albumResource, resourceResolver))
-                .collect(Collectors.toList());
+        try {
+            String albumSearchQuery = getAlbumSearchQuery(resourceModel);
+            List<GenreExplorerAlbumViewModel> resultList = new ArrayList<>();
+            NodeIterator nodeIterator
+                    = QueryUtils.executeQuery(resourceResolver, albumSearchQuery, resourceModel.getLimit());
+            if (nodeIterator == null) {
+                return Collections.emptyList();
+            }
+            while (nodeIterator.hasNext()) {
+                Node node = nodeIterator.nextNode();
+                Resource resultResource = resourceResolver.getResource(node.getPath());
+                resultList.add(getAlbumViewModel(resultResource, resourceResolver));
+            }
+            return resultList;
+        } catch (RepositoryException e) {
+            log.error("Could not query album tracks for genre {}", resourceModel.getGenre(), e);
+        }
+        return Collections.emptyList();
     }
 
     private GenreExplorerAlbumViewModel getAlbumViewModel(Resource resource, ResourceResolver resourceResolver) {
@@ -124,11 +143,10 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         StringBuilder sb = new StringBuilder();
         String genre = Optional.ofNullable(resourceModel.getGenre()).orElse(StringUtils.EMPTY);
         sb.append("SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') ");
-        sb.append(String.format("AND albumNode.[jcr:content/genre] = '%s' ", genre));
+        sb.append(String.format("AND albumNode.[jcr:content/metadata/genre] = '%s' ", genre));
         if (resourceModel.isSort()) {
             sb.append("ORDER BY albumNode.[jcr:content/jcr:title] DESC ");
         }
-        sb.append(String.format("LIMIT %d", resourceModel.getLimit()));
         return sb.toString();
     }
 
