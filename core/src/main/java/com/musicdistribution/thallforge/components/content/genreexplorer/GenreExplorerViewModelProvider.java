@@ -120,9 +120,10 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
-        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
+    private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
+        return Optional.ofNullable(albumResource.getChild("jcr:content"))
+                .map(this::getAlbumThumbnailPath)
+                .map(resourceResolver::getResource)
                 .filter(ImageUtils::isImageResource)
                 .map(Resource::getPath)
                 .orElse(StringUtils.EMPTY);
