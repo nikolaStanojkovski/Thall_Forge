@@ -1,11 +1,11 @@
 package com.musicdistribution.thallforge.components.content.albumtracklist;
 
-import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.utils.ImageUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
@@ -15,7 +15,6 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
-import javax.jcr.Node;
 import java.util.List;
 import java.util.Optional;
 
@@ -76,7 +75,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
         String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
         return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
-                .filter(this::isValidAlbumThumbnail)
+                .filter(ImageUtils::isImageResource)
                 .map(Resource::getPath)
                 .orElse(StringUtils.EMPTY);
     }
@@ -84,12 +83,6 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     private String getAlbumThumbnailPath(Resource albumContentResource) {
         return String.format("%s/manualThumbnail.%s",
                 albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
-    }
-
-    private boolean isValidAlbumThumbnail(Resource albumThumbnailResource) {
-        return Optional.ofNullable(albumThumbnailResource.adaptTo(Node.class))
-                .map(DamUtil::isThumbnail)
-                .orElse(false);
     }
 
     private AlbumTrackListViewModel createViewModelWithoutContent() {

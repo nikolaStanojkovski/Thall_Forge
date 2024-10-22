@@ -1,5 +1,8 @@
 package com.musicdistribution.thallforge.constants;
 
+import java.util.Arrays;
+import java.util.List;
+
 public final class ThallforgeConstants {
 
     public static final class Endpoints {
@@ -15,6 +18,16 @@ public final class ThallforgeConstants {
         public static final String JPG = "jpg";
         public static final String MP3 = "mp3";
         public static final String WAV = "wav";
+    }
+
+    public static final class MimeTypes {
+
+        public static final List<String> ALL_IMAGE_MIME_TYPES = Arrays.asList("image/png", "image/jpeg", "image/tiff",
+                "image/png", "image/bmp", "image/gif", "image/pipeg", "image/x-portable-anymap",
+                "image/x-portable-bitmap", "image/x-portable-graymap", "image/x-portable-pixmap",
+                "image/x-rgb", "image/x-xbitmap", "image/x-xpixmap", "image/x-icon",
+                "image/photoshop", "image/x-photoshop", "image/psd", "application/photoshop",
+                "application/psd", "image/vnd.adobe.photoshop");
     }
 
     public static final class ResourceTypes {
