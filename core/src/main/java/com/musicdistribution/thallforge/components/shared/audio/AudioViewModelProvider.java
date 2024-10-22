@@ -1,7 +1,9 @@
 package com.musicdistribution.thallforge.components.shared.audio;
 
 import com.day.cq.dam.api.Asset;
+import com.day.cq.dam.api.Rendition;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
+import com.musicdistribution.thallforge.utils.AudioUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
@@ -19,17 +21,16 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
     @Override
     public AudioViewModel getViewModel() {
         return Optional.ofNullable(audioResource)
-                .map(r -> r.adaptTo(AudioResourceModel.class))
-                .map(this::createViewModelWithContent)
+                .map(r -> createViewModelWithContent())
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private AudioViewModel createViewModelWithContent(AudioResourceModel resourceModel) {
+    private AudioViewModel createViewModelWithContent() {
         return Optional.ofNullable(audioResource.adaptTo(Asset.class))
                 .map(asset -> AudioViewModel.builder()
                         .title(getTitle(asset))
                         .link(asset.getPath())
-                        .duration(getDuration(resourceModel))
+                        .duration(getDuration(asset))
                         .hasContent(true)
                         .build())
                 .orElseGet(this::createViewModelWithoutContent);
@@ -41,10 +42,11 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
                 .orElse(audioAsset.getName());
     }
 
-    private AudioDurationViewModel getDuration(AudioResourceModel resourceModel) {
-        return Optional.ofNullable(resourceModel.getDuration())
-                .filter(StringUtils::isNotBlank)
-                .map(Integer::parseInt)
+    private AudioDurationViewModel getDuration(Asset audioAsset) {
+        return Optional.ofNullable(audioAsset.getOriginal())
+                .map(Rendition::getStream)
+                .map(AudioUtils::getDuration)
+                .filter(duration -> duration > 0)
                 .map(duration -> AudioDurationViewModel.builder()
                         .minutes(duration / 60)
                         .seconds(duration % 60)

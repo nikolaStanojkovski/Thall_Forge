@@ -43,7 +43,7 @@ public class AlbumTrackListServiceImpl implements AlbumTrackListService {
     }
 
     private boolean isAudioAsset(Resource songResource, ResourceResolver resourceResolver) {
-        if (DamUtil.isAsset(songResource)) {
+        if (!DamUtil.isAsset(songResource)) {
             return false;
         }
         return Optional.ofNullable(songResource.adaptTo(Asset.class))
