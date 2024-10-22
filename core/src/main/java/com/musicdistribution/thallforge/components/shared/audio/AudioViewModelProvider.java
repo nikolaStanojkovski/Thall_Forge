@@ -1,16 +1,12 @@
 package com.musicdistribution.thallforge.components.shared.audio;
 
 import com.day.cq.dam.api.Asset;
-import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import java.util.Arrays;
-import java.util.List;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 
 import java.util.Optional;
 
@@ -29,7 +25,7 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
     }
 
     private AudioViewModel createViewModelWithContent(AudioResourceModel resourceModel) {
-        return getAudioAsset(resourceModel)
+        return Optional.ofNullable(audioResource.adaptTo(Asset.class))
                 .map(asset -> AudioViewModel.builder()
                         .title(getTitle(asset))
                         .link(asset.getPath())
@@ -54,24 +50,6 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
                         .seconds(duration % 60)
                         .build())
                 .orElse(AudioDurationViewModel.builder().build());
-    }
-
-    private Optional<Asset> getAudioAsset(AudioResourceModel resourceModel) {
-        String fileReference = resourceModel.getFileReference();
-        ResourceResolver resourceResolver = audioResource.getResourceResolver();
-        return Optional.ofNullable(resourceResolver.getResource(fileReference))
-                .filter(DamUtil::isAsset)
-                .map(r -> r.adaptTo(Asset.class))
-                .filter(this::isAudioAsset);
-    }
-
-    private boolean isAudioAsset(Asset asset) {
-        List<String> audioMimeTypes = Arrays.asList("audio/aac", "audio/mpeg", "audio/ogg", "audio/wav");
-        String mimeType = asset.getMimeType();
-        if (StringUtils.isBlank(mimeType)) {
-            return false;
-        }
-        return audioMimeTypes.contains(mimeType);
     }
 
     private AudioViewModel createViewModelWithoutContent() {

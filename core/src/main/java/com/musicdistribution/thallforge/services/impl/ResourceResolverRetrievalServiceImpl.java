@@ -16,16 +16,26 @@ import java.util.Optional;
 public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRetrievalService {
 
     private static final String ADMIN_SERVICE_NAME = "user-admin-service";
+    private static final String DAM_SERVICE_NAME = "user-dam-service";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
 
     @Override
     public Optional<ResourceResolver> getAdministrativeResourceResolver() {
-        Map<String, Object> param = Map.of(
-                ResourceResolverFactory.SUBSERVICE, ADMIN_SERVICE_NAME);
+        return getResourceResolver(Map.of(
+                ResourceResolverFactory.SUBSERVICE, ADMIN_SERVICE_NAME));
+    }
+
+    @Override
+    public Optional<ResourceResolver> getContentDamResourceResolver() {
+        return getResourceResolver(Map.of(
+                ResourceResolverFactory.SUBSERVICE, DAM_SERVICE_NAME));
+    }
+
+    private Optional<ResourceResolver> getResourceResolver(Map<String, Object> serviceParams) {
         try {
-            return Optional.of(resourceResolverFactory.getServiceResourceResolver(param));
+            return Optional.of(resourceResolverFactory.getServiceResourceResolver(serviceParams));
         } catch (LoginException e) {
             log.error("Could not get administrative resource resolver", e);
         }

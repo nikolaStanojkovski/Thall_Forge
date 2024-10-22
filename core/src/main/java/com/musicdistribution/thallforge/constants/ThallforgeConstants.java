@@ -12,7 +12,7 @@ public final class ThallforgeConstants {
         public static final String JSON = "json";
         public static final String HTML = "html";
         public static final String TEXT = "txt";
-        public static final String JPG = "mp3";
+        public static final String JPG = "jpg";
         public static final String MP3 = "mp3";
         public static final String WAV = "wav";
     }

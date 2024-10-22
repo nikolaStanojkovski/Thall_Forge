@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface ResourceResolverRetrievalService {
 
     Optional<ResourceResolver> getAdministrativeResourceResolver();
+
+    Optional<ResourceResolver> getContentDamResourceResolver();
 }
