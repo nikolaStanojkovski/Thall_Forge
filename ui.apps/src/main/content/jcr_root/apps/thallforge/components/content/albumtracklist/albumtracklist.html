@@ -6,9 +6,8 @@
         <img src="${controller.model.thumbnail}" alt="Album Cover" />
     </div>
     <sly data-sly-list.track="${controller.model.tracks}">
-        <sly data-sly-test.incrementedIndex="${trackList.index + 1}"></sly>
         <div class="mdl-album-tracklist__item">
-            <div class="mdl-album-tracklist__item-title">${incrementedIndex}. ${track.title}</div>
+            <div class="mdl-album-tracklist__item-title">${track.title}</div>
             <a class="mdl-album-tracklist__item-download-link"
                data-sly-attribute.href="${track.link}" download>${controller.model.downloadLabel}</a>
         </div>
