@@ -38,7 +38,7 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
     @Override
     public GenreExplorerViewModel getViewModel() {
         return Optional.ofNullable(resource.adaptTo(GenreExplorerResourceModel.class))
-                .flatMap(resourceModel -> resourceResolverRetrievalService.getAdministrativeResourceResolver()
+                .flatMap(resourceModel -> resourceResolverRetrievalService.getContentDamResourceResolver()
                         .map(resourceResolver -> createViewModelWithContent(resourceModel, resourceResolver)))
                 .orElseGet(this::createViewModelWithoutContent);
     }

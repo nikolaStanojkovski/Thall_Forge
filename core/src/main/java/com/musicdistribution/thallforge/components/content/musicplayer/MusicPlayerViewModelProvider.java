@@ -44,7 +44,7 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .audioResource(trackResourceModel.getAudioTrack())
                 .build().getViewModel();
         Optional<ResourceResolver> resourceResolver
-                = resourceResolverRetrievalService.getAdministrativeResourceResolver();
+                = resourceResolverRetrievalService.getContentDamResourceResolver();
         if (hasTrackContent(trackResourceModel, audioTrackModel) && resourceResolver.isPresent()) {
             return createViewModelWithContent(resourceModel, trackResourceModel,
                     audioTrackModel, resourceResolver.get());

@@ -32,7 +32,7 @@ public class AlbumTrackListServiceImpl implements AlbumTrackListService {
     }
 
     private Stream<Resource> getTracklistStream(String albumPath) {
-        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
+        return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .map(resourceResolver -> resourceResolver.getResource(albumPath))
                 .map(Resource::getChildren)
                 .map(trackList -> StreamSupport.stream(trackList.spliterator(), false))

@@ -46,7 +46,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
 
     private AlbumTrackListViewModel createViewModel(AlbumTrackListResourceModel resourceModel) {
         String albumPath = resourceModel.getAlbumPath();
-        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
+        return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
                         .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
                 .orElseGet(this::createViewModelWithoutContent);
