@@ -4,8 +4,10 @@ import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
+import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.utils.ImageUtils;
 import com.musicdistribution.thallforge.utils.QueryUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.AccessLevel;
@@ -56,7 +58,7 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         return GenreExplorerViewModel.builder()
                 .selectedGenre(getSelectedGenre(resourceModel))
                 .albums(albums)
-                .albumSongs(Collections.emptyList())
+                .albumSongs(albumSongs)
                 .hasContent(hasContent(albums, albumSongs))
                 .build();
     }
@@ -117,19 +119,17 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:thumbnail", String.class))
-                .filter(thumbnail -> isValidAlbumThumbnail(resourceResolver, thumbnail))
+    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
+        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
+        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
+                .filter(ImageUtils::isImageResource)
+                .map(Resource::getPath)
                 .orElse(StringUtils.EMPTY);
     }
 
-    private boolean isValidAlbumThumbnail(ResourceResolver resourceResolver,
-                                          String albumThumbnail) {
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnail))
-                .map(r -> r.adaptTo(Asset.class))
-                .map(DamUtil::isImage)
-                .orElse(false);
+    private String getAlbumThumbnailPath(Resource albumContentResource) {
+        return String.format("%s/manualThumbnail.%s",
+                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private String getSelectedGenre(GenreExplorerResourceModel resourceModel) {

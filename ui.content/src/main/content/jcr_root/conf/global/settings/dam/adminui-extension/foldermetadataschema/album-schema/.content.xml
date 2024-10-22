@@ -34,7 +34,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"
                                     fieldLabel="Genre"
-                                    name="./jcr:content/genre"
+                                    name="./jcr:content/metadata/genre"
                                     resourceType="granite/ui/components/coral/foundation/form/textfield">
                                     <granite:data
                                         jcr:primaryType="nt:unstructured"
@@ -43,6 +43,19 @@
                                         requiredCascading="default"
                                         visibilityCascading="default"/>
                                 </_x0031_729630819833>
+                                <_x0031_783632916734
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="dam/gui/components/admin/schemafield"
+                                        fieldLabel="Artist"
+                                        name="./jcr:content/metadata/artist"
+                                        resourceType="granite/ui/components/coral/foundation/form/textfield">
+                                    <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="./metadata/artist"
+                                            metaType="text"
+                                            requiredCascading="default"
+                                            visibilityCascading="default"/>
+                                </_x0031_783632916734>
                                 <_x0031_729631183704
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"
