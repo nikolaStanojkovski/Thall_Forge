@@ -48,40 +48,41 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
         String albumPath = resourceModel.getAlbumPath();
         return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
+                        .map(r -> r.getChild("jcr:content"))
                         .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
     private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel,
-                                                               Resource albumResource, String albumPath,
+                                                               Resource albumContentResource, String albumPath,
                                                                ResourceResolver resourceResolver) {
         List<AudioViewModel> tracks = albumTrackListService.getTracks(albumPath);
         return AlbumTrackListViewModel.builder()
-                .title(getAlbumTitle(albumResource))
-                .thumbnail(getAlbumThumbnail(albumResource, resourceResolver))
+                .title(getAlbumTitle(albumContentResource))
+                .thumbnail(getAlbumThumbnail(albumContentResource, resourceResolver))
                 .downloadLabel(resourceModel.getDownloadLabel())
                 .tracks(tracks)
                 .hasContent(!tracks.isEmpty())
                 .build();
     }
 
-    private String getAlbumTitle(Resource albumResource) {
-        String title = Optional.ofNullable(albumResource.adaptTo(ValueMap.class))
+    private String getAlbumTitle(Resource albumContentResource) {
+        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
                 .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(albumResource.getName());
+                .orElse(albumContentResource.getName());
         return StringUtils.defaultString(title);
     }
 
-    private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(resourceResolver.getResource(getAlbumThumbnailPath(albumResource)))
+    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
+        return Optional.ofNullable(resourceResolver.getResource(getAlbumThumbnailPath(albumContentResource)))
                 .map(Resource::getPath)
                 .filter(thumbnailPath -> isValidAlbumThumbnail(thumbnailPath, resourceResolver))
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumThumbnailPath(Resource albumResource) {
+    private String getAlbumThumbnailPath(Resource albumContentResource) {
         return String.format("%s/manualThumbnail.%s",
-                albumResource.getPath(), ThallforgeConstants.Extensions.JPG);
+                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private boolean isValidAlbumThumbnail(String albumThumbnail, ResourceResolver resourceResolver) {
