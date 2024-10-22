@@ -8,11 +8,11 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="Album 2"
         folderMetadataSchema="/conf/global/settings/dam/adminui-extension/foldermetadataschema/album-schema"
-        genre="pop"
         metadataSchema="System Default"
         processingProfile="System Default"
         sourcing="false">
         <manualThumbnail.jpg/>
+        <metadata/>
     </jcr:content>
     <rep:policy/>
     <In_x0020_Flames_x0020_-_x0020_Stay_x0020_With_x0020_Me_x0020__x0028_Official_x0020_Music_x0020_Video_x0029_.mp3/>

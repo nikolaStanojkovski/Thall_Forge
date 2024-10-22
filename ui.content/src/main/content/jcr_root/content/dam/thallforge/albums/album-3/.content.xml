@@ -8,11 +8,11 @@
         jcr:primaryType="nt:unstructured"
         jcr:title="Album 3"
         folderMetadataSchema="/conf/global/settings/dam/adminui-extension/foldermetadataschema/album-schema"
-        genre="rnb"
         metadataSchema="System Default"
         processingProfile="System Default"
         sourcing="false">
         <manualThumbnail.jpg/>
+        <metadata/>
     </jcr:content>
     <rep:policy/>
     <Periphery_x0020_-_x0020_Satellites_x0020__x0028_Audio_x0029_.mp3/>
