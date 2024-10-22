@@ -124,9 +124,9 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         StringBuilder sb = new StringBuilder();
         String genre = Optional.ofNullable(resourceModel.getGenre()).orElse(StringUtils.EMPTY);
         sb.append("SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') ");
-        sb.append(String.format("AND albumNode.[jcr:content/metadata/genre] = '%s' ", genre));
+        sb.append(String.format("AND albumNode.[jcr:content/genre] = '%s' ", genre));
         if (resourceModel.isSort()) {
-            sb.append("ORDER BY albumNode.[jcr:content/metadata/title] DESC ");
+            sb.append("ORDER BY albumNode.[jcr:content/jcr:title] DESC ");
         }
         sb.append(String.format("LIMIT %d", resourceModel.getLimit()));
         return sb.toString();

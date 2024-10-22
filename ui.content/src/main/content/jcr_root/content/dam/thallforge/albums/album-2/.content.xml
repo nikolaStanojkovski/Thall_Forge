@@ -7,6 +7,8 @@
         jcr:lastModifiedBy="admin"
         jcr:primaryType="nt:unstructured"
         jcr:title="Album 2"
+        folderMetadataSchema="/conf/global/settings/dam/adminui-extension/foldermetadataschema/album-schema"
+        genre="pop"
         metadataSchema="System Default"
         processingProfile="System Default"
         sourcing="false">
