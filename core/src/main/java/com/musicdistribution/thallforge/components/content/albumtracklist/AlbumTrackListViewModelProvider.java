@@ -1,6 +1,5 @@
 package com.musicdistribution.thallforge.components.content.albumtracklist;
 
-import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
@@ -16,6 +15,7 @@ import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.resource.ValueMap;
 
+import javax.jcr.Node;
 import java.util.List;
 import java.util.Optional;
 
@@ -74,9 +74,10 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     }
 
     private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(resourceResolver.getResource(getAlbumThumbnailPath(albumContentResource)))
+        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
+        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
+                .filter(this::isValidAlbumThumbnail)
                 .map(Resource::getPath)
-                .filter(thumbnailPath -> isValidAlbumThumbnail(thumbnailPath, resourceResolver))
                 .orElse(StringUtils.EMPTY);
     }
 
@@ -85,10 +86,9 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
                 albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
-    private boolean isValidAlbumThumbnail(String albumThumbnail, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnail))
-                .map(r -> r.adaptTo(Asset.class))
-                .map(DamUtil::isImage)
+    private boolean isValidAlbumThumbnail(Resource albumThumbnailResource) {
+        return Optional.ofNullable(albumThumbnailResource.adaptTo(Node.class))
+                .map(DamUtil::isThumbnail)
                 .orElse(false);
     }
 
