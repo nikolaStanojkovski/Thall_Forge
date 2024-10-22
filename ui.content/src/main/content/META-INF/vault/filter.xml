@@ -2,6 +2,7 @@
 <workspaceFilter version="1.0">
     <filter root="/rep:policy"/>
     <filter root="/conf/thallforge"/>
+    <filter root="/conf/global" mode="merge" />
     <filter root="/content/dam/rep:policy" />
     <filter root="/content/dam/thallforge" />
     <filter root="/content/experience-fragments" mode="merge" />
