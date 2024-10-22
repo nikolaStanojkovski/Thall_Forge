@@ -3,7 +3,7 @@
     <filter root="/rep:policy"/>
     <filter root="/conf/thallforge"/>
     <filter root="/content/dam/rep:policy" />
-    <filter root="/content/dam/thallforge" mode="merge" />
+    <filter root="/content/dam/thallforge" />
     <filter root="/content/experience-fragments" mode="merge" />
-    <filter root="/home/users/system/thallforge" mode="merge" />
+    <filter root="/home/users/system/thallforge" />
 </workspaceFilter>
