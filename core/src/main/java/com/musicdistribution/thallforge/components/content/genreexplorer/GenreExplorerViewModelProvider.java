@@ -24,6 +24,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -133,10 +134,12 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
     }
 
     private String getSelectedGenre(GenreExplorerResourceModel resourceModel) {
-        return Optional.ofNullable(resourceModel.getGenre())
-                .map(Genre::valueOf)
+        return Arrays.stream(Genre.values())
+                .filter(g -> g.getName().equals(resourceModel.getGenre()))
+                .findAny()
                 .map(Genre::getTitle)
                 .orElse(StringUtils.EMPTY);
+
     }
 
     private String getAlbumSearchQuery(GenreExplorerResourceModel resourceModel) {
