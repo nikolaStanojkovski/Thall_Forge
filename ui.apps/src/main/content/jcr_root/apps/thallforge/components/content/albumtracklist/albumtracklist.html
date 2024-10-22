@@ -5,11 +5,14 @@
     <div class="mdl-album-tracklist__album-cover">
         <img src="${controller.model.thumbnail}" alt="Album Cover" />
     </div>
-    <div data-sly-list.track="${controller.model.tracks}" class="mdl-album-tracklist__item">
-        <div class="mdl-album-tracklist__item-title">${track.title}</div>
-        <a class="mdl-album-tracklist__item-download-link"
-           data-sly-attribute.href="${track.link}" download>${controller.model.downloadLabel}</a>
-    </div>
+    <sly data-sly-list.track="${controller.model.tracks}">
+        <sly data-sly-test.incrementedIndex="${trackList.index + 1}"></sly>
+        <div class="mdl-album-tracklist__item">
+            <div class="mdl-album-tracklist__item-title">${incrementedIndex}. ${track.title}</div>
+            <a class="mdl-album-tracklist__item-download-link"
+               data-sly-attribute.href="${track.link}" download>${controller.model.downloadLabel}</a>
+        </div>
+    </sly>
 </div>
 <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
      data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>
