@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workspaceFilter version="1.0">
+    <filter root="/rep:policy"/>
     <filter root="/conf/thallforge"/>
     <filter root="/content/dam/thallforge" mode="merge" />
     <filter root="/content/experience-fragments" mode="merge" />
+    <filter root="/home/users/system/thallforge" mode="merge" />
 </workspaceFilter>

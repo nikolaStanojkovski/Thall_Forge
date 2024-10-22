@@ -15,7 +15,7 @@ import java.util.Optional;
 @Component(service = ResourceResolverRetrievalService.class)
 public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRetrievalService {
 
-    private static final String ADMIN_SERVICE_NAME = "admin-service-user";
+    private static final String ADMIN_SERVICE_NAME = "user-admin-service";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
