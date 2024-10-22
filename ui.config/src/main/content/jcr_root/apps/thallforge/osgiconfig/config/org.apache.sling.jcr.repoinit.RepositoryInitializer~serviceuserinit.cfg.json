@@ -1,0 +1,11 @@
+{
+  "scripts": [
+    "create service user admin-service-user",
+    "set principal ACL for admin-service-user",
+    "allow jcr:all on /",
+    "create service user dam-writer-service",
+    "set principal ACL for dam-writer-service",
+    "allow jcr:all on /content/dam",
+    "end"
+  ]
+}

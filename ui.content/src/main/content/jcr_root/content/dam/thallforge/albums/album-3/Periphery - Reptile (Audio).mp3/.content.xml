@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
     jcr:mixinTypes="[mix:referenceable]"
-    jcr:primaryType="dam:Asset"
-    jcr:uuid="11b563a4-c523-40ff-ad46-50ef789feec2">
+    jcr:primaryType="dam:Asset">
     <jcr:content
         dam:assetState="processed"
         jcr:lastModified="{Date}2024-10-21T23:00:30.949+02:00"

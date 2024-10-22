@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
     jcr:mixinTypes="[mix:referenceable,rep:AccessControllable]"
-    jcr:primaryType="sling:Folder"
-    jcr:uuid="b41e6da8-243b-4ddc-b60e-4fa739219b2d"/>
+    jcr:primaryType="sling:Folder"/>
