@@ -33,7 +33,7 @@ public class GenreExplorerDatasourceController {
     }
 
     private DataSource getGenreDataSource() {
-        return resourceResolverRetrievalService.getContentDamResourceResolver()
+        return resourceResolverRetrievalService.getAdministrativeResourceResolver()
                 .map(resourceResolver -> Arrays.stream(Genre.values())
                         .map(genre -> createResource(resourceResolver, genre))
                         .iterator())

@@ -16,8 +16,6 @@ import java.util.Optional;
 public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRetrievalService {
 
     private static final String ADMIN_SERVICE_NAME = "user-admin-service";
-    
-    private static final String CONTENT_DAM_WRITER_SERVICE_NAME = "dam-writer-service";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
@@ -30,18 +28,6 @@ public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRet
             return Optional.of(resourceResolverFactory.getServiceResourceResolver(param));
         } catch (LoginException e) {
             log.error("Could not get administrative resource resolver", e);
-        }
-        return Optional.empty();
-    }
-
-    @Override
-    public Optional<ResourceResolver> getContentDamResourceResolver() {
-        Map<String, Object> param = Map.of(
-                ResourceResolverFactory.SUBSERVICE, CONTENT_DAM_WRITER_SERVICE_NAME);
-        try {
-            return Optional.of(resourceResolverFactory.getServiceResourceResolver(param));
-        } catch (LoginException e) {
-            log.error("Could not get DAM content resource resolver", e);
         }
         return Optional.empty();
     }

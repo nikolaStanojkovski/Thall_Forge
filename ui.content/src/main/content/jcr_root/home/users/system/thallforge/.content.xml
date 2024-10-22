@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
     xmlns:rep="internal"
-    jcr:primaryType="rep:AuthorizableFolder"/>
+    jcr:primaryType="rep:AuthorizableFolder"
+    jcr:createdBy="admin"
+    jcr:created="2024-07-10T12:29:56.523Z"/>
 
