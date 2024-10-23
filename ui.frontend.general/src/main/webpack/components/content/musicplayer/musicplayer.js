@@ -22,7 +22,6 @@
             const shuffleBtn = element.querySelector(".mdl-music-player__shuffle-button");
 
             let isPlaying = false;
-            let isShuffle = false;
             let isRepeat = false;
 
             playPauseBtn.addEventListener('click', function () {
@@ -62,14 +61,9 @@
                 audioPlayer.loop = isRepeat;
             });
 
-            // Shuffle functionality (mock for now, backend logic should handle actual shuffle)
+            // Shuffle functionality
             shuffleBtn.addEventListener('click', function () {
-                isShuffle = !isShuffle;
-                shuffleBtn.style.backgroundColor = isShuffle ? '#4caf50' : '#444';
-
-                if (isShuffle) {
-                    fetchRandomTrack(element, audioPlayer, seekBar, trackDuration);
-                }
+                fetchRandomTrack(element, audioPlayer, seekBar, trackDuration);
             });
         }
 
