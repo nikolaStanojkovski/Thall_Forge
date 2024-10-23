@@ -76,7 +76,7 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .trackTitle(trackResourceModel.getTitle())
                 .trackArtist(trackResourceModel.getArtist())
                 .trackDuration(getTrackDuration(audioTrackModel))
-                .trackAudioLink(getPathLink(audioTrackModel.getLink(), resourceResolver))
+                .trackAudioLink(getPathLink(audioTrackModel.getLink()))
                 .trackCoverLink(getTrackCoverLink(trackResourceModel, resourceResolver))
                 .browserSupportErrorMessage(resourceModel.getBrowserSupportErrorMessage())
                 .playLabel(resourceModel.getPlayLabel())
@@ -112,15 +112,13 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                         .build()
                         .getViewModel())
                 .filter(ImageViewModel::isHasContent)
-                .map(imageModel -> getPathLink(imageModel.getLink(), resourceResolver))
+                .map(imageModel -> getPathLink(imageModel.getLink()))
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getPathLink(String path, ResourceResolver resourceResolver) {
+    private String getPathLink(String path) {
         return Optional.ofNullable(path)
                 .filter(StringUtils::isNotBlank)
-                .map(resourceResolver::getResource)
-                .map(Resource::getPath)
                 .map(NavUtils::addHtmlExtension)
                 .orElse(StringUtils.EMPTY);
     }

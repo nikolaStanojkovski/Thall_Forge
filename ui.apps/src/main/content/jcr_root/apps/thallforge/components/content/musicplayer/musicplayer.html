@@ -1,7 +1,8 @@
 <sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.musicplayer.MusicPlayerController"></sly>
 <div data-sly-test.hasContent="${controller.model.hasContent}"
      data-sly-attribute.data-cmp-is="musicplayer"
-     data-sly-attribute.data-shuffle-endpoint="${controller.model.shuffleEndpointPath}"
+     data-sly-set.enableShuffle="${controller.model.enableShuffle}"
+     data-sly-attribute.data-shuffle-endpoint="${enableShuffle ? controller.model.shuffleEndpointPath : ''}"
      class="mdl-music-player">
     <div class="mdl-music-player__track-info">
         <img data-sly-test.trackCoverLink="${controller.model.trackCoverLink}"
@@ -32,7 +33,7 @@
     </div>
     <div class="mdl-music-player__additional-controls">
         <button class="mdl-music-player__repeat-button" type="button">${controller.model.repeatLabel}</button>
-        <button class="mdl-music-player__shuffle-button" type="button">${controller.model.shuffleLabel}</button>
+        <button data-sly-test="${enableShuffle}" class="mdl-music-player__shuffle-button" type="button">${controller.model.shuffleLabel}</button>
     </div>
 </div>
 <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
