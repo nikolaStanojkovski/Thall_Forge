@@ -99,11 +99,13 @@
             const titleElement = element.querySelector(".mdl-music-player__track-title");
             const artistElement = element.querySelector(".mdl-music-player__track-artist");
             const albumCoverElement = element.querySelector(".mdl-music-player__album-cover");
-            const audioTrackElement = element.querySelector(".mdl-music-player__audio");
+            const audioTrackElement = element.querySelector(".mdl-music-player__audio").querySelector('source');
 
             titleElement.textContent = trackData['title'];
             artistElement.textContent = trackData['artist'];
-            albumCoverElement.src = trackData['coverLink'];
+            if (albumCoverElement && trackData['coverLink']) {
+                albumCoverElement.src = trackData['coverLink'];
+            }
             audioTrackElement.src = trackData['trackLink'];
             audioPlayer.load();
 

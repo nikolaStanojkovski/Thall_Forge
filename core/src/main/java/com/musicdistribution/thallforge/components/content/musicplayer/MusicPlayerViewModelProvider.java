@@ -4,10 +4,9 @@ import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioDurationViewModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModelProvider;
-import com.musicdistribution.thallforge.components.shared.image.ImageViewModel;
-import com.musicdistribution.thallforge.components.shared.image.ImageViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.utils.ImageUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -106,12 +105,7 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                                      ResourceResolver resourceResolver) {
         return Optional.ofNullable(trackResourceModel.getTrackCoverFileReference())
                 .map(resourceResolver::getResource)
-                .map(r -> ImageViewModelProvider.builder()
-                        .imageResource(r)
-                        .build()
-                        .getViewModel())
-                .filter(ImageViewModel::isHasContent)
-                .map(ImageViewModel::getLink)
+                .map(Resource::getPath)
                 .orElse(StringUtils.EMPTY);
     }
 
