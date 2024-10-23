@@ -8,7 +8,6 @@ import com.musicdistribution.thallforge.components.shared.image.ImageViewModel;
 import com.musicdistribution.thallforge.components.shared.image.ImageViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
-import com.musicdistribution.thallforge.utils.NavUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -76,7 +75,7 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                 .trackTitle(trackResourceModel.getTitle())
                 .trackArtist(trackResourceModel.getArtist())
                 .trackDuration(getTrackDuration(audioTrackModel))
-                .trackAudioLink(getPathLink(audioTrackModel.getLink()))
+                .trackAudioLink(audioTrackModel.getLink())
                 .trackCoverLink(getTrackCoverLink(trackResourceModel, resourceResolver))
                 .browserSupportErrorMessage(resourceModel.getBrowserSupportErrorMessage())
                 .playLabel(resourceModel.getPlayLabel())
@@ -112,14 +111,7 @@ public class MusicPlayerViewModelProvider implements ViewModelProvider<MusicPlay
                         .build()
                         .getViewModel())
                 .filter(ImageViewModel::isHasContent)
-                .map(imageModel -> getPathLink(imageModel.getLink()))
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getPathLink(String path) {
-        return Optional.ofNullable(path)
-                .filter(StringUtils::isNotBlank)
-                .map(NavUtils::addHtmlExtension)
+                .map(ImageViewModel::getLink)
                 .orElse(StringUtils.EMPTY);
     }
 
