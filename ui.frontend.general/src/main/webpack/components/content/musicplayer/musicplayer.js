@@ -17,7 +17,7 @@
             const seekBar = element.querySelector(".mdl-music-player__seek-bar");
             const currentTime = element.querySelector(".mdl-music-player__current-time");
             const trackDuration = element.querySelector(".mdl-music-player__track-duration");
-            const volumeBar = element.querySelector(".mdl-music-player__volume-control");
+            const volumeBar = element.querySelector(".mdl-music-player__volume-bar");
             const repeatBtn = element.querySelector(".mdl-music-player__repeat-button");
             const shuffleBtn = element.querySelector(".mdl-music-player__shuffle-button");
 
@@ -83,6 +83,7 @@
                     },
                 })
                     .then(response => response.json())
+                    .then(data => JSON.parse(data))
                     .then(data => {
                         if (data) {
                             updateTrackDetails(element, audioPlayer, seekBar, trackDuration, data);

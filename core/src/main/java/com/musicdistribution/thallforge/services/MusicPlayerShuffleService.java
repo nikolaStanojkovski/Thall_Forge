@@ -1,10 +1,10 @@
 package com.musicdistribution.thallforge.services;
 
-import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
+import com.musicdistribution.thallforge.services.impl.models.ShuffleSongViewModel;
 
 import java.util.Optional;
 
 public interface MusicPlayerShuffleService {
 
-    Optional<AudioViewModel> shuffle(String albumPath);
+    Optional<ShuffleSongViewModel> shuffle(String albumPath);
 }

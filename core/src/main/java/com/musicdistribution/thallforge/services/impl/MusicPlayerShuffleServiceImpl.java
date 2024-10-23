@@ -1,8 +1,16 @@
 package com.musicdistribution.thallforge.services.impl;
 
+import com.day.cq.dam.api.Asset;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
+import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
+import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.services.impl.models.ShuffleSongViewModel;
+import com.musicdistribution.thallforge.utils.ImageUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -13,17 +21,56 @@ import java.util.Optional;
 public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService {
 
     @Reference
+    private ResourceResolverRetrievalService resourceResolverRetrievalService;
+
+    @Reference
     private AlbumTrackListService albumTracklistService;
 
     @Override
-    public Optional<AudioViewModel> shuffle(final String albumPath) {
+    public Optional<ShuffleSongViewModel> shuffle(final String albumPath) {
         List<AudioViewModel> tracks = albumTracklistService.getTracks(albumPath);
-        return getRandomSong(tracks);
+        return getRandomSong(albumPath, tracks);
     }
 
-    private Optional<AudioViewModel> getRandomSong(List<AudioViewModel> tracks) {
+    private Optional<ShuffleSongViewModel> getRandomSong(String albumPath, List<AudioViewModel> tracks) {
         int randomSongIndex = generateRandomIndex(tracks.size());
-        return Optional.ofNullable(tracks.get(randomSongIndex));
+        return resourceResolverRetrievalService.getContentDamResourceResolver()
+                .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
+                        .map(albumResource -> buildShuffleSongViewModel(albumResource,
+                                tracks.get(randomSongIndex), resourceResolver))
+                );
+    }
+
+    private ShuffleSongViewModel buildShuffleSongViewModel(Resource albumResource,
+                                                           AudioViewModel chosenSong,
+                                                           ResourceResolver resourceResolver) {
+        return Optional.ofNullable(albumResource.getChild("jcr:content"))
+                .map(albumContentResource -> ShuffleSongViewModel.builder()
+                        .title(chosenSong.getTitle())
+                        .artist(getAlbumArtist(albumResource))
+                        .coverLink(getAlbumThumbnail(albumContentResource, resourceResolver))
+                        .trackLink(chosenSong.getLink())
+                        .build())
+                .orElse(ShuffleSongViewModel.builder().build());
+    }
+
+    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
+        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
+        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
+                .filter(ImageUtils::isImageResource)
+                .map(Resource::getPath)
+                .orElse(StringUtils.EMPTY);
+    }
+
+    private String getAlbumArtist(Resource albumResource) {
+        return Optional.ofNullable(albumResource.adaptTo(Asset.class))
+                .map(albumAsset -> albumAsset.getMetadataValue("artist"))
+                .orElse(StringUtils.EMPTY);
+    }
+
+    private String getAlbumThumbnailPath(Resource albumContentResource) {
+        return String.format("%s/manualThumbnail.%s",
+                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private int generateRandomIndex(int albumLength) {

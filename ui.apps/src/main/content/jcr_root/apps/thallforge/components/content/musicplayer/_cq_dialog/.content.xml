@@ -4,7 +4,7 @@
           xmlns:cq="http://www.day.com/jcr/cq/1.0"
           jcr:primaryType="nt:unstructured"
           jcr:title="Music Player"
-          extraClientLibs="[acs-commons.widgets.showhidedialogfields]"
+          extraClientLibs="[thallforge.authoring.showhidedialogfields]"
           sling:resourceType="cq/gui/components/authoring/dialog">
     <content
             jcr:primaryType="nt:unstructured"
@@ -131,7 +131,7 @@
                                             sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
                                             <enableShuffle
-                                                    granite:class="cmp-form-option-item-active"
+                                                    granite:class="cq-dialog-showhide"
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
                                                     name="./enableShuffle"
@@ -140,27 +140,27 @@
                                                     value="{Boolean}true">
                                                 <granite:data jcr:primaryType="nt:unstructured"
                                                               acs-cq-dialog-dropdown-checkbox-showhide=""
-                                                              acs-cq-dialog-dropdown-checkbox-showhide-target=".shuffle-showhide-target" />
+                                                              acs-cq-dialog-dropdown-checkbox-showhide-target=".showhidetargetscheckbox" />
                                             </enableShuffle>
-                                            <shuffleContainer
+                                            <shuffleAlbumPath
                                                     jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                    granite:class="shuffle-showhide-target"
-                                                    granite:hidden="true">
-                                                <shuffleAlbumPath
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
-                                                        cq:showOnCreate="{Boolean}true"
-                                                        fieldLabel="Shuffle Album Path"
-                                                        rootPath="/content/dam"
-                                                        name="./shuffleAlbumPath"/>
-                                                <shuffleLabel
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                        fieldDescription="If not configured, the default label 'Shuffle' is taken"
-                                                        fieldLabel="Shuffle Label"
-                                                        name="./shuffleLabel"/>
-                                            </shuffleContainer>
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    fieldLabel="Shuffle Album Path"
+                                                    rootPath="/content/dam"
+                                                    name="./shuffleAlbumPath">
+                                                <granite:data jcr:primaryType="nt:unstructured"
+                                                              acs-checkboxshowhidetargetvalue="true"/>
+                                            </shuffleAlbumPath>
+                                            <shuffleLabel
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="If not configured, the default label 'Shuffle' is taken"
+                                                    fieldLabel="Shuffle Label"
+                                                    name="./shuffleLabel">
+                                                <granite:data jcr:primaryType="nt:unstructured"
+                                                              acs-checkboxshowhidetargetvalue="true"/>
+                                            </shuffleLabel>
                                         </items>
                                     </column>
                                 </items>
