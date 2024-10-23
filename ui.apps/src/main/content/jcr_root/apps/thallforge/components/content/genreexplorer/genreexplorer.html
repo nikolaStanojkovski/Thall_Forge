@@ -3,25 +3,27 @@
      class="mdl-genre-explorer" data-cmp-is="genreexplorer">
     <div class="mdl-genre-explorer__selected-genre">Selected Genre: <b>${controller.model.selectedGenre}</b></div>
     <div class="mdl-genre-explorer__album-container">
-        <div data-sly-list.album="${controller.model.albums}"
-             class="mdl-genre-explorer__album-container__album-card"
-             data-album-id="${album.id}">
-            <img alt="Album Cover" class="mdl-genre-explorer__album-container__album-card__album-cover" src="${album.thumbnail}"/>
-            <div class="mdl-genre-explorer__album-container__album-card__album-title">${album.title}</div>
-            <div class="mdl-genre-explorer__album-container__album-card__artist-name">${album.artist}</div>
-        </div>
+        <sly data-sly-list.album="${controller.model.albums}">
+            <div class="mdl-genre-explorer__album-container__album-card"
+                 data-sly-attribute.data-album-id="${album.id}">
+                <img alt="Album Cover" class="mdl-genre-explorer__album-container__album-card__album-cover" src="${album.thumbnail}"/>
+                <div class="mdl-genre-explorer__album-container__album-card__album-title">${album.title}</div>
+                <div class="mdl-genre-explorer__album-container__album-card__artist-name">${album.artist}</div>
+            </div>
+        </sly>
     </div>
-    <div data-sly-list.albumSongs="${controller.model.albumSongs}"
-         class="mdl-genre-explorer__song-list"
-         album-songs-container-id="${albumSongs.albumId}">
-        <div class="mdl-genre-explorer__song-list__song-item"
-             data-sly-list.song="${albumSongs.songs}">
-            <a class="mdl-genre-explorer__song-list__song-item__song-link"
-               data-sly-attribute.href="${song.link}">
-                ${song.title}
-            </a>
+    <sly data-sly-list.albumSongs="${controller.model.albumSongs}">
+        <div class="mdl-genre-explorer__song-list"
+             data-sly-attribute.album-songs-container-id="${albumSongs.albumId}">
+            <div class="mdl-genre-explorer__song-list__song-item"
+                 data-sly-list.song="${albumSongs.songs}">
+                <a class="mdl-genre-explorer__song-list__song-item__song-link"
+                   data-sly-attribute.href="${song.link}">
+                    ${song.title}
+                </a>
+            </div>
         </div>
-    </div>
+    </sly>
 </div>
 <sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
      data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

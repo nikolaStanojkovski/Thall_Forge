@@ -12,7 +12,7 @@
             element.removeAttribute("data-cmp-is");
 
             document.addEventListener('DOMContentLoaded', function () {
-                Array.from(element.querySelectorAll('.mdl-genre-explorer__album-card'))
+                Array.from(element.querySelectorAll('.mdl-genre-explorer__album-container__album-card'))
                     .forEach(albumCard => albumCard.addEventListener('click', () => toggleSongs(albumCard)));
             });
         }
