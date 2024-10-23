@@ -8,6 +8,7 @@ import org.apache.tika.metadata.Metadata;
 import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.audio.AudioParser;
+import org.apache.tika.parser.mp3.Mp3Parser;
 import org.apache.tika.sax.BodyContentHandler;
 import org.xml.sax.SAXException;
 
@@ -20,12 +21,12 @@ import java.util.Optional;
 @Slf4j
 public final class AudioUtils {
 
-    public static Integer getDuration(InputStream audioStream) {
+    public static Integer getDurationSeconds(InputStream audioStream) {
         try {
-            Parser parser = new AudioParser();
+            Parser parser = new Mp3Parser();
             Metadata metadata = new Metadata();
             parser.parse(audioStream, new BodyContentHandler(), metadata, new ParseContext());
-            return Optional.ofNullable(metadata.get("duration"))
+            return Optional.ofNullable(metadata.get("xmpDM:duration"))
                     .map(Integer::parseInt)
                     .orElse(0);
         } catch (IOException | SAXException | TikaException e) {

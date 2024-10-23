@@ -7,13 +7,15 @@ import com.musicdistribution.thallforge.utils.AudioUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 
-import javax.jcr.Binary;
+import javax.jcr.RepositoryException;
+import java.io.InputStream;
 import java.util.Optional;
 
+@Slf4j
 @Builder
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel> {
@@ -44,18 +46,29 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
                 .orElse(audioAsset.getName());
     }
 
-    @SneakyThrows
     private AudioDurationViewModel getDuration(Asset audioAsset) {
-        return Optional.ofNullable(audioAsset.getOriginal())
-                .map(Rendition::getBinary)
-                .map(Binary::getStream)
-                .map(AudioUtils::getDuration)
+        return getBinaryInputStream(audioAsset)
+                .map(AudioUtils::getDurationSeconds)
                 .filter(duration -> duration > 0)
                 .map(duration -> AudioDurationViewModel.builder()
                         .minutes(duration / 60)
                         .seconds(duration % 60)
                         .build())
                 .orElse(AudioDurationViewModel.builder().build());
+    }
+
+    private Optional<InputStream> getBinaryInputStream(Asset audioAsset) {
+        return Optional.ofNullable(audioAsset.getOriginal())
+                .map(Rendition::getBinary)
+                .map(binary -> {
+                    try {
+                        return binary.getStream();
+                    } catch (RepositoryException e) {
+                        log.error("Could not read the binary stream from the asset {} with path {}",
+                                audioAsset.getName(), audioAsset.getPath(), e);
+                    }
+                    return null;
+                });
     }
 
     private AudioViewModel createViewModelWithoutContent() {
