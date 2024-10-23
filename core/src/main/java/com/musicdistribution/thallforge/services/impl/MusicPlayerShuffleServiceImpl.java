@@ -1,6 +1,5 @@
 package com.musicdistribution.thallforge.services.impl;
 
-import com.day.cq.dam.api.Asset;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
@@ -36,6 +35,7 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
         int randomSongIndex = generateRandomIndex(tracks.size());
         return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
+                        .map(r -> r.getChild("jcr:content"))
                         .map(albumResource -> buildShuffleSongViewModel(albumResource,
                                 tracks.get(randomSongIndex), resourceResolver))
                 );
@@ -44,14 +44,12 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
     private ShuffleSongViewModel buildShuffleSongViewModel(Resource albumResource,
                                                            AudioViewModel chosenSong,
                                                            ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumResource.getChild("jcr:content"))
-                .map(albumContentResource -> ShuffleSongViewModel.builder()
-                        .title(chosenSong.getTitle())
-                        .artist(getAlbumArtist(albumResource))
-                        .coverLink(getAlbumThumbnail(albumContentResource, resourceResolver))
-                        .trackLink(chosenSong.getLink())
-                        .build())
-                .orElse(ShuffleSongViewModel.builder().build());
+        return ShuffleSongViewModel.builder()
+                .title(chosenSong.getTitle())
+                .artist(getAlbumArtist(albumResource))
+                .coverLink(getAlbumThumbnail(albumResource, resourceResolver))
+                .trackLink(chosenSong.getLink())
+                .build();
     }
 
     private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
@@ -62,9 +60,10 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumArtist(Resource albumResource) {
-        return Optional.ofNullable(albumResource.adaptTo(Asset.class))
-                .map(albumAsset -> albumAsset.getMetadataValue("artist"))
+    private String getAlbumArtist(Resource albumContentResource) {
+        return Optional.ofNullable(albumContentResource.getChild("metadata"))
+                .map(Resource::getValueMap)
+                .map(s -> s.get("artist", StringUtils.EMPTY))
                 .orElse(StringUtils.EMPTY);
     }
 

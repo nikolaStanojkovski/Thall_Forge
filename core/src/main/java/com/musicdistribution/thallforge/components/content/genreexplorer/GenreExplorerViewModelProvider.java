@@ -107,7 +107,7 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .id(ResourceUtils.generateId(resource))
                 .link(resource.getPath())
                 .title(getAlbumTitle(resultContentResource))
-                .artist(getAlbumArtist(resource))
+                .artist(getAlbumArtist(resultContentResource))
                 .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
                 .build();
     }
@@ -117,9 +117,10 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         return !albums.isEmpty() && !albumSongs.isEmpty();
     }
 
-    private String getAlbumArtist(Resource albumResource) {
-        return Optional.ofNullable(albumResource.adaptTo(Asset.class))
-                .map(albumAsset -> albumAsset.getMetadataValue("artist"))
+    private String getAlbumArtist(Resource albumContentResource) {
+        return Optional.ofNullable(albumContentResource.getChild("metadata"))
+                .map(Resource::getValueMap)
+                .map(s -> s.get("artist", StringUtils.EMPTY))
                 .orElse(StringUtils.EMPTY);
     }
 
