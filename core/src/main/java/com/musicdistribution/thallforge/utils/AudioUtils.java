@@ -27,7 +27,8 @@ public final class AudioUtils {
             Metadata metadata = new Metadata();
             parser.parse(audioStream, new BodyContentHandler(), metadata, new ParseContext());
             return Optional.ofNullable(metadata.get("xmpDM:duration"))
-                    .map(Integer::parseInt)
+                    .map(Double::parseDouble)
+                    .map(Double::intValue)
                     .orElse(0);
         } catch (IOException | SAXException | TikaException e) {
             log.error("Could not read duration from audio stream", e);
