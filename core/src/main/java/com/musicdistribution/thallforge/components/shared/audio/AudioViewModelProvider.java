@@ -7,9 +7,11 @@ import com.musicdistribution.thallforge.utils.AudioUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 
+import javax.jcr.Binary;
 import java.util.Optional;
 
 @Builder
@@ -42,9 +44,11 @@ public class AudioViewModelProvider implements ViewModelProvider<AudioViewModel>
                 .orElse(audioAsset.getName());
     }
 
+    @SneakyThrows
     private AudioDurationViewModel getDuration(Asset audioAsset) {
         return Optional.ofNullable(audioAsset.getOriginal())
-                .map(Rendition::getStream)
+                .map(Rendition::getBinary)
+                .map(Binary::getStream)
                 .map(AudioUtils::getDuration)
                 .filter(duration -> duration > 0)
                 .map(duration -> AudioDurationViewModel.builder()
