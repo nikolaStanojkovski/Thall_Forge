@@ -53,11 +53,15 @@
   }
 
   &__song-list {
-    display: none;
+    display: block;
     margin-top: 20px;
     background-color: #1a1a1a;
     padding: 15px;
     border-radius: 8px;
+
+    &.hidden {
+      display: none;
+    }
 
     &__song-item {
       padding: 5px 2px;

@@ -2,7 +2,9 @@
     "use strict";
 
     let selectors = {
-        self: '[data-cmp-is="genreexplorer"]'
+        self: '[data-cmp-is="genreexplorer"]',
+        albumIdAttr: 'data-album-id',
+        albumSongsContainerIdAttr: 'album-songs-container-id'
     };
 
     function GenreExplorer(config) {
@@ -12,24 +14,29 @@
             element.removeAttribute("data-cmp-is");
 
             Array.from(element.querySelectorAll('.mdl-genre-explorer__album-container__album-card'))
-                .forEach(albumCard => albumCard.addEventListener('click', () => toggleSongs(albumCard)));
+                .forEach(albumCard => albumCard.addEventListener('click', () => toggleSongs(element, albumCard)));
         }
 
-        function toggleSongs(albumCard) {
+        function toggleSongs(element, albumCard) {
             if (!albumCard.hasAttribute('data-album-id')) {
                 return;
             }
-            const albumId = albumCard.getAttribute('data-album-id');
-            Array.from(albumCard.querySelectorAll('.mdl-genre-explorer__song-list'))
+            const albumId = albumCard.attributes[selectors.albumIdAttr]['value'];
+            if (!albumId) {
+                return;
+            }
+            Array.from(element.querySelectorAll('.mdl-genre-explorer__song-list'))
                 .forEach(songListContainer => {
-                    let songListId = songListContainer['album-songs-container-id'];
+                    let songListId = songListContainer.attributes[selectors.albumSongsContainerIdAttr]['value'];
                     if (songListId) {
                         if (songListId !== albumId) {
                             // Hide other albums' songs
-                            songListContainer.style.display = 'none';
+                            if (!songListContainer.classList.contains('hidden')) {
+                                songListContainer.classList.add('hidden');
+                            }
                         } else {
                             // Toggle visibility of the selected album's songs
-                            songListContainer.style.display = songListContainer.style.display === 'block' ? 'none' : 'block';
+                            songListContainer.classList.toggle('hidden');
                         }
                     }
                 });

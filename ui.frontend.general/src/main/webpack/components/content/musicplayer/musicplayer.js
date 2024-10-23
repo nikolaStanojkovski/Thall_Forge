@@ -77,7 +77,7 @@
 
         function fetchRandomTrack(element, audioPlayer, seekBar, trackDuration) {
             if (element.hasAttribute(selectors.shuffleEndpointAttr)) {
-                const shuffleEndpoint = element.getAttribute(selectors.shuffleEndpointAttr);
+                const shuffleEndpoint = element.attributes[selectors.shuffleEndpointAttr]['value'];
                 fetch(shuffleEndpoint, {
                     method: 'GET',
                     headers: {

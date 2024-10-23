@@ -13,15 +13,16 @@
         </sly>
     </div>
     <sly data-sly-list.albumSongs="${controller.model.albumSongs}">
-        <div class="mdl-genre-explorer__song-list"
+        <div class="mdl-genre-explorer__song-list hidden"
              data-sly-attribute.album-songs-container-id="${albumSongs.albumId}">
-            <div class="mdl-genre-explorer__song-list__song-item"
-                 data-sly-list.song="${albumSongs.songs}">
-                <a class="mdl-genre-explorer__song-list__song-item__song-link"
-                   data-sly-attribute.href="${song.link}">
-                    ${song.title}
-                </a>
-            </div>
+            <sly data-sly-list.song="${albumSongs.songs}">
+                <div class="mdl-genre-explorer__song-list__song-item">
+                    <a class="mdl-genre-explorer__song-list__song-item__song-link"
+                       data-sly-attribute.href="${song.link}">
+                        ${song.title}
+                    </a>
+                </div>
+            </sly>
         </div>
     </sly>
 </div>
