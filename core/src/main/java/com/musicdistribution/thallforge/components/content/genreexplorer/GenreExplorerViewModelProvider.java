@@ -1,7 +1,7 @@
 package com.musicdistribution.thallforge.components.content.genreexplorer;
 
 import com.day.cq.dam.api.Asset;
-import com.day.cq.dam.commons.util.DamUtil;
+import com.drew.lang.annotations.Nullable;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
@@ -90,7 +90,9 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
             while (nodeIterator.hasNext()) {
                 Node node = nodeIterator.nextNode();
                 Resource resultResource = resourceResolver.getResource(node.getPath());
-                resultList.add(getAlbumViewModel(resultResource, resourceResolver));
+                if (resultResource != null) {
+                    resultList.add(getAlbumViewModel(resultResource, resourceResolver));
+                }
             }
             return resultList;
         } catch (RepositoryException e) {
@@ -100,12 +102,13 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
     }
 
     private GenreExplorerAlbumViewModel getAlbumViewModel(Resource resource, ResourceResolver resourceResolver) {
+        Resource resultContentResource = resource.getChild("jcr:content");
         return GenreExplorerAlbumViewModel.builder()
                 .id(ResourceUtils.generateId(resource))
                 .link(resource.getPath())
-                .title(resource.getName())
+                .title(getAlbumTitle(resultContentResource))
                 .artist(getAlbumArtist(resource))
-                .thumbnail(getAlbumThumbnail(resource, resourceResolver))
+                .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
                 .build();
     }
 
@@ -120,8 +123,18 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumThumbnail(Resource albumResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumResource.getChild("jcr:content"))
+    private String getAlbumTitle(@Nullable Resource albumContentResource) {
+        if (albumContentResource == null) {
+            return StringUtils.EMPTY;
+        }
+        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
+                .map(properties -> properties.get("jcr:title", String.class))
+                .orElse(albumContentResource.getName());
+        return StringUtils.defaultString(title);
+    }
+
+    private String getAlbumThumbnail(@Nullable Resource albumContentResource, ResourceResolver resourceResolver) {
+        return Optional.ofNullable(albumContentResource)
                 .map(this::getAlbumThumbnailPath)
                 .map(resourceResolver::getResource)
                 .filter(ImageUtils::isImageResource)
