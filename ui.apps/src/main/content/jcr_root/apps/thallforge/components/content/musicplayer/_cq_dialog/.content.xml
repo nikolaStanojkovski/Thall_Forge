@@ -36,9 +36,8 @@
                                                     sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
                                                     class="cq-droptarget"
                                                     fieldLabel="Track Audio"
-                                                    enableNextGenDynamicMedia="{Boolean}true"
-                                                    fileNameParameter="./trackInfo/audioTrack/fileName"
-                                                    fileReferenceParameter="./trackInfo/audioTrack/fileReference"
+                                                    fileNameParameter="./trackInfo/audioTrackFileName"
+                                                    fileReferenceParameter="./trackInfo/audioTrackFileReference"
                                                     required="{Boolean}true"
                                                     mimeTypes="[audio/mpeg,audio/wav,audio/aac,audio/ogg]"
                                                     name="./trackInfo/audioTrack"/>
@@ -61,9 +60,8 @@
                                                     required="{Boolean}true"
                                                     fieldLabel="Track Cover"
                                                     class="cq-droptarget"
-                                                    enableNextGenDynamicMedia="{Boolean}true"
-                                                    fileNameParameter="./trackInfo/trackCover/fileName"
-                                                    fileReferenceParameter="./trackInfo/trackCover/fileReference"
+                                                    fileNameParameter="./trackInfo/trackCoverFileName"
+                                                    fileReferenceParameter="./trackInfo/trackCoverFileReference"
                                                     mimeTypes="[image/gif,image/jpeg,image/png,image/tiff,image/svg+xml]"
                                                     name="./trackInfo/trackCover"/>
                                         </items>

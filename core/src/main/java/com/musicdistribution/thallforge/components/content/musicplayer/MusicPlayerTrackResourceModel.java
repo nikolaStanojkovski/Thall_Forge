@@ -15,9 +15,9 @@ public interface MusicPlayerTrackResourceModel {
     @ValueMapValue
     String getArtist();
 
-    @ChildResource
-    Resource getAudioTrack();
+    @ValueMapValue
+    String getAudioTrackFileReference();
 
-    @ChildResource
-    Resource getTrackCover();
+    @ValueMapValue
+    String getTrackCoverFileReference();
 }
