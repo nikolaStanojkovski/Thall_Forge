@@ -146,6 +146,7 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/pathbrowser"
                                                     cq:showOnCreate="{Boolean}true"
+                                                    granite:class="showhidetargetscheckbox"
                                                     fieldLabel="Shuffle Album Path"
                                                     rootPath="/content/dam"
                                                     name="./shuffleAlbumPath">
@@ -155,6 +156,7 @@
                                             <shuffleLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    granite:class="showhidetargetscheckbox"
                                                     fieldDescription="If not configured, the default label 'Shuffle' is taken"
                                                     fieldLabel="Shuffle Label"
                                                     name="./shuffleLabel">
