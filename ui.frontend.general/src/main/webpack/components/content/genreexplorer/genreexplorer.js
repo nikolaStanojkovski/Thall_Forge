@@ -15,13 +15,12 @@
                 .forEach(albumCard => albumCard.addEventListener('click', () => toggleSongs(albumCard)));
         }
 
-        function toggleSongs(element, albumCard) {
-            const albumId = albumCard['data-album-id'];
-            if (!albumId) {
+        function toggleSongs(albumCard) {
+            if (!albumCard.hasAttribute('data-album-id')) {
                 return;
             }
-
-            Array.from(element.querySelectorAll('.mdl-genre-explorer__song-list'))
+            const albumId = albumCard.getAttribute('data-album-id');
+            Array.from(albumCard.querySelectorAll('.mdl-genre-explorer__song-list'))
                 .forEach(songListContainer => {
                     let songListId = songListContainer['album-songs-container-id'];
                     if (songListId) {
