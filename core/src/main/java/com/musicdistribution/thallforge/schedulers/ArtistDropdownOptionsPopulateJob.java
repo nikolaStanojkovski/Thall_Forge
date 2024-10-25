@@ -8,10 +8,16 @@ import com.musicdistribution.thallforge.services.ArtistPersistService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.jackrabbit.value.BinaryImpl;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
+import javax.jcr.Binary;
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
@@ -62,20 +68,34 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
 
     private void createArtistDropdownOptionsData(Resource parentResource,
                                                  ResourceResolver resourceResolver) throws PersistenceException {
-        byte[] artistsByteStream = getArtists().getBytes(StandardCharsets.UTF_8);
-
         Map<String, Object> fileProperties = new HashMap<>();
         fileProperties.put("jcr:primaryType", "nt:file");
 
         Map<String, Object> contentProperties = new HashMap<>();
         contentProperties.put("jcr:primaryType", "nt:resource");
-        contentProperties.put("jcr:data", artistsByteStream);
+        contentProperties.put("jcr:data", createBinaryData(resourceResolver));
         contentProperties.put("jcr:mimeType", "application/json");
         contentProperties.put("jcr:lastModified", System.currentTimeMillis());
 
         Resource fileResource = resourceResolver.create(parentResource, "artistDropdownOptions.json", fileProperties);
         resourceResolver.create(fileResource, "jcr:content", contentProperties);
         resourceResolver.commit();
+    }
+
+    private Binary createBinaryData(ResourceResolver resourceResolver) {
+        Session session = resourceResolver.adaptTo(Session.class);
+        byte[] artistsJsonContent = getArtists().getBytes(StandardCharsets.UTF_8);
+        if (session != null) {
+            InputStream inputStream = new ByteArrayInputStream(artistsJsonContent);
+            try {
+                return session.getValueFactory().createBinary(inputStream);
+            } catch (RepositoryException e) {
+                log.error("Could not create binary data for content {}", artistsJsonContent, e);
+            }
+        } else {
+            log.error("Could not read the session from administrative resource resolver");
+        }
+        return new BinaryImpl(new byte[] {});
     }
 
     private String getArtists() {
