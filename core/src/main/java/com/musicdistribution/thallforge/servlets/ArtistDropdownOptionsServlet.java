@@ -36,7 +36,7 @@ public class ArtistDropdownOptionsServlet extends SlingSafeMethodsServlet {
         try {
             response.getOutputStream().print(getArtists());
         } catch (IOException e) {
-            log.error("Could not read the music-player album path", e);
+            log.error("Could not artists for the dropdown-options", e);
         }
     }
 
