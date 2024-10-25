@@ -8,16 +8,14 @@ import com.musicdistribution.thallforge.services.ArtistPersistService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.PersistenceException;
+import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
-import javax.jcr.RepositoryException;
-import javax.jcr.Session;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -36,23 +34,39 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
 
     private void updateArtistDropdownOptionsData(ResourceResolver resourceResolver) {
         Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.ARTIST_DROPDOWN_OPTIONS))
-                .map(r -> r.getChild("jcr:content"))
-                .map(fileResource -> fileResource.adaptTo(ModifiableValueMap.class))
-                .ifPresent(modifiableValueMap -> {
+                .ifPresent(resource -> {
                     try {
-                        byte[] artistsListBytes = getArtists().getBytes(StandardCharsets.UTF_8);
-                        InputStream artistsInputStream = new ByteArrayInputStream(artistsListBytes);
-                        Session session = resourceResolver.adaptTo(Session.class);
-                        if (session != null) {
-                            modifiableValueMap.put("jcr:data", session.getValueFactory().createBinary(artistsInputStream));
-                            resourceResolver.commit();
-                        } else {
-                            log.error("Could not read the administrative resource resolver");
-                        }
-                    } catch (PersistenceException | RepositoryException e) {
+                        Resource parentResource = resource.getParent();
+                        removeCurrentResource(resourceResolver, resource);
+                        createArtistDropdownOptionsData(parentResource, resourceResolver);
+                    } catch (PersistenceException e) {
                         log.error("Could not update artist dropdown options data", e);
                     }
                 });
+    }
+
+    private void removeCurrentResource(ResourceResolver resourceResolver,
+                                       Resource resource) throws PersistenceException {
+        resourceResolver.delete(resource);
+        resourceResolver.commit();
+    }
+
+    private void createArtistDropdownOptionsData(Resource parentResource,
+                                                 ResourceResolver resourceResolver) throws PersistenceException {
+        byte[] artistsByteStream = getArtists().getBytes(StandardCharsets.UTF_8);
+
+        Map<String, Object> fileProperties = new HashMap<>();
+        fileProperties.put("jcr:primaryType", "nt:file");
+
+        Map<String, Object> contentProperties = new HashMap<>();
+        contentProperties.put("jcr:primaryType", "nt:resource");
+        contentProperties.put("jcr:data", artistsByteStream);
+        contentProperties.put("jcr:mimeType", "application/json");
+        contentProperties.put("jcr:lastModified", System.currentTimeMillis());
+
+        Resource fileResource = resourceResolver.create(parentResource, "artistDropdownOptions.json", fileProperties);
+        resourceResolver.create(fileResource, "jcr:content", contentProperties);
+        resourceResolver.commit();
     }
 
     private String getArtists() {
