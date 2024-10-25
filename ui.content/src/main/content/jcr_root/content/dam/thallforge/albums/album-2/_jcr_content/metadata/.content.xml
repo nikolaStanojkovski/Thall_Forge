@@ -3,4 +3,4 @@
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:primaryType="nt:unstructured"
           genre="pop"
-          artist="In Flames"/>
+          artist="/content/dam/thallforge/artists/mark-tremonti"/>

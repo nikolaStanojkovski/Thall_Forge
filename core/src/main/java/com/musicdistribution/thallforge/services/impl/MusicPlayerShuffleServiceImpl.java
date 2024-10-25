@@ -1,5 +1,6 @@
 package com.musicdistribution.thallforge.services.impl;
 
+import com.musicdistribution.thallforge.components.contentfragments.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
@@ -46,7 +47,7 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
                                                            ResourceResolver resourceResolver) {
         return ShuffleSongViewModel.builder()
                 .title(chosenSong.getTitle())
-                .artist(getAlbumArtist(albumResource))
+                .artist(getAlbumArtist(albumResource, resourceResolver))
                 .coverLink(getAlbumThumbnail(albumResource, resourceResolver))
                 .trackLink(chosenSong.getLink())
                 .build();
@@ -60,10 +61,15 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
                 .orElse(StringUtils.EMPTY);
     }
 
-    private String getAlbumArtist(Resource albumContentResource) {
+    private String getAlbumArtist(Resource albumContentResource,
+                                  ResourceResolver resourceResolver) {
         return Optional.ofNullable(albumContentResource.getChild("metadata"))
                 .map(Resource::getValueMap)
-                .map(s -> s.get("artist", StringUtils.EMPTY))
+                .map(valueMap -> valueMap.get("artist", StringUtils.EMPTY))
+                .map(resourceResolver::getResource)
+                .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
+                .map(masterContentFragmentResource -> masterContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
+                .map(ArtistContentFragmentResourceModel::getName)
                 .orElse(StringUtils.EMPTY);
     }
 

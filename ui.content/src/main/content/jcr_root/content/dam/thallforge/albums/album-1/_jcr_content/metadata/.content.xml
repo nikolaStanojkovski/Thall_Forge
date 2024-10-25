@@ -3,4 +3,4 @@
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
           jcr:primaryType="nt:unstructured"
           genre="metal"
-          artist="Mnemic"/>
+          artist="/content/dam/thallforge/artists/buster-odeholm"/>

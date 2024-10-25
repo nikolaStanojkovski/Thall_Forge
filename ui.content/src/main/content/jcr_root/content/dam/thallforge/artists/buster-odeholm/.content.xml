@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="a70f9eab-571d-4b43-9b9d-bf1a87f3090e">
+    <jcr:content
+        cq:name="buster-odeholm"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-25T15:08:30.411+02:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Buster Odeholm"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-25T15:08:30.411+02:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Buster Odeholm is a&amp;nbsp;&lt;b>Swedish metal producer and multi-instrumentalist&lt;/b>. Buster is the drummer for Vildhjarta and the guitarist, writer and producer for Humanity's Last Breath.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-25T15:08:30.084+02:00"
+                image="/content/dam/thallforge/images/autor.png"
+                image_x0040_LastModified="{Date}2024-10-25T15:08:30.082+02:00"
+                name="Buster Odeholm"
+                name_x0040_LastModified="{Date}2024-10-25T15:08:30.080+02:00"
+                rating="{Long}5"
+                rating_x0040_LastModified="{Date}2024-10-25T15:08:30.085+02:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="68196f75-7b5d-4775-ab71-1ab2c554c14a"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}5"
+                string_x0040_biography="&lt;p>Buster Odeholm is a&amp;nbsp;&lt;b>Swedish metal producer and multi-instrumentalist&lt;/b>. Buster is the drummer for Vildhjarta and the guitarist, writer and producer for Humanity's Last Breath.&lt;/p>&#xa;"
+                string_x0040_name="Buster Odeholm"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

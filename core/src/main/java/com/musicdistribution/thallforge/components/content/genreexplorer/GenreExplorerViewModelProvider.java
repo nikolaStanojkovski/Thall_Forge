@@ -1,8 +1,8 @@
 package com.musicdistribution.thallforge.components.content.genreexplorer;
 
-import com.day.cq.dam.api.Asset;
 import com.drew.lang.annotations.Nullable;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
+import com.musicdistribution.thallforge.components.contentfragments.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;
@@ -107,7 +107,7 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .id(ResourceUtils.generateId(resource))
                 .link(resource.getPath())
                 .title(getAlbumTitle(resultContentResource))
-                .artist(getAlbumArtist(resultContentResource))
+                .artist(getAlbumArtist(resultContentResource, resourceResolver))
                 .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
                 .build();
     }
@@ -117,10 +117,16 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         return !albums.isEmpty() && !albumSongs.isEmpty();
     }
 
-    private String getAlbumArtist(Resource albumContentResource) {
-        return Optional.ofNullable(albumContentResource.getChild("metadata"))
+    private String getAlbumArtist(@Nullable Resource albumContentResource,
+                                  ResourceResolver resourceResolver) {
+        return Optional.ofNullable(albumContentResource)
+                .map(a -> a.getChild("metadata"))
                 .map(Resource::getValueMap)
                 .map(s -> s.get("artist", StringUtils.EMPTY))
+                .map(resourceResolver::getResource)
+                .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
+                .map(masterContentFragmentResource -> masterContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
+                .map(ArtistContentFragmentResourceModel::getName)
                 .orElse(StringUtils.EMPTY);
     }
 

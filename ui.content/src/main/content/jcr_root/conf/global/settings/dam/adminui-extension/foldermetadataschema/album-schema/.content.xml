@@ -43,19 +43,20 @@
                                         requiredCascading="default"
                                         visibilityCascading="default"/>
                                 </_x0031_729630819833>
-                                <_x0031_783632916734
+                                <_x0031_857630968029
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="dam/gui/components/admin/schemafield"
                                         fieldLabel="Artist"
                                         name="./jcr:content/metadata/artist"
-                                        resourceType="granite/ui/components/coral/foundation/form/textfield">
+                                        resourceType="granite/ui/components/coral/foundation/form/pathfield">
                                     <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             cq-msm-lockable="./metadata/artist"
-                                            metaType="text"
+                                            metaType="path"
                                             requiredCascading="default"
+                                            path="/content/dam/thallforge/artists"
                                             visibilityCascading="default"/>
-                                </_x0031_783632916734>
+                                </_x0031_857630968029>
                                 <_x0031_729631183704
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"
