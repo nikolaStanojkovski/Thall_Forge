@@ -5,10 +5,12 @@ import com.musicdistribution.thallforge.components.contentfragments.artist.Artis
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ArtistPersistService;
+import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
 import java.util.Collections;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Component(service = ArtistPersistService.class)
 public class ArtistPersistServiceImpl implements ArtistPersistService {
 
     @Reference

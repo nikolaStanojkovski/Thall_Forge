@@ -10,6 +10,7 @@ import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingSafeMethodsServlet;
+import org.apache.sling.servlets.annotations.SlingServletPaths;
 import org.apache.sling.servlets.annotations.SlingServletPathsStrict;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
@@ -21,10 +22,7 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Component(service = {Servlet.class})
-@SlingServletPathsStrict(
-        paths = ThallforgeConstants.Endpoints.ARTIST_DROPDOWN_OPTIONS_ENDPOINT_PATH,
-        methods = HttpConstants.METHOD_GET,
-        extensions = ThallforgeConstants.Extensions.JSON)
+@SlingServletPaths(ThallforgeConstants.Endpoints.ARTIST_DROPDOWN_OPTIONS_ENDPOINT_PATH)
 public class ArtistDropdownOptionsServlet extends SlingSafeMethodsServlet {
 
     @Reference
