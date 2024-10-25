@@ -1,5 +1,7 @@
 package com.musicdistribution.thallforge.utils;
 
+import com.day.cq.dam.api.Asset;
+import com.day.cq.dam.commons.util.DamUtil;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -15,6 +17,15 @@ public final class ImageUtils {
                 .map(Resource::getValueMap)
                 .map(valueMap -> valueMap.getOrDefault("jcr:mimeType", StringUtils.EMPTY))
                 .map(ThallforgeConstants.MimeTypes.ALL_IMAGE_MIME_TYPES::contains)
+                .orElse(false);
+    }
+
+    public static boolean isImageAsset(Resource imageResource) {
+        if (!DamUtil.isAsset(imageResource)) {
+            return false;
+        }
+        return Optional.ofNullable(imageResource.adaptTo(Asset.class))
+                .map(DamUtil::isImage)
                 .orElse(false);
     }
 }

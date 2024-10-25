@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.components.contentfragments;
+package com.musicdistribution.thallforge.components.contentfragments.artist;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;

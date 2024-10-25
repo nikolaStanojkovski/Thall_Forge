@@ -1,6 +1,6 @@
 package com.musicdistribution.thallforge.services.impl;
 
-import com.musicdistribution.thallforge.components.contentfragments.ArtistContentFragmentResourceModel;
+import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;

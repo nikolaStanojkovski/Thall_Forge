@@ -2,7 +2,7 @@ package com.musicdistribution.thallforge.components.content.genreexplorer;
 
 import com.drew.lang.annotations.Nullable;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import com.musicdistribution.thallforge.components.contentfragments.ArtistContentFragmentResourceModel;
+import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumTrackListService;

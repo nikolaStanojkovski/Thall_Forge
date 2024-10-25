@@ -8,6 +8,7 @@ public final class ThallforgeConstants {
     public static final class Endpoints {
 
         public static final String MUSIC_PLAYER_SHUFFLE_SELECTOR = "shuffle";
+        public static final String ARTIST_DROPDOWN_OPTIONS_ENDPOINT_PATH = "/bin/thallforge/artists/options";
     }
 
     public static final class Extensions {
@@ -33,5 +34,10 @@ public final class ThallforgeConstants {
     public static final class ResourceTypes {
 
         public static final String MUSIC_PLAYER = "thallforge/components/content/musicplayer";
+    }
+
+    public static final class Paths {
+        public static final String CONTENT = "/content";
+        public static final String CONTENT_DAM = CONTENT + "/dam";
     }
 }
