@@ -39,6 +39,8 @@ public final class ThallforgeConstants {
 
     public static final class Paths {
         public static final String CONTENT = "/content";
+        public static final String ETC = "/etc";
         public static final String CONTENT_DAM = CONTENT + "/dam";
+        public static final String ARTIST_DROPDOWN_OPTIONS = ETC + "/thallforge/artistDropdownOptions.json";
     }
 }

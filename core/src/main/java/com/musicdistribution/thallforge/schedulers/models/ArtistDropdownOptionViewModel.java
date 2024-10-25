@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.servlets.models;
+package com.musicdistribution.thallforge.schedulers.models;
 
 import lombok.Builder;
 import lombok.Data;

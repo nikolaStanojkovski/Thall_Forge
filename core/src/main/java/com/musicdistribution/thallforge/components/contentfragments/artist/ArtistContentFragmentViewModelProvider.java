@@ -30,8 +30,8 @@ public class ArtistContentFragmentViewModelProvider implements ViewModelProvider
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private ArtistContentFragmentViewModel createViewModelWithContent(Resource artistContentFragmentResource) {
-        return Optional.ofNullable(artistContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
+    private ArtistContentFragmentViewModel createViewModelWithContent(Resource contentFragmentMasterResource) {
+        return Optional.ofNullable(contentFragmentMasterResource.adaptTo(ArtistContentFragmentResourceModel.class))
                 .map(resourceModel -> ArtistContentFragmentViewModel.builder()
                         .path(artistContentFragmentResource.getPath())
                         .biography(StringUtils.defaultString(resourceModel.getBiography()))
