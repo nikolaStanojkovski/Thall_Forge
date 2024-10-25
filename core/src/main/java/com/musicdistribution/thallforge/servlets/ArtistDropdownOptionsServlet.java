@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ArtistPersistService;
 import com.musicdistribution.thallforge.servlets.models.ArtistDropdownOptionViewModel;
+import com.musicdistribution.thallforge.servlets.models.ArtistDropdownOptionsViewModel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.SlingHttpServletResponse;
@@ -39,10 +40,12 @@ public class ArtistDropdownOptionsServlet extends SlingSafeMethodsServlet {
     private String getArtists() {
         List<ArtistDropdownOptionViewModel> artists = artistPersistService.getAvailableArtists().stream()
                 .map(artist -> ArtistDropdownOptionViewModel.builder()
-                        .value(artist.getPath())
                         .text(artist.getName())
+                        .value(artist.getPath())
                         .build())
                 .collect(Collectors.toList());
-        return new Gson().toJson(artists);
+        return new Gson().toJson(ArtistDropdownOptionsViewModel.builder()
+                .options(artists)
+                .build());
     }
 }
