@@ -32,11 +32,11 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
 
     private void updateArtistDropdownOptionsData(ResourceResolver resourceResolver) {
         Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.ARTIST_DROPDOWN_OPTIONS))
+                .map(r -> r.getChild("jcr:content"))
                 .map(fileResource -> fileResource.adaptTo(ModifiableValueMap.class))
                 .ifPresent(modifiableValueMap -> {
                     try {
                         modifiableValueMap.put("jcr:data", getArtists().getBytes(StandardCharsets.UTF_8));
-                        modifiableValueMap.put("jcr:mimeType", "application/json");
                         resourceResolver.commit();
                     } catch (PersistenceException e) {
                         log.error("Could not update artist dropdown options data", e);
