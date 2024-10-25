@@ -1,6 +1,7 @@
 package com.musicdistribution.thallforge.components.contentfragments.artist;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
+import com.musicdistribution.thallforge.utils.ContentFragmentUtils;
 import com.musicdistribution.thallforge.utils.ImageUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -23,6 +24,7 @@ public class ArtistContentFragmentViewModelProvider implements ViewModelProvider
     @Override
     public ArtistContentFragmentViewModel getViewModel() {
         return Optional.ofNullable(artistContentFragmentResource)
+                .filter(ContentFragmentUtils::isContentFragment)
                 .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
                 .map(this::createViewModelWithContent)
                 .orElseGet(this::createViewModelWithoutContent);
