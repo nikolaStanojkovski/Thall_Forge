@@ -33,11 +33,10 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
     }
 
     private void updateArtistDropdownOptionsData(ResourceResolver resourceResolver) {
-        Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.ARTIST_DROPDOWN_OPTIONS))
-                .ifPresent(resource -> {
+        Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.ETC_THALLFORGE))
+                .ifPresent(parentResource -> {
                     try {
-                        Resource parentResource = resource.getParent();
-                        removeCurrentResource(resourceResolver, resource);
+                        removeCurrentResource(resourceResolver, parentResource);
                         createArtistDropdownOptionsData(parentResource, resourceResolver);
                     } catch (PersistenceException e) {
                         log.error("Could not update artist dropdown options data", e);
@@ -46,9 +45,19 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
     }
 
     private void removeCurrentResource(ResourceResolver resourceResolver,
-                                       Resource resource) throws PersistenceException {
-        resourceResolver.delete(resource);
-        resourceResolver.commit();
+                                       Resource parentResource) throws PersistenceException {
+        String resourcePath = String.format("%s/%s.%s", parentResource.getPath(),
+                ThallforgeConstants.Names.ARTIST_DROPDOWN_OPTIONS,
+                ThallforgeConstants.Extensions.JSON);
+        Optional.ofNullable(resourceResolver.getResource(resourcePath))
+                .ifPresent(r -> {
+                    try {
+                        resourceResolver.delete(r);
+                        resourceResolver.commit();
+                    } catch (PersistenceException e) {
+                        log.error("Could not remove resource", e);
+                    }
+                });
     }
 
     private void createArtistDropdownOptionsData(Resource parentResource,

@@ -22,6 +22,11 @@ public final class ThallforgeConstants {
         public static final String WAV = "wav";
     }
 
+    public static final class Names {
+
+        public static final String ARTIST_DROPDOWN_OPTIONS = "artistDropdownOptions";
+    }
+
     public static final class MimeTypes {
 
         public static final List<String> ALL_IMAGE_MIME_TYPES = Arrays.asList("image/png", "image/jpeg", "image/tiff",
@@ -41,6 +46,6 @@ public final class ThallforgeConstants {
         public static final String CONTENT = "/content";
         public static final String ETC = "/etc";
         public static final String CONTENT_DAM = CONTENT + "/dam";
-        public static final String ARTIST_DROPDOWN_OPTIONS = ETC + "/thallforge/artistDropdownOptions.json";
+        public static final String ETC_THALLFORGE = ETC + "/thallforge";
     }
 }
