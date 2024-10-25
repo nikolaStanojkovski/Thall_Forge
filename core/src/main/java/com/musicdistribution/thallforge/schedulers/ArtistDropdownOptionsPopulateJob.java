@@ -12,6 +12,10 @@ import org.apache.sling.api.resource.ModifiableValueMap;
 import org.apache.sling.api.resource.PersistenceException;
 import org.apache.sling.api.resource.ResourceResolver;
 
+import javax.jcr.RepositoryException;
+import javax.jcr.Session;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Optional;
@@ -36,9 +40,16 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
                 .map(fileResource -> fileResource.adaptTo(ModifiableValueMap.class))
                 .ifPresent(modifiableValueMap -> {
                     try {
-                        modifiableValueMap.put("jcr:data", getArtists().getBytes(StandardCharsets.UTF_8));
-                        resourceResolver.commit();
-                    } catch (PersistenceException e) {
+                        byte[] artistsListBytes = getArtists().getBytes(StandardCharsets.UTF_8);
+                        InputStream artistsInputStream = new ByteArrayInputStream(artistsListBytes);
+                        Session session = resourceResolver.adaptTo(Session.class);
+                        if (session != null) {
+                            modifiableValueMap.put("jcr:data", session.getValueFactory().createBinary(artistsInputStream));
+                            resourceResolver.commit();
+                        } else {
+                            log.error("Could not read the administrative resource resolver");
+                        }
+                    } catch (PersistenceException | RepositoryException e) {
                         log.error("Could not update artist dropdown options data", e);
                     }
                 });
