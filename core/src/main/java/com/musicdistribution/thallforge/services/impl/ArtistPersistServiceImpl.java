@@ -1,11 +1,9 @@
 package com.musicdistribution.thallforge.services.impl;
 
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModel;
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ArtistPersistService;
-import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import org.apache.sling.api.resource.Resource;
@@ -36,6 +34,7 @@ public class ArtistPersistServiceImpl implements ArtistPersistService {
                 .map(ResourceUtils::getAllChildren)
                 .map(childrenStream -> childrenStream
                         .map(childResource -> getArtist(resourceResolver, childResource))
+                        .filter(ArtistContentFragmentViewModel::isHasContent)
                         .collect(Collectors.toList())
                 ).orElse(Collections.emptyList());
     }

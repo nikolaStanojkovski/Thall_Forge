@@ -48,9 +48,9 @@
                                         sling:resourceType="dam/gui/components/admin/schemafield"
                                         emptyText="Select Option"
                                         fieldLabel="Artist"
-                                        jsonPath="/bin/thallforge/artists/options"
+                                        jsonPath="/bin/thallforge/artists/options.json"
                                         name="./jcr:content/metadata/artist"
-                                        resourceType="dam/gui/coral/componenets/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
+                                        resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
                                     <granite:data
                                             jcr:primaryType="nt:unstructured"
                                             cq-msm-lockable="./metadata/artist"

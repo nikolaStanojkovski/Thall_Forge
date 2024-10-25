@@ -9,6 +9,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ArtistDropdownOptionViewModel {
 
-    private final String key;
     private final String value;
+    private final String text;
 }

@@ -41,8 +41,8 @@ public class ArtistDropdownOptionsServlet extends SlingSafeMethodsServlet {
     private String getArtists() {
         List<ArtistDropdownOptionViewModel> artists = artistPersistService.getAvailableArtists().stream()
                 .map(artist -> ArtistDropdownOptionViewModel.builder()
-                        .key(artist.getPath())
-                        .value(artist.getName())
+                        .value(artist.getPath())
+                        .text(artist.getName())
                         .build())
                 .collect(Collectors.toList());
         return new Gson().toJson(artists);
