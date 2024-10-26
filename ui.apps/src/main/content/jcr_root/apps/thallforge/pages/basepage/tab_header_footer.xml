@@ -12,16 +12,22 @@
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="granite/ui/components/coral/foundation/container">
             <items jcr:primaryType="nt:unstructured">
-                <header-xf jcr:primaryType="nt:unstructured"
-                           sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                           fieldLabel="Header Experience Fragment"
-                           name="./headerExperienceFragmentReference"
-                           rootPath="/content/experience-fragments" />
-                <footer-xf jcr:primaryType="nt:unstructured"
-                           sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                           fieldLabel="Footer Experience Fragment"
-                           name="./footerExperienceFragmentReference"
-                           rootPath="/content/experience-fragments" />
+                <headerfooter jcr:title="" jcr:primaryType="nt:unstructured"
+                              cq:showOnCreate="{Boolean}true"
+                              sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                    <items jcr:primaryType="nt:unstructured">
+                        <headerxf jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                  fieldLabel="Header Experience Fragment"
+                                  name="./headerExperienceFragmentReference"
+                                  rootPath="/content/experience-fragments" />
+                        <footerxf jcr:primaryType="nt:unstructured"
+                                  sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                  fieldLabel="Footer Experience Fragment"
+                                  name="./footerExperienceFragmentReference"
+                                  rootPath="/content/experience-fragments" />
+                    </items>
+                </headerfooter>
             </items>
         </column>
     </items>
