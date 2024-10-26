@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.components.content.genreexplorer;
+package com.musicdistribution.thallforge.components.structure.latestreleases;
 
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
@@ -11,7 +11,7 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import javax.annotation.PostConstruct;
 
 @Model(adaptables = Resource.class)
-public class GenreExplorerController {
+public class LatestReleasesController {
 
     @Self
     private Resource resource;
@@ -23,11 +23,11 @@ public class GenreExplorerController {
     private AlbumQueryService albumQueryService;
 
     @Getter
-    private GenreExplorerViewModel model;
+    private LatestReleasesViewModel model;
 
     @PostConstruct
     private void init() {
-        model = GenreExplorerViewModelProvider.builder()
+        model = LatestReleasesViewModelProvider.builder()
                 .resource(resource)
                 .albumQueryService(albumQueryService)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)

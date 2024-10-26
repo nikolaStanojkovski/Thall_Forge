@@ -1,6 +1,6 @@
 package com.musicdistribution.thallforge.schedulers;
 
-import com.musicdistribution.thallforge.services.ArtistPersistService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -22,7 +22,7 @@ import org.osgi.service.metatype.annotations.ObjectClassDefinition;
 public class ArtistDropdownOptionsPopulateScheduler {
 
     @Reference
-    private ArtistPersistService artistPersistService;
+    private ArtistQueryService artistQueryService;
 
     @Reference
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
@@ -56,7 +56,7 @@ public class ArtistDropdownOptionsPopulateScheduler {
             ScheduleOptions options = scheduler.EXPR(schedulerCronExpression);
             options.name(String.valueOf(schedulerId));
             options.canRunConcurrently(config.scheduler_concurrent());
-            scheduler.schedule(new ArtistDropdownOptionsPopulateJob(resourceResolverRetrievalService, artistPersistService), options);
+            scheduler.schedule(new ArtistDropdownOptionsPopulateJob(resourceResolverRetrievalService, artistQueryService), options);
         } else {
             log.error("Could not setup scheduler. Cron expression for setting up the scheduler is empty");
         }

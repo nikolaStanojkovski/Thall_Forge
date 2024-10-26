@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.components.content.albumtracklist;
+package com.musicdistribution.thallforge.components.structure.latestreleases;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
@@ -20,7 +20,7 @@ import java.util.Optional;
 
 @Builder
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumTrackListViewModel> {
+public class LatestReleasesViewModelProvider implements ViewModelProvider<LatestReleasesViewModel> {
 
     @NonNull
     private final Resource resource;
@@ -32,18 +32,18 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     private final AlbumQueryService albumQueryService;
 
     @Override
-    public AlbumTrackListViewModel getViewModel() {
-        return Optional.ofNullable(resource.adaptTo(AlbumTrackListResourceModel.class))
+    public LatestReleasesViewModel getViewModel() {
+        return Optional.ofNullable(resource.adaptTo(LatestReleasesResourceModel.class))
                 .filter(this::hasContent)
                 .map(this::createViewModel)
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private boolean hasContent(AlbumTrackListResourceModel resourceModel) {
+    private boolean hasContent(LatestReleasesResourceModel resourceModel) {
         return resourceModel != null && StringUtils.isNotBlank(resourceModel.getAlbumPath());
     }
 
-    private AlbumTrackListViewModel createViewModel(AlbumTrackListResourceModel resourceModel) {
+    private LatestReleasesViewModel createViewModel(LatestReleasesResourceModel resourceModel) {
         String albumPath = resourceModel.getAlbumPath();
         return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
@@ -52,11 +52,11 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel,
+    private LatestReleasesViewModel createViewModelWithContent(LatestReleasesResourceModel resourceModel,
                                                                Resource albumContentResource, String albumPath,
                                                                ResourceResolver resourceResolver) {
-        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
-        return AlbumTrackListViewModel.builder()
+        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(albumPath);
+        return LatestReleasesViewModel.builder()
                 .title(getAlbumTitle(albumContentResource))
                 .thumbnail(getAlbumThumbnail(albumContentResource, resourceResolver))
                 .downloadLabel(resourceModel.getDownloadLabel())
@@ -85,7 +85,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
                 albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
-    private AlbumTrackListViewModel createViewModelWithoutContent() {
-        return AlbumTrackListViewModel.builder().hasContent(false).build();
+    private LatestReleasesViewModel createViewModelWithoutContent() {
+        return LatestReleasesViewModel.builder().hasContent(false).build();
     }
 }

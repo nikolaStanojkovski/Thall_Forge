@@ -1,5 +1,6 @@
-package com.musicdistribution.thallforge.components.content.artistspotlight;
+package com.musicdistribution.thallforge.components.structure.latestreleases;
 
+import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.Builder;
 import lombok.Data;
@@ -10,11 +11,10 @@ import java.util.List;
 @Data
 @Builder
 @RequiredArgsConstructor
-public class ArtistSpotlightViewModel {
+public class LatestReleasesViewModel {
 
-    private final String artistImage;
-    private final String artistName;
-    private final String artistBiography;
+    private final String title;
+    private final String thumbnail;
     private final List<AlbumViewModel> albums;
     private final boolean hasContent;
 }

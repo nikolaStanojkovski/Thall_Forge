@@ -1,15 +1,10 @@
 package com.musicdistribution.thallforge.components.content.genreexplorer;
 
-import com.drew.lang.annotations.Nullable;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
-import com.musicdistribution.thallforge.constants.ThallforgeConstants;
-import com.musicdistribution.thallforge.services.AlbumTrackListService;
+import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
-import com.musicdistribution.thallforge.utils.ImageUtils;
-import com.musicdistribution.thallforge.utils.QueryUtils;
-import com.musicdistribution.thallforge.utils.ResourceUtils;
+import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
@@ -18,14 +13,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
-import javax.jcr.RepositoryException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -42,19 +31,20 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
     private final ResourceResolverRetrievalService resourceResolverRetrievalService;
 
     @NonNull
-    private final AlbumTrackListService albumTrackListService;
+    private final AlbumQueryService albumQueryService;
 
     @Override
     public GenreExplorerViewModel getViewModel() {
         return Optional.ofNullable(resource.adaptTo(GenreExplorerResourceModel.class))
                 .flatMap(resourceModel -> resourceResolverRetrievalService.getContentDamResourceResolver()
-                        .map(resourceResolver -> createViewModelWithContent(resourceModel, resourceResolver)))
+                        .map(resourceResolver -> createViewModelWithContent(resourceResolver, resourceModel)))
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private GenreExplorerViewModel createViewModelWithContent(GenreExplorerResourceModel resourceModel,
-                                                              ResourceResolver resourceResolver) {
-        List<GenreExplorerAlbumViewModel> albums = getAlbums(resourceModel, resourceResolver);
+    private GenreExplorerViewModel createViewModelWithContent(ResourceResolver resourceResolver,
+                                                              GenreExplorerResourceModel resourceModel) {
+        List<AlbumViewModel> albums = albumQueryService.getAlbums(
+                resourceResolver, getAlbumSearchQuery(resourceModel), resourceModel.getLimit());
         List<GenreExplorerAlbumSongsViewModel> albumSongs = getAlbumSongs(albums);
         return GenreExplorerViewModel.builder()
                 .selectedGenre(getSelectedGenre(resourceModel))
@@ -64,94 +54,22 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .build();
     }
 
-    private List<GenreExplorerAlbumSongsViewModel> getAlbumSongs(List<GenreExplorerAlbumViewModel> albums) {
+    private List<GenreExplorerAlbumSongsViewModel> getAlbumSongs(List<AlbumViewModel> albums) {
         return albums.stream()
                 .map(this::getAlbumSongsViewModel)
                 .collect(Collectors.toList());
     }
 
-    private GenreExplorerAlbumSongsViewModel getAlbumSongsViewModel(GenreExplorerAlbumViewModel albumViewModel) {
+    private GenreExplorerAlbumSongsViewModel getAlbumSongsViewModel(AlbumViewModel albumViewModel) {
         return GenreExplorerAlbumSongsViewModel.builder()
                 .albumId(albumViewModel.getId())
-                .songs(albumTrackListService.getTracks(albumViewModel.getLink()))
+                .songs(albumViewModel.getSongs())
                 .build();
     }
 
-    private List<GenreExplorerAlbumViewModel> getAlbums(GenreExplorerResourceModel resourceModel,
-                                                        ResourceResolver resourceResolver) {
-        try {
-            String albumSearchQuery = getAlbumSearchQuery(resourceModel);
-            List<GenreExplorerAlbumViewModel> resultList = new ArrayList<>();
-            NodeIterator nodeIterator
-                    = QueryUtils.executeQuery(resourceResolver, albumSearchQuery, resourceModel.getLimit());
-            if (nodeIterator == null) {
-                return Collections.emptyList();
-            }
-            while (nodeIterator.hasNext()) {
-                Node node = nodeIterator.nextNode();
-                Resource resultResource = resourceResolver.getResource(node.getPath());
-                if (resultResource != null) {
-                    resultList.add(getAlbumViewModel(resultResource, resourceResolver));
-                }
-            }
-            return resultList;
-        } catch (RepositoryException e) {
-            log.error("Could not query album tracks for genre {}", resourceModel.getGenre(), e);
-        }
-        return Collections.emptyList();
-    }
-
-    private GenreExplorerAlbumViewModel getAlbumViewModel(Resource resource, ResourceResolver resourceResolver) {
-        Resource resultContentResource = resource.getChild("jcr:content");
-        return GenreExplorerAlbumViewModel.builder()
-                .id(ResourceUtils.generateId(resource))
-                .link(resource.getPath())
-                .title(getAlbumTitle(resultContentResource))
-                .artist(getAlbumArtist(resultContentResource, resourceResolver))
-                .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
-                .build();
-    }
-
-    private boolean hasContent(List<GenreExplorerAlbumViewModel> albums,
+    private boolean hasContent(List<AlbumViewModel> albums,
                                List<GenreExplorerAlbumSongsViewModel> albumSongs) {
         return !albums.isEmpty() && !albumSongs.isEmpty();
-    }
-
-    private String getAlbumArtist(@Nullable Resource albumContentResource,
-                                  ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumContentResource)
-                .map(a -> a.getChild("metadata"))
-                .map(Resource::getValueMap)
-                .map(s -> s.get("artist", StringUtils.EMPTY))
-                .map(resourceResolver::getResource)
-                .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
-                .map(masterContentFragmentResource -> masterContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
-                .map(ArtistContentFragmentResourceModel::getName)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumTitle(@Nullable Resource albumContentResource) {
-        if (albumContentResource == null) {
-            return StringUtils.EMPTY;
-        }
-        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(albumContentResource.getName());
-        return StringUtils.defaultString(title);
-    }
-
-    private String getAlbumThumbnail(@Nullable Resource albumContentResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumContentResource)
-                .map(this::getAlbumThumbnailPath)
-                .map(resourceResolver::getResource)
-                .filter(ImageUtils::isImageResource)
-                .map(Resource::getPath)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumThumbnailPath(Resource albumContentResource) {
-        return String.format("%s/manualThumbnail.%s",
-                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private String getSelectedGenre(GenreExplorerResourceModel resourceModel) {
@@ -160,7 +78,6 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
                 .findAny()
                 .map(Genre::getTitle)
                 .orElse(StringUtils.EMPTY);
-
     }
 
     private String getAlbumSearchQuery(GenreExplorerResourceModel resourceModel) {

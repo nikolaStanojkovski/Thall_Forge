@@ -3,7 +3,7 @@ package com.musicdistribution.thallforge.services.impl;
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModel;
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
-import com.musicdistribution.thallforge.services.ArtistPersistService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import org.apache.sling.api.resource.Resource;
@@ -16,8 +16,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component(service = ArtistPersistService.class)
-public class ArtistPersistServiceImpl implements ArtistPersistService {
+@Component(service = ArtistQueryService.class)
+public class ArtistQueryServiceImpl implements ArtistQueryService {
 
     @Reference
     private ResourceResolverRetrievalService resourceResolverRetrievalService;

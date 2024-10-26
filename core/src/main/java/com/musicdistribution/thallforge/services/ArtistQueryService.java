@@ -4,7 +4,7 @@ import com.musicdistribution.thallforge.components.contentfragments.artist.Artis
 
 import java.util.List;
 
-public interface ArtistPersistService {
+public interface ArtistQueryService {
 
     List<ArtistContentFragmentViewModel> getAvailableArtists();
 }

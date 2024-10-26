@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.schedulers.models.ArtistDropdownOptionViewModel;
 import com.musicdistribution.thallforge.schedulers.models.ArtistDropdownOptionsViewModel;
-import com.musicdistribution.thallforge.services.ArtistPersistService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 public class ArtistDropdownOptionsPopulateJob implements Runnable {
 
     private final ResourceResolverRetrievalService resourceResolverRetrievalService;
-    private final ArtistPersistService artistPersistService;
+    private final ArtistQueryService artistQueryService;
 
     @Override
     public void run() {
@@ -83,7 +83,7 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
     }
 
     private String getArtists() {
-        List<ArtistDropdownOptionViewModel> artists = artistPersistService.getAvailableArtists().stream()
+        List<ArtistDropdownOptionViewModel> artists = artistQueryService.getAvailableArtists().stream()
                 .map(artist -> ArtistDropdownOptionViewModel.builder()
                         .text(artist.getName())
                         .value(artist.getPath())

@@ -1,5 +1,6 @@
 package com.musicdistribution.thallforge.components.content.genreexplorer;
 
+import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ import java.util.List;
 public class GenreExplorerViewModel {
 
     private final String selectedGenre;
-    private final List<GenreExplorerAlbumViewModel> albums;
+    private final List<AlbumViewModel> albums;
     private final List<GenreExplorerAlbumSongsViewModel> albumSongs;
     private final boolean hasContent;
 }

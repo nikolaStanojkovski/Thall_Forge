@@ -3,9 +3,8 @@ package com.musicdistribution.thallforge.services.impl;
 import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
-import com.musicdistribution.thallforge.services.AlbumTrackListService;
+import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
-import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.services.impl.models.ShuffleSongViewModel;
 import com.musicdistribution.thallforge.utils.ImageUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -21,25 +20,21 @@ import java.util.Optional;
 public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService {
 
     @Reference
-    private ResourceResolverRetrievalService resourceResolverRetrievalService;
-
-    @Reference
-    private AlbumTrackListService albumTracklistService;
+    private AlbumQueryService albumQueryService;
 
     @Override
-    public Optional<ShuffleSongViewModel> shuffle(final String albumPath) {
-        List<AudioViewModel> tracks = albumTracklistService.getTracks(albumPath);
-        return getRandomSong(albumPath, tracks);
+    public Optional<ShuffleSongViewModel> shuffle(ResourceResolver resourceResolver, String albumPath) {
+        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
+        return getRandomSong(resourceResolver, albumPath, tracks);
     }
 
-    private Optional<ShuffleSongViewModel> getRandomSong(String albumPath, List<AudioViewModel> tracks) {
+    private Optional<ShuffleSongViewModel> getRandomSong(ResourceResolver resourceResolver,
+                                                         String albumPath, List<AudioViewModel> tracks) {
         int randomSongIndex = generateRandomIndex(tracks.size());
-        return resourceResolverRetrievalService.getContentDamResourceResolver()
-                .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
-                        .map(r -> r.getChild("jcr:content"))
-                        .map(albumResource -> buildShuffleSongViewModel(albumResource,
-                                tracks.get(randomSongIndex), resourceResolver))
-                );
+        return Optional.ofNullable(resourceResolver.getResource(albumPath))
+                .map(r -> r.getChild("jcr:content"))
+                .map(albumResource -> buildShuffleSongViewModel(albumResource,
+                        tracks.get(randomSongIndex), resourceResolver));
     }
 
     private ShuffleSongViewModel buildShuffleSongViewModel(Resource albumResource,

@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.musicdistribution.thallforge.components.content.musicplayer.MusicPlayerResourceModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
+import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.SlingHttpServletRequest;
@@ -29,6 +30,9 @@ import java.util.Optional;
 public class MusicPlayerShuffleServlet extends SlingSafeMethodsServlet {
 
     @Reference
+    private ResourceResolverRetrievalService resourceResolverRetrievalService;
+
+    @Reference
     private MusicPlayerShuffleService shuffleService;
 
     @Override
@@ -47,10 +51,11 @@ public class MusicPlayerShuffleServlet extends SlingSafeMethodsServlet {
     }
 
     private String getSongJson(String albumPath) {
-        String jsonString = shuffleService.shuffle(albumPath)
+        return resourceResolverRetrievalService.getContentDamResourceResolver()
+                .flatMap(resourceResolver -> shuffleService.shuffle(resourceResolver, albumPath))
                 .map(song -> new Gson().toJson(song))
+                .map(gsonString -> new Gson().toJson(gsonString))
                 .orElse("{}");
-        return new Gson().toJson(jsonString);
     }
 
     private String getShuffleAlbumPath(Resource componentResource) {
