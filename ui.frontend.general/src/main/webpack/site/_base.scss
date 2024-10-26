@@ -8,16 +8,14 @@ body {
     color:       $color-foreground;
     background:  $color-background;
 
+    .main.responsivegrid {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
     @media (prefers-color-scheme: dark) {
         color:       $color-foreground-dark;
         background:  $color-background-dark;
-    }
-}
-
-.main {
-    .responsivegrid {
-        max-width: 1200px;
-        margin: 0 auto;
     }
 }
 
