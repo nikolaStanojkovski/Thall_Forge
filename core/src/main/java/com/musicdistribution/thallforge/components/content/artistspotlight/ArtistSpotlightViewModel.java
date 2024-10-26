@@ -11,7 +11,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ArtistSpotlightViewModel {
 
-    private final String selectedGenre;
-    private final List<ArtistSpotlightViewModel> albums;
+    private final String artistImage;
+    private final String artistName;
+    private final String artistBiography;
+    private final List<ArtistSpotlightAlbumViewModel> albums;
     private final boolean hasContent;
 }
