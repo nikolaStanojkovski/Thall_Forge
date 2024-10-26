@@ -8,7 +8,7 @@
              data-sly-attribute.src="${controller.model.artistImage}"/>
         <div>
             <h2 class="artist-spotlight__artist-name">${controller.model.artistName}</h2>
-            <p class="artist-spotlight__artist-bio">${controller.model.artistBiography}</p>
+            <p class="artist-spotlight__artist-bio">${controller.model.artistBiography @ context='html'}</p>
         </div>
     </div>
     <div class="artist-spotlight__artist-albums">

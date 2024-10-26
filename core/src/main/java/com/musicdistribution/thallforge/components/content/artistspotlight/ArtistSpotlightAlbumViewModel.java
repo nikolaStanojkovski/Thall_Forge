@@ -14,4 +14,5 @@ public class ArtistSpotlightAlbumViewModel {
     private final String title;
     private final String thumbnail;
     private final List<ArtistSpotlightSongViewModel> songs;
+    private final boolean hasContent;
 }

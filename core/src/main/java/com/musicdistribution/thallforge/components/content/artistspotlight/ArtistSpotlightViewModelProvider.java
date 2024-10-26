@@ -102,10 +102,12 @@ public class ArtistSpotlightViewModelProvider implements ViewModelProvider<Artis
 
     private ArtistSpotlightAlbumViewModel getAlbumViewModel(Resource resource, ResourceResolver resourceResolver) {
         Resource resultContentResource = resource.getChild("jcr:content");
+        List<ArtistSpotlightSongViewModel> songs = getAlbumSongs(resource);
         return ArtistSpotlightAlbumViewModel.builder()
                 .title(getAlbumTitle(resultContentResource))
                 .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
-                .songs(getAlbumSongs(resource))
+                .songs(songs)
+                .hasContent(!songs.isEmpty())
                 .build();
     }
 
