@@ -1,6 +1,6 @@
 package com.musicdistribution.thallforge.components.content.albumtracklist;
 
-import com.musicdistribution.thallforge.services.AlbumQueryService;
+import com.musicdistribution.thallforge.services.AlbumTrackListService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.Getter;
 import org.apache.sling.api.resource.Resource;
@@ -17,7 +17,7 @@ public class AlbumTrackListController {
     private Resource resource;
 
     @OSGiService
-    private AlbumQueryService albumQueryService;
+    private AlbumTrackListService albumTrackListService;
 
     @OSGiService
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
@@ -29,7 +29,7 @@ public class AlbumTrackListController {
     private void init() {
         model = AlbumTrackListViewModelProvider.builder()
                 .resource(resource)
-                .albumQueryService(albumQueryService)
+                .albumTrackListService(albumTrackListService)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)
                 .build()
                 .getViewModel();
