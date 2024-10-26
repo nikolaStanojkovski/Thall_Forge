@@ -23,7 +23,8 @@
                 <div class="artist-spotlight__artist-albums__albums-list__songs-list hidden"
                      data-sly-list.song="${album.songs}">
                     <div class="artist-spotlight__artist-albums__albums-list__songs-list__song-item">
-                        <a data-sly-attribute.href="${song.link}">
+                        <a class="artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-link"
+                           data-sly-attribute.href="${song.link}">
                             <span class="artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-title">
                                 ${song.title}
                             </span>
