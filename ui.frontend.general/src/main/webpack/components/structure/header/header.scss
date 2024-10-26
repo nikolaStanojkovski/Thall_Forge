@@ -1,21 +1,21 @@
-.mdl-site-footer {
+.mdl-site-header {
   padding: 10px 40px;
-  border-bottom: 1px solid black;
+  border-top: 1px solid black;
   color: #333;
 
-  &__footer-container {
+  &__header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
 
-    &__footer-logo img {
+    &__header-logo img {
       width: 60px;
       height: 60px;
       padding: 5px;
     }
 
-    &__footer-links {
+    &__header-links {
       display: flex;
       gap: 1.5em;
 
