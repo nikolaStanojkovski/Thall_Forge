@@ -2,71 +2,15 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
-          jcr:primaryType="nt:unstructured"
-          jcr:title="Header"
-          extraClientLibs="[thallforge.authoring.multifield]"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+          jcr:primaryType="nt:unstructured">
     <content
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="granite/ui/components/coral/foundation/container">
+            jcr:primaryType="nt:unstructured">
         <items jcr:primaryType="nt:unstructured">
-            <tabs
-                    jcr:primaryType="nt:unstructured"
-                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
-                    maximized="{Boolean}true">
+            <tabs jcr:primaryType="nt:unstructured">
                 <items jcr:primaryType="nt:unstructured">
-                    <configuration
-                            jcr:primaryType="nt:unstructured"
-                            jcr:title="Configuration"
-                            sling:resourceType="granite/ui/components/coral/foundation/container"
-                            margin="{Boolean}true">
-                        <items jcr:primaryType="nt:unstructured">
-                            <columns
-                                    jcr:primaryType="nt:unstructured"
-                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
-                                    margin="{Boolean}true">
-                                <items jcr:primaryType="nt:unstructured">
-                                    <column
-                                            jcr:primaryType="nt:unstructured"
-                                            sling:resourceType="granite/ui/components/coral/foundation/container">
-                                        <items jcr:primaryType="nt:unstructured">
-                                            <links
-                                                    jcr:primaryType="nt:unstructured"
-                                                    sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
-                                                    composite="{Boolean}true"
-                                                    fieldLabel="Links">
-                                                <granite:data
-                                                        jcr:primaryType="nt:unstructured"
-                                                        max-item="3"
-                                                        min-item="1"/>
-                                                <field
-                                                        jcr:primaryType="nt:unstructured"
-                                                        sling:resourceType="granite/ui/components/coral/foundation/container"
-                                                        name="./links">
-                                                    <items jcr:primaryType="nt:unstructured">
-                                                        <link
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
-                                                                fieldLabel="Link"
-                                                                rootPath="/content"
-                                                                required="{Boolean}true"
-                                                                name="link"/>
-                                                        <title
-                                                                jcr:primaryType="nt:unstructured"
-                                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                                fieldDescription="If not configured, the page title is taken"
-                                                                name="title"
-                                                                fieldLabel="Title"/>
-                                                    </items>
-                                                </field>
-                                            </links>
-                                        </items>
-                                    </column>
-                                </items>
-                            </columns>
-                        </items>
-                    </configuration>
+                    <header-footer jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/include"
+                            path="/apps/thallforge/pages/basepage/tab_header_footer" />
                 </items>
             </tabs>
         </items>
