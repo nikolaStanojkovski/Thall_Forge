@@ -3,7 +3,11 @@ package com.musicdistribution.thallforge.services.impl;
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
 import com.drew.lang.annotations.Nullable;
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataResourceModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModelProvider;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
@@ -26,6 +30,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -81,52 +86,19 @@ public class AlbumQueryServiceImpl implements AlbumQueryService {
     }
 
     private AlbumViewModel getAlbumViewModel(Resource resultResource, ResourceResolver resourceResolver) {
-        Resource resultContentResource = resultResource.getChild("jcr:content");
+        AlbumMetadataViewModel albumMetadataViewModel = AlbumMetadataViewModelProvider.builder()
+                .albumResource(resultResource)
+                .resolver(resourceResolver)
+                .build().getViewModel();
         return AlbumViewModel.builder()
                 .id(ResourceUtils.generateId(resultResource))
                 .link(resultResource.getPath())
-                .title(getAlbumTitle(resultContentResource))
-                .artist(getAlbumArtist(resultContentResource, resourceResolver))
-                .thumbnail(getAlbumThumbnail(resultContentResource, resourceResolver))
+                .title(albumMetadataViewModel.getTitle())
+                .artist(albumMetadataViewModel.getArtist().getName())
+                .thumbnail(albumMetadataViewModel.getThumbnail())
+                .releaseDate(albumMetadataViewModel.getDate())
                 .songs(getAlbumTracks(resourceResolver, resultResource.getPath()))
                 .build();
-    }
-
-    private String getAlbumArtist(@Nullable Resource albumContentResource,
-                                  ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumContentResource)
-                .map(a -> a.getChild("metadata"))
-                .map(Resource::getValueMap)
-                .map(s -> s.get("artist", StringUtils.EMPTY))
-                .map(resourceResolver::getResource)
-                .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
-                .map(masterContentFragmentResource -> masterContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
-                .map(ArtistContentFragmentResourceModel::getName)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumTitle(@Nullable Resource albumContentResource) {
-        if (albumContentResource == null) {
-            return StringUtils.EMPTY;
-        }
-        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(albumContentResource.getName());
-        return StringUtils.defaultString(title);
-    }
-
-    private String getAlbumThumbnailPath(Resource albumContentResource) {
-        return String.format("%s/manualThumbnail.%s",
-                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
-    }
-
-    private String getAlbumThumbnail(@Nullable Resource albumContentResource, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumContentResource)
-                .map(this::getAlbumThumbnailPath)
-                .map(resourceResolver::getResource)
-                .filter(ImageUtils::isImageResource)
-                .map(Resource::getPath)
-                .orElse(StringUtils.EMPTY);
     }
 
     private boolean isAudioAsset(Resource songResource) {

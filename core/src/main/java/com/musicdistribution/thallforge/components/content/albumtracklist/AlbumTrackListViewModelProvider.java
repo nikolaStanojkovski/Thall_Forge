@@ -1,11 +1,11 @@
 package com.musicdistribution.thallforge.components.content.albumtracklist;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
-import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
-import com.musicdistribution.thallforge.utils.ImageUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
@@ -13,7 +13,6 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 
 import java.util.List;
 import java.util.Optional;
@@ -47,42 +46,25 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
         String albumPath = resourceModel.getAlbumPath();
         return resourceResolverRetrievalService.getContentDamResourceResolver()
                 .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
-                        .map(r -> r.getChild("jcr:content"))
                         .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
     private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel,
-                                                               Resource albumContentResource, String albumPath,
+                                                               Resource albumResource, String albumPath,
                                                                ResourceResolver resourceResolver) {
         List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
+        AlbumMetadataViewModel albumMetadataViewModel = AlbumMetadataViewModelProvider.builder()
+                .albumResource(albumResource)
+                .resolver(resourceResolver)
+                .build().getViewModel();
         return AlbumTrackListViewModel.builder()
-                .title(getAlbumTitle(albumContentResource))
-                .thumbnail(getAlbumThumbnail(albumContentResource, resourceResolver))
+                .title(albumMetadataViewModel.getTitle())
+                .thumbnail(albumMetadataViewModel.getThumbnail())
                 .downloadLabel(resourceModel.getDownloadLabel())
                 .tracks(tracks)
                 .hasContent(!tracks.isEmpty())
                 .build();
-    }
-
-    private String getAlbumTitle(Resource albumContentResource) {
-        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(albumContentResource.getName());
-        return StringUtils.defaultString(title);
-    }
-
-    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
-        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
-                .filter(ImageUtils::isImageResource)
-                .map(Resource::getPath)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumThumbnailPath(Resource albumContentResource) {
-        return String.format("%s/manualThumbnail.%s",
-                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private AlbumTrackListViewModel createViewModelWithoutContent() {

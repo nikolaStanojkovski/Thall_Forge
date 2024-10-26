@@ -1,8 +1,8 @@
 package com.musicdistribution.thallforge.components.content.artistspotlight;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModel;
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModelProvider;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
@@ -47,19 +47,19 @@ public class ArtistSpotlightViewModelProvider implements ViewModelProvider<Artis
                 resourceResolver,
                 getAlbumSearchQuery(artistReference),
                 ThallforgeConstants.SqlQuery.DEFAULT_LIMIT);
-        ArtistContentFragmentViewModel artistContentFragmentViewModel = getArtistData(artistReference, resourceResolver);
+        ArtistContentFragmentViewModel artistViewModel = getArtistData(artistReference, resourceResolver);
         return ArtistSpotlightViewModel.builder()
-                .artistName(artistContentFragmentViewModel.getName())
-                .artistImage(artistContentFragmentViewModel.getImage())
-                .artistBiography(artistContentFragmentViewModel.getBiography())
+                .artistName(artistViewModel.getName())
+                .artistImage(artistViewModel.getImage())
+                .artistBiography(artistViewModel.getBiography())
                 .albums(albums)
-                .hasContent(hasContent(albums, artistContentFragmentViewModel))
+                .hasContent(hasContent(albums, artistViewModel))
                 .build();
     }
 
     private boolean hasContent(List<AlbumViewModel> albums,
-                               ArtistContentFragmentViewModel artistContentFragmentViewModel) {
-        return !albums.isEmpty() && artistContentFragmentViewModel.isHasContent();
+                               ArtistContentFragmentViewModel artistViewModel) {
+        return !albums.isEmpty() && artistViewModel.isHasContent();
     }
 
     private ArtistContentFragmentViewModel getArtistData(String artistReference, ResourceResolver resourceResolver) {

@@ -17,5 +17,6 @@ public class AlbumViewModel {
     private final String thumbnail;
     private final String title;
     private final String artist;
+    private final String releaseDate;
     private final List<AudioViewModel> songs;
 }

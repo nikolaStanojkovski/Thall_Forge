@@ -55,13 +55,8 @@ public class LatestReleasesViewModelProvider implements ViewModelProvider<Latest
     private LatestReleasesViewModel createViewModelWithContent(LatestReleasesResourceModel resourceModel,
                                                                Resource albumContentResource, String albumPath,
                                                                ResourceResolver resourceResolver) {
-        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(albumPath);
+        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
         return LatestReleasesViewModel.builder()
-                .title(getAlbumTitle(albumContentResource))
-                .thumbnail(getAlbumThumbnail(albumContentResource, resourceResolver))
-                .downloadLabel(resourceModel.getDownloadLabel())
-                .tracks(tracks)
-                .hasContent(!tracks.isEmpty())
                 .build();
     }
 

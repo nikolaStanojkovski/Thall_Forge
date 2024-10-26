@@ -6,7 +6,6 @@ import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
-import com.musicdistribution.thallforge.utils.ImageUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.AccessLevel;
 import lombok.Builder;

@@ -1,7 +1,7 @@
 package com.musicdistribution.thallforge.services.impl;
 
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModel;
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentViewModelProvider;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;

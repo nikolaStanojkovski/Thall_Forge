@@ -14,7 +14,6 @@ import java.util.List;
 public class LatestReleasesViewModel {
 
     private final String title;
-    private final String thumbnail;
     private final List<AlbumViewModel> albums;
     private final boolean hasContent;
 }

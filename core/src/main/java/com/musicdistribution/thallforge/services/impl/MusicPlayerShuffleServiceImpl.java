@@ -1,13 +1,11 @@
 package com.musicdistribution.thallforge.services.impl;
 
-import com.musicdistribution.thallforge.components.contentfragments.artist.ArtistContentFragmentResourceModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModel;
+import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
-import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.MusicPlayerShuffleService;
 import com.musicdistribution.thallforge.services.impl.models.ShuffleSongViewModel;
-import com.musicdistribution.thallforge.utils.ImageUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Component;
@@ -32,7 +30,6 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
                                                          String albumPath, List<AudioViewModel> tracks) {
         int randomSongIndex = generateRandomIndex(tracks.size());
         return Optional.ofNullable(resourceResolver.getResource(albumPath))
-                .map(r -> r.getChild("jcr:content"))
                 .map(albumResource -> buildShuffleSongViewModel(albumResource,
                         tracks.get(randomSongIndex), resourceResolver));
     }
@@ -40,37 +37,16 @@ public class MusicPlayerShuffleServiceImpl implements MusicPlayerShuffleService 
     private ShuffleSongViewModel buildShuffleSongViewModel(Resource albumResource,
                                                            AudioViewModel chosenSong,
                                                            ResourceResolver resourceResolver) {
+        AlbumMetadataViewModel albumMetadataViewModel = AlbumMetadataViewModelProvider.builder()
+                .albumResource(albumResource)
+                .resolver(resourceResolver)
+                .build().getViewModel();
         return ShuffleSongViewModel.builder()
                 .title(chosenSong.getTitle())
-                .artist(getAlbumArtist(albumResource, resourceResolver))
-                .coverLink(getAlbumThumbnail(albumResource, resourceResolver))
+                .artist(albumMetadataViewModel.getArtist().getName())
+                .coverLink(albumMetadataViewModel.getThumbnail())
                 .trackLink(chosenSong.getLink())
                 .build();
-    }
-
-    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
-        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
-                .filter(ImageUtils::isImageResource)
-                .map(Resource::getPath)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumArtist(Resource albumContentResource,
-                                  ResourceResolver resourceResolver) {
-        return Optional.ofNullable(albumContentResource.getChild("metadata"))
-                .map(Resource::getValueMap)
-                .map(valueMap -> valueMap.get("artist", StringUtils.EMPTY))
-                .map(resourceResolver::getResource)
-                .map(artistResource -> artistResource.getChild("jcr:content/data/master"))
-                .map(masterContentFragmentResource -> masterContentFragmentResource.adaptTo(ArtistContentFragmentResourceModel.class))
-                .map(ArtistContentFragmentResourceModel::getName)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumThumbnailPath(Resource albumContentResource) {
-        return String.format("%s/manualThumbnail.%s",
-                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private int generateRandomIndex(int albumLength) {

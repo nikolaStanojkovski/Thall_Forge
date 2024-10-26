@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.components.contentfragments.artist;
+package com.musicdistribution.thallforge.components.shared.artist;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.utils.ContentFragmentUtils;
