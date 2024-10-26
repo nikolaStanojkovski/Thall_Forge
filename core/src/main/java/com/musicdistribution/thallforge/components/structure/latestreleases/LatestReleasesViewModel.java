@@ -1,6 +1,5 @@
 package com.musicdistribution.thallforge.components.structure.latestreleases;
 
-import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.Builder;
 import lombok.Data;

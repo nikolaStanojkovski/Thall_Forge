@@ -44,8 +44,7 @@ public class ArtistContentFragmentViewModelProvider implements ViewModelProvider
     }
 
     private boolean hasContent(ArtistContentFragmentResourceModel resourceModel) {
-        return resourceModel != null
-                && StringUtils.isNoneBlank(resourceModel.getName(), resourceModel.getImage())
+        return StringUtils.isNoneBlank(resourceModel.getName(), resourceModel.getImage())
                 && resourceModel.getRating() != null;
     }
 

@@ -1,11 +1,9 @@
 package com.musicdistribution.thallforge.components.structure.latestreleases;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
-import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
-import com.musicdistribution.thallforge.utils.ImageUtils;
+import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
@@ -13,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 
 import java.util.List;
 import java.util.Optional;
@@ -34,50 +31,20 @@ public class LatestReleasesViewModelProvider implements ViewModelProvider<Latest
     @Override
     public LatestReleasesViewModel getViewModel() {
         return Optional.ofNullable(resource.adaptTo(LatestReleasesResourceModel.class))
-                .filter(this::hasContent)
-                .map(this::createViewModel)
+                .flatMap(resourceModel -> resourceResolverRetrievalService.getContentDamResourceResolver()
+                        .map(resourceResolver -> createViewModel(resourceResolver, resourceModel)))
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private boolean hasContent(LatestReleasesResourceModel resourceModel) {
-        return resourceModel != null && StringUtils.isNotBlank(resourceModel.getAlbumPath());
-    }
-
-    private LatestReleasesViewModel createViewModel(LatestReleasesResourceModel resourceModel) {
-        String albumPath = resourceModel.getAlbumPath();
-        return resourceResolverRetrievalService.getContentDamResourceResolver()
-                .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
-                        .map(r -> r.getChild("jcr:content"))
-                        .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
-                .orElseGet(this::createViewModelWithoutContent);
-    }
-
-    private LatestReleasesViewModel createViewModelWithContent(LatestReleasesResourceModel resourceModel,
-                                                               Resource albumContentResource, String albumPath,
-                                                               ResourceResolver resourceResolver) {
-        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
+    private LatestReleasesViewModel createViewModel(ResourceResolver resourceResolver,
+                                                    LatestReleasesResourceModel resourceModel) {
+        List<AlbumViewModel> albums = albumQueryService
+                .getAlbums(resourceResolver, StringUtils.EMPTY, resourceModel.getLimit());
         return LatestReleasesViewModel.builder()
+                .title(resourceModel.getTitle())
+                .albums(albums)
+                .hasContent(!albums.isEmpty())
                 .build();
-    }
-
-    private String getAlbumTitle(Resource albumContentResource) {
-        String title = Optional.ofNullable(albumContentResource.adaptTo(ValueMap.class))
-                .map(properties -> properties.get("jcr:title", String.class))
-                .orElse(albumContentResource.getName());
-        return StringUtils.defaultString(title);
-    }
-
-    private String getAlbumThumbnail(Resource albumContentResource, ResourceResolver resourceResolver) {
-        String albumThumbnailPath = getAlbumThumbnailPath(albumContentResource);
-        return Optional.ofNullable(resourceResolver.getResource(albumThumbnailPath))
-                .filter(ImageUtils::isImageResource)
-                .map(Resource::getPath)
-                .orElse(StringUtils.EMPTY);
-    }
-
-    private String getAlbumThumbnailPath(Resource albumContentResource) {
-        return String.format("%s/manualThumbnail.%s",
-                albumContentResource.getPath(), ThallforgeConstants.Extensions.JPG);
     }
 
     private LatestReleasesViewModel createViewModelWithoutContent() {

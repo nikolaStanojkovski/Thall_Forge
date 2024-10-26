@@ -39,7 +39,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     }
 
     private boolean hasContent(AlbumTrackListResourceModel resourceModel) {
-        return resourceModel != null && StringUtils.isNotBlank(resourceModel.getAlbumPath());
+        return StringUtils.isNotBlank(resourceModel.getAlbumPath());
     }
 
     private AlbumTrackListViewModel createViewModel(AlbumTrackListResourceModel resourceModel) {

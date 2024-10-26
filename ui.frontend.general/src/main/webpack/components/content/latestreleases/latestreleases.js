@@ -11,11 +11,11 @@
             const element = config.element;
             element.removeAttribute("data-cmp-is");
 
-            const track = document.querySelector('.carousel-track');
+            const track = document.querySelector('.mdl-latest-releases__carousel-track-container__carousel-track');
             const items = Array.from(track.children);
-            const prevButton = document.querySelector('.carousel-control.prev');
-            const nextButton = document.querySelector('.carousel-control.next');
-            const dotsNav = document.querySelector('.carousel-dots');
+            const prevButton = document.querySelector('.mdl-latest-releases__carousel-control.prev');
+            const nextButton = document.querySelector('.mdl-latest-releases__carousel-control.next');
+            const dotsNav = document.querySelector('.mdl-latest-releases__carousel-dots');
             const dots = Array.from(dotsNav.children);
 
             const itemWidth = items[0].getBoundingClientRect().width;

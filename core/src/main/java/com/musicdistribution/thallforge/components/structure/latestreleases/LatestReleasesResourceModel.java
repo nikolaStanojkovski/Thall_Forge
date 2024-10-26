@@ -10,9 +10,10 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public interface LatestReleasesResourceModel {
 
     @ValueMapValue
-    @Default(values = "Download")
-    String getDownloadLabel();
+    @Default(values = "Latest Releases")
+    String getTitle();
 
     @ValueMapValue
-    String getAlbumPath();
+    @Default(intValues = 10)
+    int getLimit();
 }
