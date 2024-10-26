@@ -5,6 +5,7 @@ import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
 import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
+import com.musicdistribution.thallforge.utils.DateTimeUtils;
 import com.musicdistribution.thallforge.utils.ImageUtils;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -75,7 +76,9 @@ public class AlbumMetadataViewModelProvider implements ViewModelProvider<AlbumMe
     }
 
     private String getAlbumReleaseDate(AlbumMetadataResourceModel resourceModel) {
-        return StringUtils.EMPTY;
+        return Optional.ofNullable(resourceModel.getDate())
+                .map(date -> DateTimeUtils.getFormattedDate(ThallforgeConstants.Date.DATE_FORMAT, date))
+                .orElse(StringUtils.EMPTY);
     }
 
     private String getAlbumTitle(@Nullable Resource albumContentResource) {

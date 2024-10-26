@@ -16,6 +16,11 @@ public final class ThallforgeConstants {
         public static final int DEFAULT_LIMIT = 10;
     }
 
+    public static final class Date {
+
+        public static final String DATE_FORMAT = "dd.MM.yyyy";
+    }
+
     public static final class Extensions {
 
         public static final String JSON = "json";
