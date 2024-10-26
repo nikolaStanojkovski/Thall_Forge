@@ -46,6 +46,11 @@ public final class ThallforgeConstants {
                 "application/psd", "image/vnd.adobe.photoshop");
     }
 
+    public static final class MetadataSchema {
+
+        public static final String ALBUM_METADATA_SCHEMA = "/conf/global/settings/dam/adminui-extension/foldermetadataschema/album-schema";
+    }
+
     public static final class ResourceTypes {
 
         public static final String MUSIC_PLAYER = "thallforge/components/content/musicplayer";

@@ -2,6 +2,7 @@ package com.musicdistribution.thallforge.components.content.genreexplorer;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.genre.Genre;
+import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
@@ -84,6 +85,8 @@ public class GenreExplorerViewModelProvider implements ViewModelProvider<GenreEx
         StringBuilder sb = new StringBuilder();
         String genre = Optional.ofNullable(resourceModel.getGenre()).orElse(StringUtils.EMPTY);
         sb.append("SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') ");
+        sb.append(String.format("AND albumNode.[jcr:content/folderMetadataSchema] = '%s'",
+                ThallforgeConstants.MetadataSchema.ALBUM_METADATA_SCHEMA));
         sb.append(String.format("AND albumNode.[jcr:content/metadata/genre] = '%s' ", genre));
         if (resourceModel.isSort()) {
             sb.append("ORDER BY albumNode.[jcr:content/jcr:title] DESC ");

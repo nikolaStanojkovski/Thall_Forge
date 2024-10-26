@@ -72,8 +72,9 @@ public class ArtistSpotlightViewModelProvider implements ViewModelProvider<Artis
     }
 
     private String getAlbumSearchQuery(String artistReference) {
-        return "SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') " +
-                String.format("AND albumNode.[jcr:content/metadata/artist] = '%s' ", artistReference);
+        return "SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') "
+                + String.format("AND albumNode.[jcr:content/folderMetadataSchema] = '%s' AND albumNode.[jcr:content/metadata/artist] = '%s'",
+                ThallforgeConstants.MetadataSchema.ALBUM_METADATA_SCHEMA, artistReference);
     }
 
     private ArtistSpotlightViewModel createViewModelWithoutContent() {

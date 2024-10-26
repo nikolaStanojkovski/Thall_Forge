@@ -2,12 +2,8 @@ package com.musicdistribution.thallforge.services.impl;
 
 import com.day.cq.dam.api.Asset;
 import com.day.cq.dam.commons.util.DamUtil;
-import com.drew.lang.annotations.Nullable;
-import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataResourceModel;
 import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModel;
 import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModelProvider;
-import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
-import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
@@ -15,14 +11,12 @@ import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import com.musicdistribution.thallforge.utils.AudioUtils;
-import com.musicdistribution.thallforge.utils.ImageUtils;
 import com.musicdistribution.thallforge.utils.QueryUtils;
 import com.musicdistribution.thallforge.utils.ResourceUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
-import org.apache.sling.api.resource.ValueMap;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -30,7 +24,6 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -82,7 +75,9 @@ public class AlbumQueryServiceImpl implements AlbumQueryService {
     }
 
     private String getDefaultSearchQuery() {
-        return "SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam')";
+        return "SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam')"
+                + String.format("AND albumNode.[jcr:content/folderMetadataSchema] = '%s'",
+                ThallforgeConstants.MetadataSchema.ALBUM_METADATA_SCHEMA);
     }
 
     private AlbumViewModel getAlbumViewModel(Resource resultResource, ResourceResolver resourceResolver) {
