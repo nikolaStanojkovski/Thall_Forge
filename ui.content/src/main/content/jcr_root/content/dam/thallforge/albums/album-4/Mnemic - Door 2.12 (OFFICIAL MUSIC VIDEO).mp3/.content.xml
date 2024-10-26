@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        dam:assetState="processed"
+        jcr:lastModified="{Date}2024-10-21T23:00:08.474+02:00"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:extracted="{Date}2024-10-21T23:00:06.587+02:00"
+            dam:sha1="ac9d7d1c4d101f0ad86bb19e1ea034bd1a8807ce"
+            dam:size="{Long}4980538"
+            dc:format="audio/mpeg"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
