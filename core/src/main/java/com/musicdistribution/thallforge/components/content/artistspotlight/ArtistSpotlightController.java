@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.components.content.albumtracklist;
+package com.musicdistribution.thallforge.components.content.artistspotlight;
 
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
@@ -11,26 +11,26 @@ import org.apache.sling.models.annotations.injectorspecific.Self;
 import javax.annotation.PostConstruct;
 
 @Model(adaptables = Resource.class)
-public class AlbumTrackListController {
+public class ArtistSpotlightController {
 
     @Self
     private Resource resource;
 
     @OSGiService
-    private AlbumQueryService albumQueryService;
-
-    @OSGiService
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
 
+    @OSGiService
+    private AlbumQueryService albumQueryService;
+
     @Getter
-    private AlbumTrackListViewModel model;
+    private ArtistSpotlightViewModel model;
 
     @PostConstruct
     private void init() {
-        model = AlbumTrackListViewModelProvider.builder()
+        model = ArtistSpotlightViewModelProvider.builder()
                 .resource(resource)
-                .albumQueryService(albumQueryService)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)
+                .albumQueryService(albumQueryService)
                 .build()
                 .getViewModel();
     }

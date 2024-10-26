@@ -3,7 +3,7 @@ package com.musicdistribution.thallforge.components.content.albumtracklist;
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
-import com.musicdistribution.thallforge.services.AlbumTrackListService;
+import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.utils.ImageUtils;
 import lombok.AccessLevel;
@@ -29,7 +29,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     private final ResourceResolverRetrievalService resourceResolverRetrievalService;
 
     @NonNull
-    private final AlbumTrackListService albumTrackListService;
+    private final AlbumQueryService albumQueryService;
 
     @Override
     public AlbumTrackListViewModel getViewModel() {
@@ -55,7 +55,7 @@ public class AlbumTrackListViewModelProvider implements ViewModelProvider<AlbumT
     private AlbumTrackListViewModel createViewModelWithContent(AlbumTrackListResourceModel resourceModel,
                                                                Resource albumContentResource, String albumPath,
                                                                ResourceResolver resourceResolver) {
-        List<AudioViewModel> tracks = albumTrackListService.getTracks(albumPath);
+        List<AudioViewModel> tracks = albumQueryService.getTracks(albumPath);
         return AlbumTrackListViewModel.builder()
                 .title(getAlbumTitle(albumContentResource))
                 .thumbnail(getAlbumThumbnail(albumContentResource, resourceResolver))
