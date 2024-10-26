@@ -17,6 +17,11 @@
             editable="{Boolean}true">
             <cq:responsive jcr:primaryType="nt:unstructured"/>
         </main>
+        <latestreleases
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/structure/latestreleases"
+                editable="{Boolean}true">
+        </latestreleases>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone

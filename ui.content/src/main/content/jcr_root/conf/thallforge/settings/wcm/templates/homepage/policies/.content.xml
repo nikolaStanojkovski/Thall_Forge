@@ -21,6 +21,11 @@
             sling:resourceType="wcm/core/components/policies/mapping"
             cq:policy="wcm/foundation/components/main/thallforge-home-page">
         </main>
+        <latestreleases
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/core/components/policies/mapping"
+                cq:policy="thallforge/components/structure/latestreleases/policy_latestreleases">
+        </latestreleases>
         <experiencefragment-footer
             cq:policy="thallforge/components/core/experiencefragment/policy_footer"
             jcr:primaryType="nt:unstructured"

@@ -286,6 +286,17 @@
                     </policy>
                 </page>
             </core>
+            <structure jcr:primaryType="nt:unstructured">
+                <latestreleases jcr:primaryType="nt:unstructured">
+                    <policy_latestreleases
+                            cq:styleDefaultElement="footer"
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Latest Releases"
+                            sling:resourceType="wcm/core/components/policy/policy">
+                        <jcr:content jcr:primaryType="nt:unstructured"/>
+                    </policy_latestreleases>
+                </latestreleases>
+            </structure>
         </components>
     </thallforge>
 </jcr:root>

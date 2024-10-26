@@ -10,5 +10,8 @@
         <main
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/foundation/components/responsivegrid"/>
+        <latestreleases
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/structure/latestreleases"/>
     </jcr:content>
 </jcr:root>
