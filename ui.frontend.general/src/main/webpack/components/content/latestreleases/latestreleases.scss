@@ -1,0 +1,109 @@
+.latest-releases-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  color: #fff;
+  position: relative;
+
+  .carousel-title {
+    font-size: 1.8em;
+    color: #ff7f00;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  .carousel-track-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1em;  // Spacing between items
+    transition: transform 0.4s ease;
+  }
+
+  .carousel-item {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 1em;
+    width: 200px;
+    text-align: center;
+    flex-shrink: 0;
+
+    .album-image {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    .album-info {
+      margin-top: 0.5em;
+
+      .album-title {
+        font-size: 1em;
+        color: #ff7f00;
+        font-weight: bold;
+        margin: 0.5em 0;
+      }
+
+      .album-release-date {
+        font-size: 0.9em;
+        color: #bbb;
+      }
+    }
+  }
+
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;  // Adjusted size for better fit
+    height: 40px;
+    border-radius: 50%;
+    background-color: #000;  // Initial background color
+    color: #ff7f00;
+    font-size: 1.2em;  // Adjusted for smaller size
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: #ff7f00;
+      color: #fff;
+    }
+
+    &.prev {
+      left: 10px;  // Positioned within carousel bounds
+    }
+
+    &.next {
+      right: 10px;
+    }
+  }
+
+  .carousel-dots {
+    text-align: center;
+    margin-top: 1em;
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &.active {
+        background-color: #ff7f00;
+      }
+    }
+  }
+}
