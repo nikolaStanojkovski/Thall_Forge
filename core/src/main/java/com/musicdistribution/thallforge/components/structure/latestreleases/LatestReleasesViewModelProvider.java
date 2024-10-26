@@ -1,6 +1,7 @@
 package com.musicdistribution.thallforge.components.structure.latestreleases;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
+import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
@@ -8,7 +9,6 @@ import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
 
@@ -39,12 +39,19 @@ public class LatestReleasesViewModelProvider implements ViewModelProvider<Latest
     private LatestReleasesViewModel createViewModel(ResourceResolver resourceResolver,
                                                     LatestReleasesResourceModel resourceModel) {
         List<AlbumViewModel> albums = albumQueryService
-                .getAlbums(resourceResolver, StringUtils.EMPTY, resourceModel.getLimit());
+                .getAlbums(resourceResolver, getAlbumSearchQuery(), resourceModel.getLimit());
         return LatestReleasesViewModel.builder()
                 .title(resourceModel.getTitle())
                 .albums(albums)
                 .hasContent(!albums.isEmpty())
                 .build();
+    }
+
+    private String getAlbumSearchQuery() {
+        return "SELECT * FROM [nt:folder] AS albumNode WHERE ISDESCENDANTNODE(albumNode, '/content/dam') " +
+                String.format("AND albumNode.[jcr:content/folderMetadataSchema] = '%s'",
+                        ThallforgeConstants.MetadataSchema.ALBUM_METADATA_SCHEMA) +
+                "ORDER BY albumNode.[jcr:content/metadata/date] DESC";
     }
 
     private LatestReleasesViewModel createViewModelWithoutContent() {

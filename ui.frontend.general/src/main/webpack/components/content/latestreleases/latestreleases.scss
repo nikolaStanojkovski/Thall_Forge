@@ -1,5 +1,5 @@
 .mdl-latest-releases {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
   background-color: #2a2a2a;
@@ -11,6 +11,7 @@
     font-size: 1.8em;
     color: #ff7f00;
     margin-bottom: 1em;
+    margin-top: 0.5em;
     text-align: center;
   }
 
@@ -50,8 +51,8 @@
         }
 
         &__album-artist {
-          font-size: 0.6em;
-          color: #ccc;
+          font-size: 1em;
+          color: white;
           margin: 0.5em 0;
         }
 
