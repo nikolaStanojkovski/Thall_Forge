@@ -4,7 +4,6 @@
     $.validator.register("foundation.validation.validator", {
         selector: "coral-multifield",
         validate: function(el) {
-
             var totalPanels = el["0"].items.getAll().length;
             var min;
             var max;
