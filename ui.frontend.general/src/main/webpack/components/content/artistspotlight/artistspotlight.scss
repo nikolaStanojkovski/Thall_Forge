@@ -10,14 +10,12 @@
   gap: 1.5em;
 
   &__artist-info {
-
     display: flex;
     align-items: center;
     gap: 1em;
   }
 
   &__artist-image {
-
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -25,13 +23,12 @@
   }
 
   &__artist-name {
-
+    color: #ff7f00;
     font-size: 1.8em;
     font-weight: bold;
   }
 
   &__artist-bio {
-
     font-size: 1em;
     line-height: 1.4;
     color: #bbb;
@@ -39,7 +36,6 @@
   }
 
   &__artist-albums {
-
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -47,13 +43,13 @@
     &__albums-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5em;
+      gap: 1em;
 
       &__album-item {
         background-color: #1a1a1a;
         padding: 1em;
         border-radius: 6px;
-        width: calc(33.33% - 1em);
+        width: calc(33.33% - 0.67em);
         text-align: center;
         flex-shrink: 0;
       }
@@ -68,12 +64,12 @@
 
       &__album-name {
         margin-top: 0.5em;
+        margin-bottom: 0.5em;
         font-size: 1em;
         font-weight: bold;
       }
 
       &__songs-list {
-        margin-top: 0.5em;
         display: flex;
         flex-direction: column;
         gap: 0.4em;
