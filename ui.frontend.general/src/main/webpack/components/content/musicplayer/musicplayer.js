@@ -61,10 +61,12 @@
                 audioPlayer.loop = isRepeat;
             });
 
-            // Shuffle functionality
-            shuffleBtn.addEventListener('click', function () {
-                fetchRandomTrack(element, audioPlayer, seekBar, trackDuration);
-            });
+            if (shuffleBtn) {
+                // Shuffle functionality
+                shuffleBtn.addEventListener('click', function () {
+                    fetchRandomTrack(element, audioPlayer, seekBar, trackDuration);
+                });
+            }
         }
 
         function fetchRandomTrack(element, audioPlayer, seekBar, trackDuration) {
