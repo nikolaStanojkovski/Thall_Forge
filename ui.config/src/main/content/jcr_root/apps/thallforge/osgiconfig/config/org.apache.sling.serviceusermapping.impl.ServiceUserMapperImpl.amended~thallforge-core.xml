@@ -2,4 +2,4 @@
 <jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
           xmlns:jcr="http://www.jcp.org/jcr/1.0"
           jcr:primaryType="sling:OsgiConfig"
-          user.mapping="[thallforge.core:user-admin-service=user-admin-service,thallforge.core:user-dam-service=user-dam-service]"/>
+          user.mapping="[thallforge.core:user-admin-service=user-admin-service,thallforge.core:user-dam-service=user-dam-service,thallforge.core:user-content-reader-service=user-content-reader-service]"/>

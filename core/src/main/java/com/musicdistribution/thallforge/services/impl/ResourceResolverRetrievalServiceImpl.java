@@ -17,6 +17,7 @@ public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRet
 
     private static final String ADMIN_SERVICE_NAME = "user-admin-service";
     private static final String DAM_SERVICE_NAME = "user-dam-service";
+    private static final String CONTENT_READER_SERVICE_NAME = "user-content-reader-service";
 
     @Reference
     private ResourceResolverFactory resourceResolverFactory;
@@ -31,6 +32,12 @@ public class ResourceResolverRetrievalServiceImpl implements ResourceResolverRet
     public Optional<ResourceResolver> getContentDamResourceResolver() {
         return getResourceResolver(Map.of(
                 ResourceResolverFactory.SUBSERVICE, DAM_SERVICE_NAME));
+    }
+
+    @Override
+    public Optional<ResourceResolver> getContentReaderResourceResolver() {
+        return getResourceResolver(Map.of(
+                ResourceResolverFactory.SUBSERVICE, CONTENT_READER_SERVICE_NAME));
     }
 
     private Optional<ResourceResolver> getResourceResolver(Map<String, Object> serviceParams) {

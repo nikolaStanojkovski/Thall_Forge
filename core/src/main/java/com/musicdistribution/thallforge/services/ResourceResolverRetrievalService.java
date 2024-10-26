@@ -9,4 +9,6 @@ public interface ResourceResolverRetrievalService {
     Optional<ResourceResolver> getAdministrativeResourceResolver();
 
     Optional<ResourceResolver> getContentDamResourceResolver();
+
+    Optional<ResourceResolver> getContentReaderResourceResolver();
 }

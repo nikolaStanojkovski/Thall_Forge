@@ -41,8 +41,8 @@
                                             <downloadLabel
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
-                                                    fieldDescription="If not configured, the default label 'Download' is taken"
-                                                    fieldLabel="Download Label"
+`                                                    fieldDescription="If not configured, the default label 'Download' is taken"
+`                                                    fieldLabel="Download Label"
                                                     name="./downloadLabel"/>
                                         </items>
                                     </column>

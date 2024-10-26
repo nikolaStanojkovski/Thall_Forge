@@ -1,5 +1,5 @@
 #base=js
 
-requiredvalidation.js
+itemlimit.js
 showhidedialogfields.js
 showhidedialogfieldstabs.js
