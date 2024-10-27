@@ -1,5 +1,6 @@
 .mdl-artist-profiles {
   max-width: 1200px;
+  width: 100%;
   margin: 20px auto;
   padding: 15px;
   border: 1px solid #444;
@@ -57,7 +58,9 @@
           display: flex;
           align-items: flex-start;
           gap: 15px;
-          flex-wrap: wrap;
+
+          flex-direction: row;
+          flex-wrap: nowrap;
 
           &__artist-image {
             width: 100px;
@@ -98,9 +101,9 @@
     padding: 10px;
   }
 
-  .mdl-artist-profiles__accordion .artist-profiles-item__content__artist-info {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .mdl-artist-profiles__accordion .artistprofilesitem__content__artist-info {
+    flex-direction: column; /* Change to column for smaller screens */
+    align-items: center; /* Center aligns items */
+    text-align: center; /* Center text for better visibility */
   }
 }
