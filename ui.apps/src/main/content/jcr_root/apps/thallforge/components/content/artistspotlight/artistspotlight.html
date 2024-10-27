@@ -14,8 +14,7 @@
     <div class="artist-spotlight__artist-albums">
         <div class="artist-spotlight__artist-albums__albums-list"
              data-sly-list.album="${controller.model.albums}">
-            <div class="artist-spotlight__artist-albums__albums-list__album-item"
-                 data-sly-test="${album.hasContent}">
+            <div class="artist-spotlight__artist-albums__albums-list__album-item">
                 <img class="artist-spotlight__artist-albums__albums-list__album-image"
                      data-sly-attribute.alt="${album.title}"
                      data-sly-attribute.src="${album.thumbnail}"/>
