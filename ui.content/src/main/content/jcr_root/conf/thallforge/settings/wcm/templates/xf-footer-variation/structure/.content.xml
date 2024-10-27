@@ -3,7 +3,7 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/thallforge/settings/wcm/templates/xf-header-variation"
+        cq:template="/conf/thallforge/settings/wcm/templates/xf-footer-variation"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="thallforge/pages/basepage">
         <footer
