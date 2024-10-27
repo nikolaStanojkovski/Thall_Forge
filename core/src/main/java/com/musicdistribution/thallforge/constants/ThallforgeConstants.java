@@ -58,8 +58,15 @@ public final class ThallforgeConstants {
 
     public static final class Paths {
         public static final String CONTENT = "/content";
-        public static final String ETC = "/etc";
+        public static final String VAR = "/var";
         public static final String CONTENT_DAM = CONTENT + "/dam";
-        public static final String ETC_THALLFORGE = ETC + "/thallforge";
+        public static final String VAR_THALLFORGE = VAR + "/thallforge";
+        public static final String VAR_THALLFORGE_TOP_FANS = VAR_THALLFORGE + "/topfans";
+    }
+
+    public static final class Session {
+        public static final String INTERACTION_COUNT_ATTR = "interactionCount";
+        public static final String BANNER_DISPLAY_ATTR = "bannerDisplay";
+        public static final String BANNER_DISPLAY_LOCKED_ATTR = "bannerDisplayLocked";
     }
 }

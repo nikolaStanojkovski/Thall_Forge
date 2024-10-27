@@ -34,7 +34,7 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
     }
 
     private void updateArtistDropdownOptionsData(ResourceResolver resourceResolver) {
-        Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.ETC_THALLFORGE))
+        Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.VAR_THALLFORGE))
                 .ifPresent(parentResource -> {
                     try {
                         removeCurrentResource(resourceResolver, parentResource);

@@ -1,0 +1,40 @@
+.top-fans-banner {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 600px;
+  padding: 15px 20px;
+  background-color: #2a2a2a;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.5s ease-in;
+
+  &__message {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  &__close-btn {
+    background: #e67e22;
+    border: none;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #cc6f1b;
+    }
+  }
+}
