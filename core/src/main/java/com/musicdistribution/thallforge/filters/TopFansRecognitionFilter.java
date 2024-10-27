@@ -53,6 +53,8 @@ public class TopFansRecognitionFilter implements Filter {
             if (interactionCount != null) {
                 updateInteractionCount(userSession, interactionCount);
                 userSession.setAttribute(ThallforgeConstants.Session.INTERACTION_COUNT_ATTR, interactionCount + 1);
+            } else {
+                userSession.setAttribute(ThallforgeConstants.Session.INTERACTION_COUNT_ATTR, 1L);
             }
         }
         filterChain.doFilter(request, response);
