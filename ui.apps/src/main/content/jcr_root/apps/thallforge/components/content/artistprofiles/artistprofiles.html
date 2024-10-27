@@ -1,0 +1,13 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistprofiles.ArtistProfilesController"></sly>
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+        class="mdl-artist-profiles"
+     data-cmp-is="artistprofiles">
+    <h2 class="mdl-artist-profiles__title">${controller.model.title}</h2>
+    <div class="mdl-artist-profiles__accordion">
+        <sly data-sly-test.hasContent="${controller.model.hasContent}"
+            data-sly-resource="${@path=controller.model.footerExperienceFragmentPath, selectors='content', wcmmode='disabled'}">
+        </sly>
+    </div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
