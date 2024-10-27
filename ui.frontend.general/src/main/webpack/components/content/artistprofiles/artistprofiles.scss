@@ -23,6 +23,9 @@
       border-bottom: 1px solid #444;
       margin-bottom: 10px;
 
+      display: flex;
+      flex-direction: column;
+
       &__header {
         cursor: pointer;
         padding: 12px 15px;
@@ -46,7 +49,7 @@
         background-color: #3b3b3b;
         color: #cccccc;
 
-        .active {
+        &.active {
           display: block;
         }
 
@@ -54,6 +57,7 @@
           display: flex;
           align-items: flex-start;
           gap: 15px;
+          flex-wrap: wrap;
 
           &__artist-image {
             width: 100px;
@@ -67,7 +71,7 @@
             font-size: 16px;
             color: #cccccc;
             margin: 0;
-            flex: 1; /* Allows biography to expand if needed */
+            flex: 1;
           }
         }
 
@@ -76,11 +80,27 @@
           color: #e67e22;
           margin-top: 10px;
 
+          .filled {
+            color: #e67e22;
+          }
+
           .empty {
             color: #cccccc;
           }
         }
       }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .mdl-artist-profiles {
+    padding: 10px;
+  }
+
+  .mdl-artist-profiles__accordion .artist-profiles-item__content__artist-info {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }
