@@ -3,12 +3,12 @@ package com.musicdistribution.thallforge.filters;
 import com.day.cq.wcm.api.Page;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
+import com.musicdistribution.thallforge.services.SystemConfigurationService;
 import com.musicdistribution.thallforge.services.TopFansRecognitionService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.sling.api.SlingHttpServletRequest;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.engine.EngineConstants;
-import org.apache.sling.servlets.annotations.SlingServletFilterScope;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 
@@ -38,12 +38,15 @@ public class TopFansRecognitionFilter implements Filter {
     @Reference
     private TopFansRecognitionService topFansRecognitionService;
 
+    @Reference
+    private SystemConfigurationService systemConfigurationService;
+
     @Override
     public void doFilter(final ServletRequest request,
                          final ServletResponse response,
                          final FilterChain filterChain) throws IOException, ServletException {
         final SlingHttpServletRequest slingRequest = (SlingHttpServletRequest) request;
-        if (isCurrentRequestFromPage(slingRequest)) {
+        if (systemConfigurationService.isPublish() && isCurrentRequestFromPage(slingRequest)) {
             HttpSession userSession = getUserSession(slingRequest);
             resetBannerDisplay(userSession);
             final Long interactionCount = (Long) userSession.getAttribute(ThallforgeConstants.Session.INTERACTION_COUNT_ATTR);
