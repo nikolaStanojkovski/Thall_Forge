@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.pages.xffootervariation;
+package com.musicdistribution.thallforge.components.structure.experiencefragments.xffooter;
 
 import com.day.cq.wcm.api.Page;
 import com.musicdistribution.thallforge.components.ViewModelProvider;

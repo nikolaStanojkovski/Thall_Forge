@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.pages.xfheadervariation;
+package com.musicdistribution.thallforge.components.structure.experiencefragments.xfheader;
 
 import lombok.Builder;
 import lombok.Data;

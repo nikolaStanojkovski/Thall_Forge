@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.pages.xfheadervariation;
+package com.musicdistribution.thallforge.components.structure.experiencefragments.xfheader;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;

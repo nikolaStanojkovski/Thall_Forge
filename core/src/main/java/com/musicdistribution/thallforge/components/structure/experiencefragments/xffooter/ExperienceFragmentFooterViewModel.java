@@ -1,4 +1,4 @@
-package com.musicdistribution.thallforge.pages.xffootervariation;
+package com.musicdistribution.thallforge.components.structure.experiencefragments.xffooter;
 
 import lombok.Builder;
 import lombok.Data;

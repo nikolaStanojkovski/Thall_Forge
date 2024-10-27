@@ -8,7 +8,7 @@
         jcr:description="Thallforge Home Page Template"
         jcr:primaryType="cq:PageContent"
         jcr:title="Thallforge Home Page"
-        allowedPaths="[/content/(?!experience-fragments).*]"
+        allowedPaths="[/content/.*]"
         allowedParents="[/conf/thallforge/settings/wcm/templates/tenantpage]"
         status="enabled"/>
 </jcr:root>
