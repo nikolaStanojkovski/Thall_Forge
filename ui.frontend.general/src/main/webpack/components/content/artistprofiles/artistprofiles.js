@@ -18,8 +18,8 @@
                     contentElement.classList.toggle('active');
                 });
             });
-            fillStarRating(element
-                .querySelector('.artistprofilesitem__content__star-rating'));
+            element.querySelectorAll('.artistprofilesitem__content__star-rating')
+                .forEach(accordionItemRating => fillStarRating(accordionItemRating));
         }
 
         function fillStarRating(starRatingItem) {
