@@ -12,14 +12,14 @@
             const element = config.element;
             element.removeAttribute("data-cmp-is");
 
-            element.querySelectorAll('.artistprofilesitem').forEach(accordionItem => {
-                accordionItem.addEventListener('click', function () {
-                    this.classList.toggle('active');
+            element.querySelectorAll('.mdl-artist-profiles__artistprofilesitem__header').forEach(accordionItemHeader => {
+                accordionItemHeader.addEventListener('click', function () {
+                    const contentElement = this.nextElementSibling;
+                    contentElement.classList.toggle('active');
                 });
-                const starRatingItem = accordionItem
-                    .querySelector('.mdl-artist-profiles__artistprofilesitem__content__star-rating');
-                fillStarRating(starRatingItem);
             });
+            fillStarRating(element
+                .querySelector('.mdl-artist-profiles__artistprofilesitem__content__star-rating'));
         }
 
         function fillStarRating(starRatingItem) {

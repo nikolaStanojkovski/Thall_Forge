@@ -8,7 +8,7 @@
             <img data-sly-attribute.src="${controller.model.artist.image}"
                  data-sly-attribute.alt="${controller.model.artist.name}"
                  class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-image"/>
-            <p class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-biography">${controller.model.artist.biography}</p>
+            <p class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-biography">${controller.model.artist.biography @ context='html'}</p>
         </div>
         <div class="mdl-artist-profiles__artistprofilesitem__content__star-rating"
             data-sly-attribute.data-star-rating="${controller.model.artist.rating}">
