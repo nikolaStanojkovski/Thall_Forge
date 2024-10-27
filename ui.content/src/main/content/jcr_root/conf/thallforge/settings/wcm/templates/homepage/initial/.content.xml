@@ -7,6 +7,9 @@
         jcr:primaryType="cq:PageContent"
         sling:resourceType="thallforge/pages/homepage"
         cq:template="/conf/thallforge/settings/wcm/templates/homepage">
+        <topfansbanner
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/structure/topfansbanner"/>
         <experiencefragment-header
                 jcr:primaryType="nt:unstructured"
                 sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
