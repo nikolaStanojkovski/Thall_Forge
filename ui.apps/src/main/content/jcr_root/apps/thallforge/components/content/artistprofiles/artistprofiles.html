@@ -1,11 +1,10 @@
 <sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistprofiles.ArtistProfilesController"></sly>
 <div data-sly-test.hasContent="${controller.model.hasContent}"
-        class="mdl-artist-profiles"
+     class="mdl-artist-profiles"
      data-cmp-is="artistprofiles">
     <h2 class="mdl-artist-profiles__title">${controller.model.title}</h2>
     <div class="mdl-artist-profiles__accordion">
-        <sly data-sly-test.hasContent="${controller.model.hasContent}"
-            data-sly-resource="${@path=controller.model.footerExperienceFragmentPath, selectors='content', wcmmode='disabled'}">
+        <sly data-sly-resource="${'artist-profiles-grid', @ resourceType='wcm/foundation/components/responsivegrid'}">
         </sly>
     </div>
 </div>

@@ -16,6 +16,16 @@
             jcr:primaryType="nt:unstructured"
             sling:resourceType="wcm/core/components/policies/mapping"
             cq:policy="wcm/foundation/components/main/thallforge-home-page">
+            <thallforge jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <content jcr:primaryType="nt:unstructured">
+                        <artistprofiles
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"
+                                cq:policy="thallforge/components/content/artistprofiles/policy_artistprofiles"/>
+                    </content>
+                </components>
+            </thallforge>
         </main>
     </jcr:content>
 </jcr:root>
