@@ -8,6 +8,6 @@
         cq:templateType="/conf/thallforge/settings/wcm/template-types/empty-page"
         jcr:primaryType="cq:PageContent"
         jcr:title="Thallforge Tenant Page"
-        allowedPaths="[/content/.*]"
+        allowedPaths="[/content/?]"
         status="enabled"/>
 </jcr:root>
