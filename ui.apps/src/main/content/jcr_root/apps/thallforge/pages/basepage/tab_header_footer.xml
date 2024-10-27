@@ -6,7 +6,7 @@
           cq:showOnCreate="{Boolean}true"
           jcr:primaryType="nt:unstructured"
           jcr:title="Header &#38; Footer"
-          sling:resourceType="cq/gui/components/authoring/dialog">
+          sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
     <items jcr:primaryType="nt:unstructured">
         <column
                 jcr:primaryType="nt:unstructured"
