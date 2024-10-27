@@ -2,7 +2,8 @@
     "use strict";
 
     let selectors = {
-        self: '[data-cmp-is="artistprofiles"]'
+        self: '[data-cmp-is="artistprofiles"]',
+        starRatingAttr: 'data-star-rating'
     };
 
     function ArtistProfiles(config) {
@@ -12,12 +13,33 @@
             element.removeAttribute("data-cmp-is");
 
             element.querySelectorAll('.artistprofilesitem').forEach(accordionItem => {
-                accordionItem.addEventListener('click', function() {
-                    const content = this.nextElementSibling;
-                    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+                accordionItem.addEventListener('click', function () {
                     this.classList.toggle('active');
                 });
+                const starRatingItem = accordionItem
+                    .querySelector('.mdl-artist-profiles__artistprofilesitem__content__star-rating');
+                fillStarRating(starRatingItem);
             });
+        }
+
+        function fillStarRating(starRatingItem) {
+            const rating = parseInt(starRatingItem.getAttribute(selectors.starRatingAttr), 10);
+            const maxStars = 5;
+            starRatingItem.innerHTML = '';
+
+            for (let i = 0; i < rating; i++) {
+                const filledStar = document.createElement('span');
+                filledStar.className = 'filled';
+                filledStar.textContent = '★';
+                starRatingItem.appendChild(filledStar);
+            }
+
+            for (let i = rating; i < maxStars; i++) {
+                const emptyStar = document.createElement('span');
+                emptyStar.className = 'empty';
+                emptyStar.textContent = '★';
+                starRatingItem.appendChild(emptyStar);
+            }
         }
 
         if (config && config.element) {

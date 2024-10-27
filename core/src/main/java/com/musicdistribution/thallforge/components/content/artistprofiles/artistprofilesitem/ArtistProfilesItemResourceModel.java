@@ -10,9 +10,5 @@ import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
 public interface ArtistProfilesItemResourceModel {
 
     @ValueMapValue
-    @Default(values = "Download")
-    String getDownloadLabel();
-
-    @ValueMapValue
-    String getAlbumPath();
+    String getArtistReference();
 }

@@ -1,6 +1,7 @@
 package com.musicdistribution.thallforge.components.content.artistprofiles.artistprofilesitem;
 
 import com.musicdistribution.thallforge.services.AlbumQueryService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.Getter;
 import org.apache.sling.api.resource.Resource;
@@ -17,7 +18,7 @@ public class ArtistProfilesItemController {
     private Resource resource;
 
     @OSGiService
-    private AlbumQueryService albumQueryService;
+    private ArtistQueryService artistQueryService;
 
     @OSGiService
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
@@ -29,7 +30,7 @@ public class ArtistProfilesItemController {
     private void init() {
         model = ArtistProfilesItemViewModelProvider.builder()
                 .resource(resource)
-                .albumQueryService(albumQueryService)
+                .artistQueryService(artistQueryService)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)
                 .build()
                 .getViewModel();

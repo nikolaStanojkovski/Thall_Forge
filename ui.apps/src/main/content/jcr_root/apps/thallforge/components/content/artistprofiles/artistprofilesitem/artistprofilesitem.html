@@ -1,19 +1,17 @@
 <sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistprofiles.artistprofilesitem.ArtistProfilesItemController"></sly>
 <sly data-sly-test.hasContent="${controller.model.hasContent}">
     <div class="mdl-artist-profiles__artistprofilesitem__header" data-toggle="accordion">
-        <h3 class="mdl-artist-profiles__artistprofilesitem__header__artist-name">Artist Name 1</h3>
+        <h3 class="mdl-artist-profiles__artistprofilesitem__header__artist-name">${controller.model.artist.name}</h3>
     </div>
     <div class="mdl-artist-profiles__artistprofilesitem__content">
         <div class="mdl-artist-profiles__artistprofilesitem__content__artist-info">
-            <img src="https://dcblog.b-cdn.net/wp-content/uploads/2021/02/Full-form-of-URL-1.jpg" alt="Artist Name 1" class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-image"/>
-            <p class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-biography">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur eleifend eros vitae neque ullamcorper elementum. Nunc rhoncus felis ex, at sodales felis volutpat et. Mauris aliquam sed nisl eu aliquet. Pellentesque ipsum neque. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur eleifend eros vitae neque ullamcorper elementum. Nunc rhoncus felis ex, at sodales felis volutpat et. Mauris aliquam sed nisl eu aliquet. Pellentesque ipsum neque, bibendum eget diam sodales, dictum vulputate velit. Maecenas in tellus vulputate, placerat orci id, faucibus ipsum. Praesent in orci id elit suscipit pharetra.</p>
+            <img data-sly-attribute.src="${controller.model.artist.image}"
+                 data-sly-attribute.alt="${controller.model.artist.name}"
+                 class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-image"/>
+            <p class="mdl-artist-profiles__artistprofilesitem__content__artist-info__artist-biography">${controller.model.artist.biography}</p>
         </div>
-        <div class="mdl-artist-profiles__artistprofilesitem__content__star-rating">
-            <span class="filled">★</span>
-            <span class="filled">★</span>
-            <span class="filled">★</span>
-            <span class="filled">★</span>
-            <span class="empty">★</span>
+        <div class="mdl-artist-profiles__artistprofilesitem__content__star-rating"
+            data-sly-attribute.data-star-rating="${controller.model.artist.rating}">
         </div>
     </div>
 </sly>

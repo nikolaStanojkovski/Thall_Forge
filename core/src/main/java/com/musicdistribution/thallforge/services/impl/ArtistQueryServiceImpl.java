@@ -23,13 +23,7 @@ public class ArtistQueryServiceImpl implements ArtistQueryService {
     private ResourceResolverRetrievalService resourceResolverRetrievalService;
 
     @Override
-    public List<ArtistContentFragmentViewModel> getAvailableArtists() {
-        return resourceResolverRetrievalService.getContentDamResourceResolver()
-                .map(this::getArtists)
-                .orElse(Collections.emptyList());
-    }
-
-    private List<ArtistContentFragmentViewModel> getArtists(ResourceResolver resourceResolver) {
+    public List<ArtistContentFragmentViewModel> getAvailableArtists(ResourceResolver resourceResolver) {
         return Optional.ofNullable(resourceResolver.getResource(ThallforgeConstants.Paths.CONTENT_DAM))
                 .map(ResourceUtils::getAllChildren)
                 .map(childrenStream -> childrenStream
@@ -37,6 +31,13 @@ public class ArtistQueryServiceImpl implements ArtistQueryService {
                         .filter(ArtistContentFragmentViewModel::isHasContent)
                         .collect(Collectors.toList())
                 ).orElse(Collections.emptyList());
+    }
+
+    @Override
+    public Optional<ArtistContentFragmentViewModel> getArtistData(ResourceResolver resourceResolver, String artistReference) {
+        return Optional.ofNullable(resourceResolver.getResource(artistReference))
+                .map(artistContentFragmentResource -> getArtist(resourceResolver, artistContentFragmentResource))
+                .filter(ArtistContentFragmentViewModel::isHasContent);
     }
 
     private ArtistContentFragmentViewModel getArtist(ResourceResolver resourceResolver,

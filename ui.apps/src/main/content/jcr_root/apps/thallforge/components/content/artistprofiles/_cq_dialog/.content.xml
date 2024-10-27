@@ -33,7 +33,7 @@
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldLabel="Title"
-                                                    fieldDescription="If not configured, the default label 'Artist Profiles' is taken"
+                                                    required="{Boolean}true"
                                                     name="./title"/>
                                         </items>
                                     </column>

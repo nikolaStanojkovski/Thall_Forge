@@ -1,10 +1,8 @@
 package com.musicdistribution.thallforge.components.content.artistprofiles.artistprofilesitem;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
-import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModel;
-import com.musicdistribution.thallforge.components.shared.album.AlbumMetadataViewModelProvider;
-import com.musicdistribution.thallforge.components.shared.audio.AudioViewModel;
-import com.musicdistribution.thallforge.services.AlbumQueryService;
+import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -12,9 +10,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.sling.api.resource.Resource;
-import org.apache.sling.api.resource.ResourceResolver;
 
-import java.util.List;
 import java.util.Optional;
 
 @Builder
@@ -28,7 +24,7 @@ public class ArtistProfilesItemViewModelProvider implements ViewModelProvider<Ar
     private final ResourceResolverRetrievalService resourceResolverRetrievalService;
 
     @NonNull
-    private final AlbumQueryService albumQueryService;
+    private final ArtistQueryService artistQueryService;
 
     @Override
     public ArtistProfilesItemViewModel getViewModel() {
@@ -39,31 +35,21 @@ public class ArtistProfilesItemViewModelProvider implements ViewModelProvider<Ar
     }
 
     private boolean hasContent(ArtistProfilesItemResourceModel resourceModel) {
-        return StringUtils.isNotBlank(resourceModel.getAlbumPath());
+        return StringUtils.isNotBlank(resourceModel.getArtistReference());
     }
 
     private ArtistProfilesItemViewModel createViewModel(ArtistProfilesItemResourceModel resourceModel) {
-        String albumPath = resourceModel.getAlbumPath();
+        String artistReference = resourceModel.getArtistReference();
         return resourceResolverRetrievalService.getContentDamResourceResolver()
-                .flatMap(resourceResolver -> Optional.ofNullable(resourceResolver.getResource(albumPath))
-                        .map(albumResource -> createViewModelWithContent(resourceModel, albumResource, albumPath, resourceResolver)))
+                .flatMap(resourceResolver -> artistQueryService.getArtistData(resourceResolver, artistReference)
+                        .map(this::createViewModelWithContent))
                 .orElseGet(this::createViewModelWithoutContent);
     }
 
-    private ArtistProfilesItemViewModel createViewModelWithContent(ArtistProfilesItemResourceModel resourceModel,
-                                                                   Resource albumResource, String albumPath,
-                                                                   ResourceResolver resourceResolver) {
-        List<AudioViewModel> tracks = albumQueryService.getAlbumTracks(resourceResolver, albumPath);
-        AlbumMetadataViewModel albumMetadataViewModel = AlbumMetadataViewModelProvider.builder()
-                .albumResource(albumResource)
-                .resolver(resourceResolver)
-                .build().getViewModel();
+    private ArtistProfilesItemViewModel createViewModelWithContent(ArtistContentFragmentViewModel artist) {
         return ArtistProfilesItemViewModel.builder()
-                .title(albumMetadataViewModel.getTitle())
-                .thumbnail(albumMetadataViewModel.getThumbnail())
-                .downloadLabel(resourceModel.getDownloadLabel())
-                .tracks(tracks)
-                .hasContent(!tracks.isEmpty())
+                .artist(artist)
+                .hasContent(true)
                 .build();
     }
 

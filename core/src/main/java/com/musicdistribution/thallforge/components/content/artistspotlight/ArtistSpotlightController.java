@@ -1,6 +1,7 @@
 package com.musicdistribution.thallforge.components.content.artistspotlight;
 
 import com.musicdistribution.thallforge.services.AlbumQueryService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import lombok.Getter;
 import org.apache.sling.api.resource.Resource;
@@ -22,6 +23,9 @@ public class ArtistSpotlightController {
     @OSGiService
     private AlbumQueryService albumQueryService;
 
+    @OSGiService
+    private ArtistQueryService artistQueryService;
+
     @Getter
     private ArtistSpotlightViewModel model;
 
@@ -31,6 +35,7 @@ public class ArtistSpotlightController {
                 .resource(resource)
                 .resourceResolverRetrievalService(resourceResolverRetrievalService)
                 .albumQueryService(albumQueryService)
+                .artistQueryService(artistQueryService)
                 .build()
                 .getViewModel();
     }

@@ -19,11 +19,13 @@
                     <items jcr:primaryType="nt:unstructured">
                         <headerxf jcr:primaryType="nt:unstructured"
                                   sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                  cq:showOnCreate="{Boolean}true"
                                   fieldLabel="Header Experience Fragment"
                                   name="./headerExperienceFragmentReference"
                                   rootPath="/content/experience-fragments"/>
                         <footerxf jcr:primaryType="nt:unstructured"
                                   sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                  cq:showOnCreate="{Boolean}true"
                                   fieldLabel="Footer Experience Fragment"
                                   name="./footerExperienceFragmentReference"
                                   rootPath="/content/experience-fragments"/>

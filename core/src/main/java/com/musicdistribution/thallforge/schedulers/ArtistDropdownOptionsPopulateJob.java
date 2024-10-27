@@ -68,7 +68,7 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
 
         Map<String, Object> contentProperties = new HashMap<>();
         contentProperties.put("jcr:primaryType", "nt:resource");
-        contentProperties.put("jcr:data", createArtistsByteArray());
+        contentProperties.put("jcr:data", createArtistsByteArray(resourceResolver));
         contentProperties.put("jcr:mimeType", "application/json");
         contentProperties.put("jcr:lastModified", System.currentTimeMillis());
 
@@ -77,13 +77,14 @@ public class ArtistDropdownOptionsPopulateJob implements Runnable {
         resourceResolver.commit();
     }
 
-    private ByteArrayInputStream createArtistsByteArray() {
-        byte[] artistsJsonContent = getArtists().getBytes(StandardCharsets.UTF_8);
+    private ByteArrayInputStream createArtistsByteArray(ResourceResolver resourceResolver) {
+        byte[] artistsJsonContent = getArtists(resourceResolver).getBytes(StandardCharsets.UTF_8);
         return new ByteArrayInputStream(artistsJsonContent);
     }
 
-    private String getArtists() {
-        List<ArtistDropdownOptionViewModel> artists = artistQueryService.getAvailableArtists().stream()
+    private String getArtists(ResourceResolver resourceResolver) {
+        List<ArtistDropdownOptionViewModel> artists = artistQueryService.getAvailableArtists(resourceResolver)
+                .stream()
                 .map(artist -> ArtistDropdownOptionViewModel.builder()
                         .text(artist.getName())
                         .value(artist.getPath())

@@ -2,9 +2,9 @@ package com.musicdistribution.thallforge.components.content.artistspotlight;
 
 import com.musicdistribution.thallforge.components.ViewModelProvider;
 import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModel;
-import com.musicdistribution.thallforge.components.shared.artist.ArtistContentFragmentViewModelProvider;
 import com.musicdistribution.thallforge.constants.ThallforgeConstants;
 import com.musicdistribution.thallforge.services.AlbumQueryService;
+import com.musicdistribution.thallforge.services.ArtistQueryService;
 import com.musicdistribution.thallforge.services.ResourceResolverRetrievalService;
 import com.musicdistribution.thallforge.services.impl.models.AlbumViewModel;
 import lombok.AccessLevel;
@@ -32,6 +32,9 @@ public class ArtistSpotlightViewModelProvider implements ViewModelProvider<Artis
     @NonNull
     private final AlbumQueryService albumQueryService;
 
+    @NonNull
+    private final ArtistQueryService artistQueryService;
+
     @Override
     public ArtistSpotlightViewModel getViewModel() {
         return Optional.ofNullable(resource.adaptTo(ArtistSpotlightResourceModel.class))
@@ -47,28 +50,18 @@ public class ArtistSpotlightViewModelProvider implements ViewModelProvider<Artis
                 resourceResolver,
                 getAlbumSearchQuery(artistReference),
                 ThallforgeConstants.SqlQuery.DEFAULT_LIMIT);
-        ArtistContentFragmentViewModel artistViewModel = getArtistData(artistReference, resourceResolver);
+        Optional<ArtistContentFragmentViewModel> artistViewModel
+                = artistQueryService.getArtistData(resourceResolver, artistReference);
+        if (albums.isEmpty() || artistViewModel.isEmpty()) {
+            return createViewModelWithoutContent();
+        }
         return ArtistSpotlightViewModel.builder()
-                .artistName(artistViewModel.getName())
-                .artistImage(artistViewModel.getImage())
-                .artistBiography(artistViewModel.getBiography())
+                .artistName(artistViewModel.get().getName())
+                .artistImage(artistViewModel.get().getImage())
+                .artistBiography(artistViewModel.get().getBiography())
                 .albums(albums)
-                .hasContent(hasContent(albums, artistViewModel))
+                .hasContent(true)
                 .build();
-    }
-
-    private boolean hasContent(List<AlbumViewModel> albums,
-                               ArtistContentFragmentViewModel artistViewModel) {
-        return !albums.isEmpty() && artistViewModel.isHasContent();
-    }
-
-    private ArtistContentFragmentViewModel getArtistData(String artistReference, ResourceResolver resourceResolver) {
-        return Optional.ofNullable(resourceResolver.getResource(artistReference))
-                .map(artistContentFragmentResource -> ArtistContentFragmentViewModelProvider.builder()
-                        .artistContentFragmentResource(artistContentFragmentResource)
-                        .resolver(resourceResolver)
-                        .build().getViewModel())
-                .orElse(ArtistContentFragmentViewModel.builder().hasContent(false).build());
     }
 
     private String getAlbumSearchQuery(String artistReference) {
