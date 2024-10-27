@@ -1,30 +1,30 @@
 <sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistspotlight.ArtistSpotlightController"></sly>
-<div class="artist-spotlight"
+<div class="mdl-artist-spotlight"
      data-cmp-is="artistspotlight"
      data-sly-test.hasContent="${controller.model.hasContent}">
-    <div class="artist-spotlight__artist-info">
-        <img class="artist-spotlight__artist-image"
+    <div class="mdl-artist-spotlight__artist-info">
+        <img class="mdl-artist-spotlight__artist-image"
              data-sly-attribute.alt="${controller.model.artistName}"
              data-sly-attribute.src="${controller.model.artistImage}"/>
         <div>
-            <h2 class="artist-spotlight__artist-name">${controller.model.artistName}</h2>
-            <p class="artist-spotlight__artist-bio">${controller.model.artistBiography @ context='html'}</p>
+            <h2 class="mdl-artist-spotlight__artist-name">${controller.model.artistName}</h2>
+            <p class="mdl-artist-spotlight__artist-bio">${controller.model.artistBiography @ context='html'}</p>
         </div>
     </div>
-    <div class="artist-spotlight__artist-albums">
-        <div class="artist-spotlight__artist-albums__albums-list"
+    <div class="mdl-artist-spotlight__artist-albums">
+        <div class="mdl-artist-spotlight__artist-albums__albums-list"
              data-sly-list.album="${controller.model.albums}">
-            <div class="artist-spotlight__artist-albums__albums-list__album-item">
-                <img class="artist-spotlight__artist-albums__albums-list__album-image"
+            <div class="mdl-artist-spotlight__artist-albums__albums-list__album-item">
+                <img class="mdl-artist-spotlight__artist-albums__albums-list__album-image"
                      data-sly-attribute.alt="${album.title}"
                      data-sly-attribute.src="${album.thumbnail}"/>
-                <h4 class="artist-spotlight__artist-albums__albums-list__album-name">${album.title}</h4>
-                <div class="artist-spotlight__artist-albums__albums-list__songs-list hidden"
+                <h4 class="mdl-artist-spotlight__artist-albums__albums-list__album-name">${album.title}</h4>
+                <div class="mdl-artist-spotlight__artist-albums__albums-list__songs-list hidden"
                      data-sly-list.song="${album.songs}">
-                    <div class="artist-spotlight__artist-albums__albums-list__songs-list__song-item">
-                        <a class="artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-link"
+                    <div class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item">
+                        <a class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-link"
                            data-sly-attribute.href="${song.link}">
-                            <span class="artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-title">
+                            <span class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-title">
                                 ${song.title}
                             </span>
                         </a>

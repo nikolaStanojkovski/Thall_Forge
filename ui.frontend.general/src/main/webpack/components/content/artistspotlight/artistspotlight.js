@@ -11,9 +11,9 @@
             const element = config.element;
             element.removeAttribute("data-cmp-is");
 
-            document.querySelectorAll('.artist-spotlight__artist-albums__albums-list__album-item').forEach(album => {
+            document.querySelectorAll('.mdl-artist-spotlight__artist-albums__albums-list__album-item').forEach(album => {
                 album.addEventListener('click', () => {
-                    const songsList = album.querySelector('.artist-spotlight__artist-albums__albums-list__songs-list');
+                    const songsList = album.querySelector('.mdl-artist-spotlight__artist-albums__albums-list__songs-list');
                     songsList.classList.toggle('hidden');
                 });
             });
