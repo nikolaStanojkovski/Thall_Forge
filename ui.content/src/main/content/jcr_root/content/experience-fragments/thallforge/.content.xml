@@ -6,6 +6,4 @@
     jcr:primaryType="sling:OrderedFolder"
     jcr:title="Thallforge Fragments"
     sling:configRef="/conf/thallforge">
-    <language-masters/>
-    <us/>
 </jcr:root>

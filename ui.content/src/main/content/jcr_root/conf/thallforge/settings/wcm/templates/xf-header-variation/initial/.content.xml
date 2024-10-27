@@ -3,13 +3,12 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:tags="[experience-fragments:variation/web]"
-        cq:template="/conf/thallforge/settings/wcm/templates/xf-web-variation"
+        cq:template="/conf/thallforge/settings/wcm/templates/xf-header-variation"
         cq:xfVariantType="web"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="thallforge/pages/basepage">
-        <root
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="thallforge/components/core/container"
-            layout="responsiveGrid"/>
+        <header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/structure/header"/>
     </jcr:content>
 </jcr:root>

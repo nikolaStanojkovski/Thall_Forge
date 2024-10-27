@@ -3,14 +3,13 @@
     jcr:primaryType="cq:Page">
     <jcr:content
         cq:deviceGroups="[mobile/groups/responsive]"
-        cq:template="/conf/thallforge/settings/wcm/templates/xf-web-variation"
+        cq:template="/conf/thallforge/settings/wcm/templates/xf-header-variation"
         jcr:primaryType="cq:PageContent"
         sling:resourceType="thallforge/pages/basepage">
-        <root
-            jcr:primaryType="nt:unstructured"
-            sling:resourceType="thallforge/components/core/container"
-            editable="{Boolean}true"
-            layout="responsiveGrid"/>
+        <header
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/structure/header"
+                editable="{Boolean}true"/>
         <cq:responsive jcr:primaryType="nt:unstructured">
             <breakpoints jcr:primaryType="nt:unstructured">
                 <phone
