@@ -74,7 +74,7 @@
                                         sling:resourceType="dam/gui/components/admin/schemafield"
                                         emptyText="Select Option"
                                         fieldLabel="Artist"
-                                        jsonPath="/etc/thallforge/artistDropdownOptions.json"
+                                        jsonPath="/var/thallforge/artistDropdownOptions.json"
                                         name="./jcr:content/metadata/artist"
                                         resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
                                     <granite:data
