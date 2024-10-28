@@ -26,6 +26,7 @@ import java.util.Optional;
 @SlingServletResourceTypes(
         resourceTypes = ThallforgeConstants.ResourceTypes.MUSIC_PLAYER,
         methods = HttpConstants.METHOD_GET,
+        selectors = ThallforgeConstants.Endpoints.MUSIC_PLAYER_SHUFFLE_SELECTOR,
         extensions = ThallforgeConstants.Extensions.JSON)
 public class MusicPlayerShuffleServlet extends SlingSafeMethodsServlet {
 

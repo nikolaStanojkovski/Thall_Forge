@@ -1,18 +1,18 @@
-# ThallForge - Progressive Metal Streaming & Discovery Platform
+# ThallForge - Streaming & Discovery Platform
 
 ### **Overview**
-**ThallForge** is a Progressive Metal streaming platform dedicated to discovering, streaming, and promoting underground and well-known progressive metal bands, including subgenres like **djent, thall**, and **alt-metal**. It offers curated music experiences, band recommendations, and access to exclusive content.
+**ThallForge** is a streaming platform dedicated to discovering, streaming, and promoting music. It offers curated music experiences, band recommendations, and access to exclusive content.
 
 ## Modules
 
 The main parts of the project template are:
 
-- **[all]** - A single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies
+- **[all]** - A single content package that embeds all of the compiled modules (bundles and content packages) including any vendor dependencies.
 - **[core]** - Java bundle containing core functionality like OSGi services, listeners, or schedulers, as well as component-related Java code such as servlets or request filters.
-- **[ui.apps]** - Contains the `/apps` (and `/etc`) parts of the project, including JS & CSS clientlibs, components, and templates
-- **[ui.config]** - Contains runmode-specific OSGi configurations for the project
-- **[ui.content]** - Contains sample content using the components from `ui.apps`
-- **[ui.frontend]** - An optional dedicated front-end build mechanism (General Webpack project)
+- **[ui.apps]** - Contains the `/apps` (and `/etc`) parts of the project, including JS & CSS clientlibs, components, and templates.
+- **[ui.config]** - Contains runmode-specific OSGi configurations for the project.
+- **[ui.content]** - Contains sample content using the components from `ui.apps`.
+- **[ui.frontend]** - An optional dedicated front-end build mechanism (General Webpack project).
 
 ## How to Build
 
@@ -28,25 +28,25 @@ To build all the modules and deploy the `all` package to a local instance of AEM
 mvn clean install -PautoInstallSinglePackage
 ```
 
-Or to deploy it to a publish instance, run
+Or to deploy it to a publish instance, run:
 
 ```bash
 mvn clean install -PautoInstallSinglePackagePublish
 ```
 
-Or alternatively
+Alternatively:
 
 ```bash
 mvn clean install -PautoInstallSinglePackage -Daem.port=4503
 ```
 
-Or to deploy only the bundle to the author, run
+To deploy only the bundle to the author, run:
 
 ```bash
 mvn clean install -PautoInstallBundle
 ```
 
-Or to deploy only a single content package, run in the sub-module directory (i.e `ui.apps`)
+To deploy only a single content package, run in the sub-module directory (i.e `ui.apps`):
 
 ```bash
 mvn clean install -PautoInstallPackage
@@ -56,21 +56,24 @@ mvn clean install -PautoInstallPackage
 
 ### Core Functionalities
 
-- **Music Streaming:** Stream high-quality progressive metal tracks.
+- **Music Streaming:** Stream high-quality music tracks.
 - **Player Component:** Basic functionality including play, pause, skip, volume control, and shuffle.
-- **Playlist Creation:** Users can create custom playlists and share them.
-- **Content Discovery:** Genre-based navigation and trending playlists to help users discover music.
+- **Content Discovery:** Genre-based navigation and trending albums to help users discover music.
 
-#### Custom Components
-1. **Music Player**
-2. **Album Tracklist**
-3. **Genre Explorer**
-4. **Artist Spotlight**
-5. **Latest Releases**
-6. **Album Manager**
-7. **Thall Carousel** (Albums, Artists, Songs)
+### Custom Components
+1. **Music Player** - Configurable audio playback with repeat and shuffle features.
+2. **Album Tracklist** - Displays tracks for a specified album with download links.
+3. **Genre Explorer** - Displays filtered albums based on selected genres.
+4. **Artist Spotlight** - Shows albums and songs for a specified artist.
+5. **Latest Releases** - Carousel of the latest album releases based on author-defined limits.
+6. **Artist Profiles** - Accordion items with nested components for artist information.
+7. **Footer** - Configurable links and logo for the page footer.
+8. **Header** - Configurable links and logo for the page header.
+9. **Top-Fans Banner** - Displays a message to the top user based on interaction counts.
+10. **XF Header** - Imports header from page properties.
+11. **XF Footer** - Imports footer from page properties.
 
-#### Core Components (Adobe Imported)
+### Core Components (Adobe Imported)
 1. **Text**
 2. **Teaser**
 3. **Image**
@@ -82,7 +85,7 @@ mvn clean install -PautoInstallPackage
 9. **Download**
 10. **Sharing**
 
-### Additional Functionalities
+## Feature Summary
 
 1. **Structure Components**
 2. **Content Components**
@@ -90,41 +93,24 @@ mvn clean install -PautoInstallPackage
 4. **Custom Templates**
 5. **Experience Fragments**
 6. **Endpoints/Servlets**
-7. **Schedulers/Data Importing** (Spotify API)
-8. **Translation Labels**
-9. **Filter Implementation**
-10. **Custom Clientlibs/Validators**
-11. **Custom Users**
+7. **Schedulers**
+8. **Filter Implementation**
+9. **Custom Clientlibs/Validators**
+10. **Custom Users**
 
-## **3. Schedulers & Services**
+### **Schedulers & Services**
 
-- **Trending Tracks Calculation (Scheduler):**
-    - **Functionality:** A scheduler that runs every 24 hours to calculate the most played songs.
-    - **Algorithm:** Uses play counts, likes, and shares as input to calculate trends.
-    - **OSGi Service:** Implement a custom OSGi service to handle trend calculation and data persistence.
+- **Artist Data Source Update (Scheduler):**
+  - **Functionality:** Updates the artist data source JSON file every 12 hours.
+  - **Source:** Data is updated from a configured JSON file.
 
-- **Expired Content Cleanup (Scheduler):**
-    - **Functionality:** Cleans up expired or outdated content (e.g., live streams, old band events).
-    - **Execution Time:** Runs weekly to keep the content library up-to-date.
+### **Endpoints & APIs**
 
-## **4. Endpoints & APIs**
+- **Music-Player Shuffle API:**
+  - **Endpoint:** `${resource-path}._jcr_content.shuffle.json`
+  - **Functionality:** Fetches details about a randomly picked tracked from the selected album path.
+  - **Format:** JSON response with an object containing album data.
 
-- **Band API:**
-    - **Endpoint:** `/api/bands/{bandId}`
-    - **Functionality:** Retrieves band information, discography, and upcoming events.
-    - **Format:** JSON response with band data.
-    - **Caching:** Implement caching to optimize response times.
-
-- **Playlist API:**
-    - **Endpoint:** `/api/playlists/{userId}`
-    - **Functionality:** Fetches all playlists created by the user.
-    - **Methods:** `GET` (retrieve playlists), `POST` (create playlist), `DELETE` (remove playlist).
-
-## **5. Testing & Quality Assurance**
-
-- **Unit Testing (AEM Mocks):** Use **AEM Mocks** to test Sling Models, components, and services locally without needing a full AEM instance.
-- **End-to-End Testing:** Use tools like **Selenium** or **Cypress** to run end-to-end tests on the platform’s UI.
-
-## **6. Deployment**
+## **Deployment**
 
 Deploy on **AEM Cloud Service** using **Maven** and **Cloud Manager**.
