@@ -59,8 +59,8 @@
                                                value="rnb"
                                                text="RnB" />
                                         <rap jcr:primaryType="nt:unstructured"
-                                              value="Hip-Hop"
-                                              text="rap" />
+                                              value="rap"
+                                              text="Hip-Hop" />
                                         <trap jcr:primaryType="nt:unstructured"
                                              value="trap"
                                              text="Trap" />
