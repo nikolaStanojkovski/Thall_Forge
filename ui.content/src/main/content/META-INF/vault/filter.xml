@@ -6,6 +6,7 @@
     <filter root="/content/rep:policy" />
     <filter root="/content/dam/rep:policy" />
     <filter root="/content/dam/thallforge" />
+    <filter root="/content/thallforge-demo" />
     <filter root="/content/experience-fragments" mode="merge" />
     <filter root="/home/users/system/thallforge" mode="merge" />
     <filter root="/var/thallforge" mode="merge" />
