@@ -9,6 +9,6 @@
         jcr:primaryType="cq:PageContent"
         jcr:title="Thallforge Content Page"
         allowedPaths="[/content/(?!experience-fragments).*]"
-        allowedParents="[/conf/thallforge/settings/wcm/templates/tenantpage,/conf/thallforge/settings/wcm/templates/homepage]"
+        allowedParents="[/conf/thallforge/settings/wcm/templates/tenantpage,/conf/thallforge/settings/wcm/templates/homepage,/conf/thallforge/settings/wcm/templates/contentpage]"
         status="enabled"/>
 </jcr:root>
