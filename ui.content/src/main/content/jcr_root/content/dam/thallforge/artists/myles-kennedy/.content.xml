@@ -7,12 +7,13 @@
     <jcr:content
         cq:name="myles-kennedy"
         cq:parentPath="/content/dam/thallforge/artists"
-        jcr:lastModified="{Date}2024-10-25T15:10:31.171+02:00"
+        jcr:lastModified="{Date}2024-10-28T16:01:21.230+01:00"
         jcr:lastModifiedBy="admin"
+        jcr:mixinTypes="[]"
         jcr:primaryType="dam:AssetContent"
         jcr:title="Myles Kennedy"
         contentFragment="{Boolean}true"
-        lastFragmentSave="{Date}2024-10-25T15:10:31.171+02:00">
+        lastFragmentSave="{Date}2024-10-28T16:01:21.230+01:00">
         <data
             cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
             jcr:primaryType="nt:unstructured"
@@ -20,11 +21,11 @@
             <master
                 jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
                 jcr:primaryType="nt:unstructured"
-                biography="&lt;p>&lt;b>Myles Richard Bass&lt;/b> (&lt;i>born November 27, 1969&lt;/i>), known professionally as&amp;nbsp;Myles Kennedy, is an American singer, guitarist, and songwriter.&lt;/p>&#xa;"
+                biography="&lt;p>Myles Richard Bass, known professionally as Myles Kennedy, is an American singer, guitarist, and songwriter. He is the lead vocalist and rhythm guitarist of the rock band Alter Bridge and of Slash featuring Myles Kennedy and the Conspirators alongside guitarist Slash.&lt;/p>&#xa;"
                 biography_x0040_ContentType="text/html"
-                biography_x0040_LastModified="{Date}2024-10-25T15:10:27.733+02:00"
-                image="/content/dam/thallforge/images/teaser-3er.png"
-                image_x0040_LastModified="{Date}2024-10-25T15:10:27.732+02:00"
+                biography_x0040_LastModified="{Date}2024-10-28T16:01:21.209+01:00"
+                image="/content/dam/thallforge/images/myles-kennedy.jpeg"
+                image_x0040_LastModified="{Date}2024-10-28T15:46:05.266+01:00"
                 name="Myles Kennedy"
                 name_x0040_LastModified="{Date}2024-10-25T15:10:27.731+02:00"
                 rating="{Long}3"
@@ -38,7 +39,7 @@
                 _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
                 _x0040_stringArray_x0040_variations="[]"
                 long_x0040_rating="{Long}3"
-                string_x0040_biography="&lt;p>&lt;b>Myles Richard Bass&lt;/b> (&lt;i>born November 27, 1969&lt;/i>), known professionally as&amp;nbsp;Myles Kennedy, is an American singer, guitarist, and songwriter.&lt;/p>&#xa;"
+                string_x0040_biography="&lt;p>Myles Richard Bass, known professionally as Myles Kennedy, is an American singer, guitarist, and songwriter. He is the lead vocalist and rhythm guitarist of the rock band Alter Bridge and of Slash featuring Myles Kennedy and the Conspirators alongside guitarist Slash.&lt;/p>&#xa;"
                 string_x0040_name="Myles Kennedy"/>
         </indexedData>
         <metadata

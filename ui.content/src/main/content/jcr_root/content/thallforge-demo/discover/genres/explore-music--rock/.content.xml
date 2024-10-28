@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T20:51:45.214+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Explore Music: Rock"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T20:51:45.207+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:51:45.207+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <albumtracklist_copy_
+                jcr:created="{Date}2024-10-28T20:37:05.172+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:39:04.451+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/content/albumtracklist"
+                albumPath="/content/dam/thallforge/albums/come-clarity"
+                downloadLabel="Download to your computer"/>
+            <musicplayer_copy_cop
+                jcr:created="{Date}2024-10-28T20:30:08.366+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:48:39.752+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/content/musicplayer"
+                enableShuffle="true"
+                shuffleAlbumPath="/content/dam/thallforge/albums/come-clarity">
+                <trackInfo
+                    jcr:lastModified="{Date}2024-10-28T20:48:39.752+01:00"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    artist="Chester Bennington"
+                    audioTrackFileReference="/content/dam/thallforge/albums/colony/Ploratus Umbra.mp3"
+                    title="Chained"
+                    trackCoverFileReference="/content/dam/thallforge/images/mark-tremonti.jpg"/>
+            </musicplayer_copy_cop>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

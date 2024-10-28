@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:52:54.837+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biography: Nick Hippa"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:50:33.989+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:50:33.989+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:50:36.512+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:52:54.823+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>&lt;b>Samuel Nicholas Hipa&lt;/b>&amp;nbsp;(born November 30, 1982) is an American&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Heavy_metal_music&quot; title=&quot;Heavy metal music&quot;>heavy metal&lt;/a>&amp;nbsp;guitarist. He has performed with several notable acts. He is the current lead guitarist of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Wovenwar&quot; title=&quot;Wovenwar&quot;>Wovenwar&lt;/a>&amp;nbsp;and Mire, and was the longtime former lead guitarist of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/As_I_Lay_Dying_(band)&quot; title=&quot;As I Lay Dying (band)&quot;>As I Lay Dying&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>Hipa started his musical career with the band Evelynn.&amp;nbsp;The band was signed to&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Pluto_Records&quot; title=&quot;Pluto Records&quot;>Pluto Records&lt;/a>. In 2001, Evelynn toured with&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/As_I_Lay_Dying_(band)&quot; title=&quot;As I Lay Dying (band)&quot;>As I Lay Dying&lt;/a>.&amp;nbsp;As Evelynn started to disperse, Hipa joined As I Lay Dying in 2003.&lt;/p>&#xd;&#xa;&lt;p>As I Lay Dying ran its course with the same lineup since 2007, up until&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Tim_Lambesis&quot; title=&quot;Tim Lambesis&quot;>Tim Lambesis&lt;/a>' arrest, when Hipa,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Phil_Sgrosso&quot; title=&quot;Phil Sgrosso&quot;>Phil Sgrosso&lt;/a>, and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Josh_Gilbert_(musician)&quot; title=&quot;Josh Gilbert (musician)&quot;>Josh Gilbert&lt;/a>&amp;nbsp;departed from the band. Alongside AILD drummer&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Jordan_Mancino&quot; title=&quot;Jordan Mancino&quot;>Jordan Mancino&lt;/a>&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Oh,_Sleeper&quot; title=&quot;Oh, Sleeper&quot;>Oh, Sleeper&lt;/a>&amp;nbsp;and Hipa's former band-mate,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Shane_Blay&quot; title=&quot;Shane Blay&quot;>Shane Blay&lt;/a>, the group of friends formed&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Wovenwar&quot; title=&quot;Wovenwar&quot;>Wovenwar&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>In a more recent interview, Mancino stated that AILD is still technically five members, himself, Lambesis, Hipa, Gilbert, and Sgrosso.&amp;nbsp;Hipa performed lead guitars for Wovenwar, appearing on both&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Wovenwar_(album)&quot; title=&quot;Wovenwar (album)&quot;>Wovenwar&lt;/a>&lt;/i>&amp;nbsp;(2014) and&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Honor_Is_Dead&quot; title=&quot;Honor Is Dead&quot;>Honor Is Dead&lt;/a>&lt;/i>&amp;nbsp;(2016) to date. In 2017, Lambesis reformed As I Lay Dying, with all new members, stating that none of the previous members, Hipa included, would return.&amp;nbsp;Nevertheless, on June 8, 2018, it was confirmed that Hipa along with the &amp;quot;classic&amp;quot; lineup of As I Lay Dying reunited with Lambesis with the release of &amp;quot;&lt;a href=&quot;https://en.wikipedia.org/wiki/My_Own_Grave&quot;>My Own Grave&lt;/a>&amp;quot;.&amp;nbsp;On April 12, 2019, the band released a second single, titled &amp;quot;Redefined&amp;quot;, which also features&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/August_Burns_Red&quot; title=&quot;August Burns Red&quot;>August Burns Red&lt;/a>&amp;nbsp;frontman&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Jake_Luhrs&quot; title=&quot;Jake Luhrs&quot;>Jake Luhrs&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>Hipa was featured on&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Billy_on_the_Street&quot; title=&quot;Billy on the Street&quot;>Billy on the Street&lt;/a>&lt;/i>.&lt;/p>&#xd;&#xa;&lt;p>On August 15, 2020, it was reported that Nick Hipa had left As I Lay Dying.&amp;nbsp;In July 2022, it was announced that Hipa would be performing with the band&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/God_Forbid&quot; title=&quot;God Forbid&quot;>God Forbid&lt;/a>&amp;nbsp;for their reunion show.&lt;/p>&#xd;&#xa;&lt;p>Lambesis, after his arrest, said negative things about the rest of the band, Hipa included.&amp;nbsp;Hipa responded to these statements–particularly accusations of the entire band secretly being atheists and lack of contact with Lambesis after the arrest–calling them slanderous.&lt;/p>&#xd;&#xa;&lt;p>In November 2016, Hipa stated that Lambesis was, at the time, still of the same mind and that the relationship between the two remained damaged.&amp;nbsp;Hipa's tone however, changed in an October 2017 interview with&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hatebreed&quot; title=&quot;Hatebreed&quot;>Hatebreed&lt;/a>&amp;nbsp;frontman&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Jamey_Jasta&quot; title=&quot;Jamey Jasta&quot;>Jamey Jasta&lt;/a>&amp;nbsp;when asked about a potential As I Lay Dying reunion with the classic members–Hipa replied: &amp;quot;Man, I'm on the spot… people ask us about it a lot. But what it comes down to is what makes sense with what we have going on in our lives. And we've got a lot of important things going on that don't relate to that and we've made commitments to, and that's what we are honoring at this moment. Honestly it's just not something we try and consume our thoughts with. Because it's like we have families, businesses, professions, and a band—and all these things we’re super invested into. It's like all of our attention is there with that at the moment.&amp;quot;&lt;/p>&#xd;&#xa;&lt;p>In 2018, Hipa reunited with As I Lay Dying,&amp;nbsp;but rumors surfaced in 2020 that he had left the band once again.&amp;nbsp;Hipa broke his year-long silence in 2021, stating that &amp;quot;Respectfully, I left because the story and meaning we built our reunion upon decayed considerably over time. What primarily endures is a superficial pursuit I cannot justify supporting or being part of.&amp;quot; He further elaborated that making music with the band came &amp;quot;at the cost of tolerating behavior which at times mistreats, disrespects, and hurts other people.&amp;quot;&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

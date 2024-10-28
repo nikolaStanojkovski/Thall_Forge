@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:32:36.340+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biography: Chris Cornell"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:31:52.144+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:31:52.144+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:30:21.391+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:32:36.332+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>&lt;b>Christopher John Cornell&lt;/b>&amp;nbsp;(&lt;b>Boyle&lt;/b>; July 20, 1964&amp;nbsp;– May 18, 2017) was an American musician. He was best known as the lead vocalist, rhythm guitarist, and the primary lyricist for the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Rock_music&quot; title=&quot;Rock music&quot;>rock&lt;/a>&amp;nbsp;bands&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Soundgarden&quot; title=&quot;Soundgarden&quot;>Soundgarden&lt;/a>&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Audioslave&quot; title=&quot;Audioslave&quot;>Audioslave&lt;/a>. He also had a solo career and contributed to numerous movie soundtracks. Cornell was the founder and frontman of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Temple_of_the_Dog&quot; title=&quot;Temple of the Dog&quot;>Temple of the Dog&lt;/a>, a one-off tribute band dedicated to his late friend, musician&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Andrew_Wood_(singer)&quot; title=&quot;Andrew Wood (singer)&quot;>Andrew Wood&lt;/a>. Several music journalists, fan polls and fellow musicians have regarded Cornell as one of the greatest rock singers of all time.&lt;/p>&#xd;&#xa;&lt;p>Cornell is considered a key figure of the 1990s&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Grunge&quot; title=&quot;Grunge&quot;>grunge&lt;/a>&amp;nbsp;movement with an extensive songwriting history, a nearly four-&lt;a href=&quot;https://en.wikipedia.org/wiki/Octave&quot; title=&quot;Octave&quot;>octave&lt;/a>&amp;nbsp;vocal range&amp;nbsp;and a powerful&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Belting_(music)&quot; title=&quot;Belting (music)&quot;>vocal belting&lt;/a>&amp;nbsp;technique. Cornell released four solo studio albums,&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Euphoria_Morning&quot; title=&quot;Euphoria Morning&quot;>Euphoria Morning&lt;/a>&lt;/i>&amp;nbsp;(1999),&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Carry_On_(Chris_Cornell_album)&quot; title=&quot;Carry On (Chris Cornell album)&quot;>Carry On&lt;/a>&lt;/i>&amp;nbsp;(2007),&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Scream_(Chris_Cornell_album)&quot; title=&quot;Scream (Chris Cornell album)&quot;>Scream&lt;/a>&lt;/i>&amp;nbsp;(2009), and&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Higher_Truth&quot; title=&quot;Higher Truth&quot;>Higher Truth&lt;/a>&lt;/i>&amp;nbsp;(2015); the live album&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Songbook_(Chris_Cornell_album)&quot; title=&quot;Songbook (Chris Cornell album)&quot;>Songbook&lt;/a>&lt;/i>&amp;nbsp;(2011); and two compilations,&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Roads_We_Choose_%E2%80%93_A_Retrospective&quot;>The Roads We Choose&lt;/a>&lt;/i>&amp;nbsp;(2007) and&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Chris_Cornell_(album)&quot; title=&quot;Chris Cornell (album)&quot;>Chris Cornell&lt;/a>&lt;/i>&amp;nbsp;(2018), the latter released posthumously. He received a&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Golden_Globe_Award&quot; title=&quot;Golden Globe Award&quot;>Golden Globe Award&lt;/a>&amp;nbsp;nomination for his song &amp;quot;The Keeper&amp;quot;, which appeared in the 2011 film&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Machine_Gun_Preacher&quot; title=&quot;Machine Gun Preacher&quot;>Machine Gun Preacher&lt;/a>&lt;/i>, and co-wrote and performed &amp;quot;&lt;a href=&quot;https://en.wikipedia.org/wiki/You_Know_My_Name&quot; title=&quot;You Know My Name&quot;>You Know My Name&lt;/a>&amp;quot;, the theme song to the 2006&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/James_Bond&quot; title=&quot;James Bond&quot;>James Bond&lt;/a>&amp;nbsp;film&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Casino_Royale_(2006_film)&quot; title=&quot;Casino Royale (2006 film)&quot;>Casino Royale&lt;/a>&lt;/i>. His last solo release before his death was the charity single &amp;quot;&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Promise_(Chris_Cornell_song)&quot; title=&quot;The Promise (Chris Cornell song)&quot;>The Promise&lt;/a>&amp;quot;, written for the ending credits for the 2016&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Promise_(2016_film)&quot; title=&quot;The Promise (2016 film)&quot;>film of the same name&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>Cornell sold 14.8 million albums, 8.8 million digital songs, and 300 million on-demand audio streams in the U.S. alone,&amp;nbsp;as well as over 30 million records worldwide.&amp;nbsp;Nominated for 18&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Grammy_Awards&quot; title=&quot;Grammy Awards&quot;>Grammy Awards&lt;/a>, he won three.&amp;nbsp;Cornell was ranked No. 4 on the list of &amp;quot;Heavy Metal's All-Time Top 100 Vocalists&amp;quot; by&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Hit_Parader&quot; title=&quot;Hit Parader&quot;>Hit Parader&lt;/a>&lt;/i>,&amp;nbsp;No. 9 on the list of &amp;quot;Best Lead Singers of All Time&amp;quot; by&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Rolling_Stone&quot; title=&quot;Rolling Stone&quot;>Rolling Stone&lt;/a>&lt;/i>, No. 80 on the list of the &amp;quot;200 Greatest Singers of All Time&amp;quot; by&amp;nbsp;&lt;i>Rolling Stone&lt;/i>, and No. 12 on MTV's &amp;quot;22 Greatest Voices in Music&amp;quot;. He was voted &amp;quot;Rock's Greatest Singer&amp;quot; by readers of&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Guitar_World&quot; title=&quot;Guitar World&quot;>Guitar World&lt;/a>&lt;/i>.&lt;/p>&#xd;&#xa;&lt;p>In January 2011, Cornell announced his solo acoustic &amp;quot;Songbook&amp;quot; tour, continuing a series of acclaimed solo acoustic shows in Los Angeles during 2009 and 2010. The first leg of the sold-out tour began on April 1, 2011, and continued through the U.S. and Canada until May 6, resuming in October and visiting New Zealand, Australia, South America and the U.S. again before ending on December 17. The tour received universally positive reviews.&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T21:27:54.231+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Colony"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T21:27:38.522+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T21:27:54.229+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Album Tracklist: Colony"
+                sling:resourceType="thallforge/components/core/title"
+                linkTarget="_self"
+                type="h1"/>
+            <albumtracklist
+                jcr:created="{Date}2024-10-28T21:27:24.409+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T21:27:33.984+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/content/albumtracklist"
+                albumPath="/content/dam/thallforge/albums/colony"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:24:25.665+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Pawns &amp; Kings"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:22:25.570+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:22:25.570+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:22:28.057+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:24:25.656+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>I was so psyched for this album. I figured Alter Bridge would finally learn their lesson, dust off their ass and create something worth remembering through time. The last time they did that they brought us Fortress, a superior collection of hard rock and heavy riffs. The band have failed to capture lightning in a bottle past that point. They’ve made decent albums, but nothing close to being as creative.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;Pawns and Kings brings back the heaviness to the forefront previously seen in Fortress. That in itself is a wonderful thing and it helped to keep me alert through the album. That, unfortunately, is the only real musical evolution here. The experience here involves a streamlined, heavy-centric focus that explodes due to immensely well produced instruments, but otherwise is a saltless and predictable heavy rock album. It’s Alter Bridge doing their thing, and it’s starting to sound recycled.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;The album can seem like a heavier version of Blackbird at first due to repetitive, simple songwriting. Problematically, the catchy choruses in Blackbird are almost nowhere to be found. The creativity is also lacking, it can be heard in the mostly forgettable riffs, the overuse of high vocals to the point of annoyance, and especially the songwriting. There’s a lack of iconic moments here, which the band used to easily dish out. The only potentially iconic moments were from the sung chants and heavy riffs opening the song This is War, and the chorus for Silver Tongue. Aside from that - meh - there’s not too many standout moments.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;With semi-relatable, filler lyrics that don’t mean anything substantial, there’s not much to dig into. It’s the same problem with the album, which never fails to dive into mediocrity. It’s a by-the-numbers release, a cheque to the bank for Alter Bridge, but they certainly aren’t progressing. This is a step down from Walk The Sky in terms of nuance, and while it’s good to hear the band heavier again, I’m looking for something more. This could’ve easily been a return to form, their magnum opus even, but Alter Bridge are still playing it too safe. The triteness of their sound has escalated to a boiling point, and it seems they may have already reached their peak long ago.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/albums/pawns---kings.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

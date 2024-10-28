@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="52fb923e-f622-4451-a0eb-8453ab826baa">
+    <jcr:content
+        cq:name="anders-friden"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T16:03:23.547+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Anders Friden"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T16:03:23.547+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Pär Anders Fridén is a Swedish vocalist, best known as the lead singer of the melodic death metal band In Flames. He was also the vocalist of Dark Tranquillity and side project Passenger.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T16:03:23.485+01:00"
+                image="/content/dam/thallforge/images/anders-friden.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T16:03:23.484+01:00"
+                name="Anders Friden"
+                name_x0040_LastModified="{Date}2024-10-28T16:03:23.483+01:00"
+                rating="{Long}5"
+                rating_x0040_LastModified="{Date}2024-10-28T16:03:23.486+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="7b01c69d-56de-4557-80f2-729e76324886"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}5"
+                string_x0040_biography="&lt;p>Pär Anders Fridén is a Swedish vocalist, best known as the lead singer of the melodic death metal band In Flames. He was also the vocalist of Dark Tranquillity and side project Passenger.&lt;/p>&#xa;"
+                string_x0040_name="Anders Friden"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

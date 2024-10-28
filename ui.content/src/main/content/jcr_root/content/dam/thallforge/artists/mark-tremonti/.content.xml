@@ -7,12 +7,12 @@
     <jcr:content
         cq:name="mark-tremonti"
         cq:parentPath="/content/dam/thallforge/artists"
-        jcr:lastModified="{Date}2024-10-25T15:09:38.108+02:00"
+        jcr:lastModified="{Date}2024-10-28T15:54:37.964+01:00"
         jcr:lastModifiedBy="admin"
         jcr:primaryType="dam:AssetContent"
         jcr:title="Mark Tremonti"
         contentFragment="{Boolean}true"
-        lastFragmentSave="{Date}2024-10-25T15:09:38.108+02:00">
+        lastFragmentSave="{Date}2024-10-28T15:54:37.964+01:00">
         <data
             cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
             jcr:primaryType="nt:unstructured"
@@ -23,8 +23,8 @@
                 biography="&lt;p>Mark Thomas Tremonti (&lt;i>born April 18, 1974&lt;/i>) is an American guitarist and singer, best known for his tenures with the rock bands Creed and Alter Bridge.&lt;/p>&#xa;"
                 biography_x0040_ContentType="text/html"
                 biography_x0040_LastModified="{Date}2024-10-25T15:09:37.845+02:00"
-                image="/content/dam/thallforge/images/dossier-4.png"
-                image_x0040_LastModified="{Date}2024-10-25T15:09:37.844+02:00"
+                image="/content/dam/thallforge/images/mark-tremonti.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T15:45:19.892+01:00"
                 name="Mark Tremonti"
                 name_x0040_LastModified="{Date}2024-10-25T15:09:37.843+02:00"
                 rating="{Long}4"

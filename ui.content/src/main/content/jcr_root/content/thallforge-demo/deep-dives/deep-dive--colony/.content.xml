@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:06:47.253+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Colony"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:04:07.692+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:04:07.692+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:04:13.267+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:06:47.241+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>Mixing various aspects of music is always a great way to keep the music fresh for the listeners as well as for the band, albeit if it’s done well obviously. That’s the philosophy melodic death metal is based on. Bands like Dark Tranquillity, In Flames, At the Gates and Arch Enemy have proved that death metal isn't confined to extremely raw guitar tones, tremolo picking, and excessively fast drumming, but that there’s also a sense of melody and atmosphere, and even (dare I say it?) clean vocals (that sound you all just heard was the jaws of all death metal purists smacking the ground) that can be incorporated into the mix to add that extra dynamic.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;One thing I must confess is I don't appreciate it when someone criticises a whole genre without even listening to 1% of what it constitutes (believe me I've had my fair share of annoying complaints asserting that all of metal=growling vocals), and the last thing I want to do is join that club, so I need to clarify that while I haven't heard every death metal band in existence, I have heard a reasonable amount of bands whom you could probably consider decent representatives of the genre including Bloodbath, Cannibal Corpse, Morbid Angel, and the like, and where they definitely do have melodic moments, they weren't enough to keep me interested in following their music. Obviously it’s all about personal taste.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;Coming into this album In Flames had released 3 albums, the latter 2 of which were very good indeed, so there were certainly expectations from their 4th outing. There were also major personnel changes which would lead to the formation of the ‘classic’ line up.&lt;/p>&#xd;&#xa;&lt;p>Colony continues in the same fashion as Whoracle, the great riffs, guitar leads and harmonies, and intensity are turned up a few notches, which turn out to be rewarding moves. One of the first things I noticed when the bombastic opener grabbed my throat were the distorted guitar tones, which sound very rich, chugtastic and heavy, yet are very refined and don't intend to rupture your ear drums with a barrage of raw distortion. At the other end the clean and lead tones also sound very good (this is important for me being a huge fan of diverse guitar tones, especially clean tones, thanks partly to Mr. Steven Wilson), they're clear, for the most part, and really complement the distorted guitars, although a little more experimentation with the clean tones wouldn’t have hurt.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;Another important improvement was the drums. In Whoracle they sounded muddy and a little dull; here they've been revamped with a good sounding higher pitched snare drum and high hat that are well balanced in the mix. The production has improved as well and feels more airy, with more room for your ears to “breathe”. Its little improvements like these that really affect the overall feel of an album regardless of the songwriting, although that’s the main attraction of course, so I’ve been told. Another positive move was increasing the presence of the keyboards which really aided in enhancing the dark elements of the atmosphere and sound fresh especially in songs like Ordinary Story and Embody the Invisible, wow. Vocal wise Anders has done a tremendous job and brings diversity in his growls, going from high pitched rasps present in track like Scorn, to gut churning roars, in tracks like Resin, which would give the cookie monster nightmares for a week at least. There’s no doubt he’s an incredibly talented and diverse vocalist.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;As the old adage goes “there are two sides to every coin”, so perhaps we should take a glimpse at the slightly tarnished half of this coin. A few of my gripes with this record are first of all the uninteresting bass lines; these are omnipresent in the heavy metal genre unfortunately and here is no exception. Mr. Iwers really needs to be properly introduced to the other 4 strings of his guitar, who knows they might turn out to be the friends who remain with a person forever, just a friendly suggestion. Another minor gripe is that with so many riffs present some tend to sound similar and the excess riffage can get slightly exhausting by the end of the album, perhaps the exploration of ideas not revolving around heavy riffs could’ve been considered (they did have violins on their debut album after all), perhaps more acoustic guitar segments or a song in the same vain as Jester Script Transfigured could’ve been included. And finally whereas the drums sound good in the mix, the drum work isn’t all that creative and is just there to provide a foundation for the guitars.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;Gripes aside this is another solid release from one of the progenitors of a great movement in the metal scene and should be checked out by any new fan of death metal (since all the old ones should already have this in their collection).&lt;/p>&#xd;&#xa;&lt;p>&lt;b>Special mentions:&lt;/b>&lt;/p>&#xd;&#xa;&lt;ul>&#xd;&#xa;&lt;li>Embody the Invisible lead guitar work&lt;/li>&#xd;&#xa;&lt;li>Ordinary Story keyboards and guitar harmonies&lt;/li>&#xd;&#xa;&lt;li>Pallar Anders Visa&lt;/li>&#xd;&#xa;&lt;li>Man Made God’s smooth transitions and incredible melodies&lt;/li>&#xd;&#xa;&lt;li>Zombie Inc. Instrumental section&lt;/li>&#xd;&#xa;&lt;/ul>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/albums/colony.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

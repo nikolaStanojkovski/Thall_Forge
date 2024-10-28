@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:11:07.961+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Paranoid"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:07:38.940+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:07:38.940+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:07:42.558+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:11:07.948+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>From a moonlit thicket, a soldier wielding a scimitar and a pointy shield approaches, his eyes bulging with terror beneath a bright white helmet. He wears pink leggings and an outlandish orange blazer, an outfit that becomes, in&amp;nbsp;&lt;a href=&quot;https://www.lomography.com/magazine/247425-marcus-keef-master-of-vertigo-and-moody-surrealism&quot;>Marcus Keef’s clumsy long-exposure photograph&lt;/a>, a garish streak of glowing neon across the midnight scene. These were meant to be “War Pigs,” autocratic henchmen&amp;nbsp;&lt;a href=&quot;https://pitchfork.com/artists/379-black-sabbath/&quot;>Black Sabbath&lt;/a>&amp;nbsp;lampooned during their second album’s bellicose opener&amp;nbsp;&lt;i>and&lt;/i>&amp;nbsp;its intended title. From a distance, they look like an errant splotch of paint across a sheet of construction paper; up close, they just look absurd.&lt;/p>&#xd;&#xa;&lt;p>Still, in all its grainy ignominy,&amp;nbsp;&lt;i>Paranoid&lt;/i>’s cover is one of the most transformative moments in the early history of Black Sabbath and, by extension, heavy metal. In 1970, Black Sabbath’s self-titled debut did something few were expecting—it sold very well, charting both at their home in the UK and in the United States. Their label, Vertigo, soon dispatched Black Sabbath back to the studio to record a follow-up, stretching their already-indulgent impulses into eight-minute songs about war and heroin and the glory of the guitar. When they needed one more tune, the band headed to the bar while guitarist Tony Iommi stayed behind and spent a few minutes writing a simple riff that chugged, paused, and kept prowling, like a predator always in search of its next meal. They recorded the song in a flash and called it “Paranoid,” the fulfillment of a legal obligation.&lt;/p>&#xd;&#xa;&lt;p>Vertigo didn’t hear filler; it heard a hit, a trouncing three-minute assault by a young band that still favored excessive jams. Six months after releasing&amp;nbsp;&lt;i>Black Sabbath&lt;/i>, they issued the song as Black Sabbath’s second single and demanded that the album’s title be changed from&amp;nbsp;&lt;i>War Pigs&lt;/i>&amp;nbsp;to&amp;nbsp;&lt;i>Paranoid&lt;/i>. They wanted to remind potential customers of the song they’d seen&amp;nbsp;&lt;a href=&quot;https://www.youtube.com/watch?v=Uq42HUUJFzU&quot;>four long-haired weirdos headbang to on&amp;nbsp;&lt;/a>&lt;a href=&quot;https://www.youtube.com/watch?v=Uq42HUUJFzU&quot;>“Top of the Pops&lt;/a>” while avoiding the nasty business of saying something controversial in an era already fraught with civil unrest. But in the sprint to get the record into stores, Vertigo never bothered to commission an image that fit the new name. The soldier simply stands there, an embarrassment in neon. After nearly 50 years, bassist and songwriter Geezer Butler (&lt;a href=&quot;https://musictoeat.com/2016/08/16/when-bad-album-covers-happen-to-good-albums-part-1/&quot;>and most everyone else&lt;/a>) still&amp;nbsp;&lt;a href=&quot;http://noisecreep.com/black-sabbath-bassist-geezer-butler-gets-paranoid/&quot;>hates it&lt;/a>: “The cover was bad enough when the album was going to be&amp;nbsp;&lt;i>War Pigs&lt;/i>, but when it was&amp;nbsp;&lt;i>Paranoid&lt;/i>&amp;nbsp;it didn’t even make sense.”&lt;/p>&#xd;&#xa;&lt;p>Still, in all its grainy ignominy,&amp;nbsp;&lt;i>Paranoid&lt;/i>’s cover is one of the most transformative moments in the early history of Black Sabbath and, by extension, heavy metal. In 1970, Black Sabbath’s self-titled debut did something few were expecting—it sold very well, charting both at their home in the UK and in the United States. Their label, Vertigo, soon dispatched Black Sabbath back to the studio to record a follow-up, stretching their already-indulgent impulses into eight-minute songs about war and heroin and the glory of the guitar. When they needed one more tune, the band headed to the bar while guitarist Tony Iommi stayed behind and spent a few minutes writing a simple riff that chugged, paused, and kept prowling, like a predator always in search of its next meal. They recorded the song in a flash and called it “Paranoid,” the fulfillment of a legal obligation.&lt;/p>&#xd;&#xa;&lt;p>Vertigo didn’t hear filler; it heard a hit, a trouncing three-minute assault by a young band that still favored excessive jams. Six months after releasing&amp;nbsp;&lt;i>Black Sabbath&lt;/i>, they issued the song as Black Sabbath’s second single and demanded that the album’s title be changed from&amp;nbsp;&lt;i>War Pigs&lt;/i>&amp;nbsp;to&amp;nbsp;&lt;i>Paranoid&lt;/i>. They wanted to remind potential customers of the song they’d seen&amp;nbsp;&lt;a href=&quot;https://www.youtube.com/watch?v=Uq42HUUJFzU&quot;>four long-haired weirdos headbang to on&amp;nbsp;&lt;/a>&lt;a href=&quot;https://www.youtube.com/watch?v=Uq42HUUJFzU&quot;>“Top of the Pops&lt;/a>” while avoiding the nasty business of saying something controversial in an era already fraught with civil unrest. But in the sprint to get the record into stores, Vertigo never bothered to commission an image that fit the new name. The soldier simply stands there, an embarrassment in neon. After nearly 50 years, bassist and songwriter Geezer Butler (&lt;a href=&quot;https://musictoeat.com/2016/08/16/when-bad-album-covers-happen-to-good-albums-part-1/&quot;>and most everyone else&lt;/a>) still&amp;nbsp;&lt;a href=&quot;http://noisecreep.com/black-sabbath-bassist-geezer-butler-gets-paranoid/&quot;>hates it&lt;/a>: “The cover was bad enough when the album was going to be&amp;nbsp;&lt;i>War Pigs&lt;/i>, but when it was&amp;nbsp;&lt;i>Paranoid&lt;/i>&amp;nbsp;it didn’t even make sense.”&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/albums/paranoid.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dam="http://www.day.com/dam/1.0"
-  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:jcr="http://www.jcp.org/jcr/1.0"
-  xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
-  jcr:mixinTypes="[mix:referenceable]"
-  jcr:primaryType="dam:Asset">
-  <jcr:content
-    dam:assetState="processed"
-    dam:relativePath="thallforge/facebook.svg"
-    jcr:lastModified="{Date}2017-10-12T15:13:25.800Z"
-    jcr:lastModifiedBy="admin"
-    jcr:primaryType="dam:AssetContent">
-    <metadata
-      dam:extracted="{Date}2017-10-12T15:13:25.346Z"
-      dam:sha1="9700f922789b4607f993080724790022365fdd26"
-      dam:size="{Long}653"
-      dc:format="image/svg+xml"
-      jcr:mixinTypes="[cq:Taggable]"
-      jcr:primaryType="nt:unstructured"/>
-    <related jcr:primaryType="nt:unstructured"/>
-  </jcr:content>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="7f2469b7-3db4-4993-88ce-6f8ab6b2285e">
+    <jcr:content
+        dam:assetState="processed"
+        dam:relativePath="thallforge/facebook.svg"
+        jcr:lastModified="{Date}2024-10-28T19:38:53.580+01:00"
+        jcr:lastModifiedBy="workflow-process-service"
+        jcr:primaryType="dam:AssetContent">
+        <metadata
+            dam:extracted="{Date}2024-10-28T19:38:52.202+01:00"
+            dam:sha1="9700f922789b4607f993080724790022365fdd26"
+            dam:size="{Long}653"
+            dc:format="image/svg+xml"
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
 </jcr:root>

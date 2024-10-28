@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:01:58.930+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/homepage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dives"
+        sling:resourceType="thallforge/pages/homepage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T21:52:32.332+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T21:54:26.772+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="Album Analysis"
+                sling:resourceType="thallforge/components/core/title"
+                linkTarget="_self"
+                type="h1"/>
+            <text
+                jcr:created="{Date}2024-10-28T21:52:41.019+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T21:53:01.598+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>Check out our analysis of the albums that we have on our platform!&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+            <list
+                jcr:created="{Date}2024-10-28T21:53:05.237+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:01:58.916+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/list"
+                childDepth="3"
+                displayItemAsTeaser="false"
+                linkItems="true"
+                listFrom="children"
+                parentPage="/content/thallforge-demo/deep-dives"
+                showDescription="false"
+                showModificationDate="false"
+                sortOrder="asc"
+                tagsMatch="any"/>
+        </main>
+        <latestreleases
+            jcr:lastModified="{Date}2024-10-28T21:53:32.271+01:00"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/latestreleases"
+            limit="20"/>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+    <deep-dive--colony/>
+    <deep-dive--paranoid/>
+    <deep-dive--ace-of-spades/>
+    <deep-dive--master-of-reality/>
+    <deep-dive--clayman/>
+    <deep-dive--pawns---kings/>
+</jcr:root>

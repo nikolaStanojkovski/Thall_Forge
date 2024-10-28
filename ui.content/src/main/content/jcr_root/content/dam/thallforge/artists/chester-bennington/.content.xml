@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="a2899449-2b84-478d-b593-b963cb524b2b">
+    <jcr:content
+        cq:name="chester-bennington"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T21:08:39.836+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Chester Bennington"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T21:08:39.836+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Chester Charles Bennington was an American singer who was the lead vocalist of the rock band Linkin Park. He was also the lead vocalist of Grey Daze, Dead by Sunrise, and Stone Temple Pilots at various points.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T16:00:24.514+01:00"
+                image="/content/dam/thallforge/images/chester-bennington.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T21:08:39.778+01:00"
+                name="Chester Bennington"
+                name_x0040_LastModified="{Date}2024-10-28T16:00:24.512+01:00"
+                rating="{Long}4"
+                rating_x0040_LastModified="{Date}2024-10-28T16:00:24.515+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="b048d3e3-ee45-44de-b4a7-7359b98a8bd3"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}4"
+                string_x0040_biography="&lt;p>Chester Charles Bennington was an American singer who was the lead vocalist of the rock band Linkin Park. He was also the lead vocalist of Grey Daze, Dead by Sunrise, and Stone Temple Pilots at various points.&lt;/p>&#xa;"
+                string_x0040_name="Chester Bennington"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>
