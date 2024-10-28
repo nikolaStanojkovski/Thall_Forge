@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
@@ -33,6 +33,14 @@
                         <configuration>
                             <bnd><![CDATA[
 Import-Package: javax.annotation;version=0.0.0,*
+Export-Package: !*impl.*,\
+                                    com.musicdistribution.thallforge.components.*,\
+                                    com.musicdistribution.thallforge.filters.*,\
+                                    com.musicdistribution.thallforge.listeners.*,\
+                                    com.musicdistribution.thallforge.schedulers.*,\
+                                    com.musicdistribution.thallforge.services.*,\
+                                    com.musicdistribution.thallforge.servlets.*,\
+                                    com.musicdistribution.thallforge.utils.*
                                 ]]></bnd>
                         </configuration>
                     </execution>
@@ -75,9 +83,10 @@ Import-Package: javax.annotation;version=0.0.0,*
             <artifactId>lombok</artifactId>
         </dependency>
         <dependency>
-            <groupId>uk.org.lidalia</groupId>
-            <artifactId>slf4j-test</artifactId>
-            <scope>test</scope>
+            <groupId>com.day.cq.dam</groupId>
+            <artifactId>cq-dam-commons</artifactId>
+            <version>5.8.2</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
@@ -85,10 +94,9 @@ Import-Package: javax.annotation;version=0.0.0,*
         </dependency>
         <dependency>
             <groupId>com.adobe.cq</groupId>
-            <artifactId>core.wcm.components.core</artifactId>
-            <scope>test</scope>
+            <artifactId>core.wcm.components.all</artifactId>
+            <type>zip</type>
         </dependency>
-
 
         <!-- Testing -->
         <dependency>
@@ -107,16 +115,6 @@ Import-Package: javax.annotation;version=0.0.0,*
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>junit-addons</groupId>
-            <artifactId>junit-addons</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.wcm</groupId>
-            <artifactId>io.wcm.testing.aem-mock.junit5</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
             <scope>test</scope>
@@ -124,13 +122,6 @@ Import-Package: javax.annotation;version=0.0.0,*
         <dependency>
             <groupId>com.adobe.cq</groupId>
             <artifactId>core.wcm.components.testing.aem-mock-plugin</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <!-- Required to be able to support injection with @Self and @Via -->
-        <dependency>
-            <groupId>org.apache.sling</groupId>
-            <artifactId>org.apache.sling.models.impl</artifactId>
-            <version>1.4.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

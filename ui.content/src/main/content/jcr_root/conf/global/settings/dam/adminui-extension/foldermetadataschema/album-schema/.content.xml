@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="sling:Folder"
+    jcr:title="album-schema">
+    <jcr:content jcr:primaryType="nt:unstructured"/>
+    <items jcr:primaryType="nt:unstructured">
+        <tabs
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/tabs"
+            size="L">
+            <items jcr:primaryType="nt:unstructured">
+                <tab1
+                    granite:rel="aem-assets-metadata-form-tab"
+                    jcr:primaryType="nt:unstructured"
+                    jcr:title="Album Metadata"
+                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                    listOrder="0">
+                    <granite:data
+                        jcr:primaryType="nt:unstructured"
+                        tabid="b330d204-9cc9-448e-adde-1f611e9cfe9e"/>
+                    <items jcr:primaryType="nt:unstructured">
+                        <col1
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="0"/>
+                        <col2
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="1">
+                            <items jcr:primaryType="nt:unstructured">
+                                <_x0031_729630819833
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="dam/gui/components/admin/schemafield"
+                                        emptyText="Select Genre"
+                                        fieldLabel="Genre"
+                                        name="./jcr:content/metadata/genre"
+                                        resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
+                                    <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="./metadata/genre"
+                                            metaType="dropdown"
+                                            requiredCascading="always"/>
+                                    <items jcr:primaryType="nt:unstructured">
+                                        <rock jcr:primaryType="nt:unstructured"
+                                              value="rock"
+                                              text="Rock" />
+                                        <metal jcr:primaryType="nt:unstructured"
+                                              value="metal"
+                                              text="Metal" />
+                                        <pop jcr:primaryType="nt:unstructured"
+                                               value="pop"
+                                               text="Pop" />
+                                        <thall jcr:primaryType="nt:unstructured"
+                                             value="thall"
+                                             text="Thall" />
+                                        <rnb jcr:primaryType="nt:unstructured"
+                                               value="rnb"
+                                               text="RnB" />
+                                        <rap jcr:primaryType="nt:unstructured"
+                                              value="rap"
+                                              text="Hip-Hop" />
+                                        <trap jcr:primaryType="nt:unstructured"
+                                             value="trap"
+                                             text="Trap" />
+                                        <jazz jcr:primaryType="nt:unstructured"
+                                              value="jazz"
+                                              text="Jazz" />
+                                    </items>
+                                </_x0031_729630819833>
+                                <_x0031_857630968029
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="dam/gui/components/admin/schemafield"
+                                        emptyText="Select Option"
+                                        fieldLabel="Artist"
+                                        jsonPath="/var/thallforge/artistDropdownOptions.json"
+                                        name="./jcr:content/metadata/artist"
+                                        resourceType="dam/gui/coral/components/admin/folderschemaforms/formbuilder/formfields/v2/metadataselect">
+                                    <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="./metadata/artist"
+                                            metaType="dropdown"
+                                            requiredCascading="always"/>
+                                    <items jcr:primaryType="nt:unstructured" />
+                                </_x0031_857630968029>
+                                <_x0031_729631183704
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dam/gui/components/admin/schemafield"
+                                    displayedFormat="YYYY-MM-DD HH:mm"
+                                    fieldLabel="Date Published"
+                                    name="./jcr:content/metadata/date"
+                                    resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                    type="datetime">
+                                    <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        cq-msm-lockable="./metadata/date"
+                                        metaType="datepicker"
+                                        requiredCascading="default"
+                                        typeHint="Date"
+                                        visibilityCascading="default"/>
+                                </_x0031_729631183704>
+                            </items>
+                        </col2>
+                        <col3
+                            granite:rel="aem-assets-metadata-form-column"
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            listOrder="2"/>
+                    </items>
+                </tab1>
+            </items>
+        </tabs>
+    </items>
+</jcr:root>

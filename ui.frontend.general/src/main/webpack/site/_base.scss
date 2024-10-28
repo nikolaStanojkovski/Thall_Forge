@@ -2,19 +2,22 @@
 
 html,
 body {
-    margin: 0;
     font-size:   $font-size;
     font-family: $font-family;
     line-height: $font-height;
     color:       $color-foreground;
     background:  $color-background;
 
+    .main.responsivegrid {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
     @media (prefers-color-scheme: dark) {
         color:       $color-foreground-dark;
         background:  $color-background-dark;
     }
 }
-
 
 a {
     color: $color-link;

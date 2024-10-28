@@ -1,0 +1,40 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.musicplayer.MusicPlayerController"></sly>
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     data-sly-attribute.data-cmp-is="musicplayer"
+     data-sly-set.enableShuffle="${controller.model.enableShuffle}"
+     data-sly-attribute.data-shuffle-endpoint="${enableShuffle ? controller.model.shuffleEndpointPath : ''}"
+     class="mdl-music-player">
+    <div class="mdl-music-player__track-info">
+        <img data-sly-test.trackCoverLink="${controller.model.trackCoverLink}"
+             data-sly-attribute.src="${trackCoverLink}"
+             data-sly-attribute.alt="The cover of the track could not be loaded"
+             class="mdl-music-player__album-cover" />
+        <div data-sly-set.trackTitle="${controller.model.trackTitle}"
+             data-sly-set.trackArtist="${controller.model.trackArtist}"
+             data-sly-test="${trackTitle && trackArtist}"
+             class="mdl-music-player__track-details">
+            <h3 class="mdl-music-player__track-title">${trackTitle}</h3>
+            <p class="mdl-music-player__track-artist">${trackArtist}</p>
+        </div>
+    </div>
+    <audio data-sly-test.trackAudioLink="${controller.model.trackAudioLink}"
+            class="mdl-music-player__audio" preload="metadata">
+        <source data-sly-attribute.src="${trackAudioLink}" type="audio/mpeg">
+        ${controller.model.browserSupportErrorMessage}
+    </audio>
+    <div class="mdl-music-player__controls">
+        <button class="mdl-music-player__play-pause" type="button">${controller.model.playLabel}</button>
+        <input type="range" class="mdl-music-player__seek-bar" value="0" step="1" min="0" />
+        <span class="mdl-music-player__current-time">00:00</span> / <span class="mdl-music-player__track-duration">${controller.model.trackDuration}</span>
+    </div>
+    <div class="mdl-music-player__volume-control">
+        <label for="volumeBar_${controller.model.resourceId}">${controller.model.volumeControlLabel}</label>
+        <input id="volumeBar_${controller.model.resourceId}" type="range" class="mdl-music-player__volume-bar" value="1" step="0.01" min="0" max="1" />
+    </div>
+    <div class="mdl-music-player__additional-controls">
+        <button class="mdl-music-player__repeat-button" type="button">${controller.model.repeatLabel}</button>
+        <button data-sly-test="${enableShuffle}" class="mdl-music-player__shuffle-button" type="button">${controller.model.shuffleLabel}</button>
+    </div>
+</div>
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+     data-sly-call="${template.placeholder @ isEmpty=!hasContent}"></sly>

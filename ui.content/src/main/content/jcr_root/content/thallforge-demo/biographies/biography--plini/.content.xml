@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:45:06.340+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biography: Plini"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:42:20.436+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:42:20.436+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:42:50.556+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:45:06.327+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>&lt;b>Plini Roessler-Holgate&lt;/b>&amp;nbsp;(born 1992 or 1993),&amp;nbsp;known&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Mononym&quot; title=&quot;Mononym&quot;>mononymously&lt;/a>&amp;nbsp;as&amp;nbsp;&lt;b>Plini&lt;/b>, is an Australian guitarist and songwriter. He began his career by releasing music under the name&amp;nbsp;&lt;b>Halcyon&lt;/b>, before switching to the use of his first name.&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Steve_Vai&quot; title=&quot;Steve Vai&quot;>Steve Vai&lt;/a>&amp;nbsp;described him as &amp;quot;the future of exceptional guitar playing&amp;quot;,&amp;nbsp;and the website&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/MusicRadar&quot; title=&quot;MusicRadar&quot;>MusicRadar&lt;/a>&amp;nbsp;named Plini the best&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Progressive_rock&quot; title=&quot;Progressive rock&quot;>prog&lt;/a>&amp;nbsp;guitarist of 2017.&lt;/p>&#xd;&#xa;&lt;p>Plini has released a trilogy of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Extended_play&quot; title=&quot;Extended play&quot;>extended plays&lt;/a>&amp;nbsp;(&lt;i>Other Things&lt;/i>&amp;nbsp;and&amp;nbsp;&lt;i>Sweet Nothings&lt;/i>&amp;nbsp;in 2013,&amp;nbsp;&lt;i>The End of Everything&lt;/i>&amp;nbsp;in 2015). His debut album,&amp;nbsp;&lt;i>Handmade Cities&lt;/i>, which Vai described as &amp;quot;one of the finest, forward-thinking, melodic, rhythmically and harmonically deep instrumental guitar records [he has] ever heard&amp;quot;,&amp;nbsp;was released in 2016.&amp;nbsp;&lt;i>Sunhead&lt;/i>, an EP, was released in 2018,&amp;nbsp;followed by his second full-length album,&amp;nbsp;&lt;i>Impulse Voices&lt;/i>, in 2020.&lt;/p>&#xd;&#xa;&lt;h2>Influences&lt;/h2>&#xd;&#xa;&lt;p>One of Plini's influences has been&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Joe_Satriani&quot; title=&quot;Joe Satriani&quot;>Joe Satriani&lt;/a>. Plini stated in an interview, &amp;quot;What I found different in Joe's playing is his ability to craft simple and catchy melodies and phrase them so perfectly that he doesn't have to rely on (but can still bust out) flashy passages and cool tricks to keep the instrumental song format interesting. I hope we get to jam some day!&amp;quot;&amp;nbsp;In another interview, Plini stated that Satriani has &amp;quot;been hugely inspirational to me so it's very cool when I'm told people can hear that in there.”&lt;/p>&#xd;&#xa;&lt;h2>Doja Cat controversy&lt;/h2>&#xd;&#xa;&lt;p>&lt;a href=&quot;https://en.wikipedia.org/wiki/Doja_Cat&quot; title=&quot;Doja Cat&quot;>Doja Cat&lt;/a>'s 2020 performance of &amp;quot;Say So&amp;quot; at the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/MTV_Europe_Music_Awards&quot; title=&quot;MTV Europe Music Awards&quot;>MTV Europe Music Awards&lt;/a>&amp;nbsp;ceremony was criticized when some viewers noted that the guitar solo in the performance was identical to the one in Plini's 2016 song &amp;quot;&lt;a href=&quot;https://en.wikipedia.org/wiki/Handmade_Cities&quot; title=&quot;Handmade Cities&quot;>Handmade Cities&lt;/a>&amp;quot;. The next month, Plini reported that Doja Cat left him an apologetic message through social media.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/artists/spotlight--plini.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

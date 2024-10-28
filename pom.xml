@@ -35,11 +35,11 @@
         <vault.user>admin</vault.user>
         <vault.password>admin</vault.password>
         <frontend-maven-plugin.version>1.12.0</frontend-maven-plugin.version>
-        <core.wcm.components.version>2.24.6</core.wcm.components.version>
+        <core.wcm.components.version>2.25.4</core.wcm.components.version>
         <bnd.version>5.1.2</bnd.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <aem.sdk.api>2024.9.17689.20240905T073330Z-240800</aem.sdk.api>
+        <aem.sdk.api>2023.7.12874.20230726T072051Z-230702</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
         <groovy.console.cloud.version>17.0.0</groovy.console.cloud.version>
         <componentGroupName>thallforge</componentGroupName>
@@ -56,6 +56,7 @@
                     <scmCommentPrefix>[maven-scm] :</scmCommentPrefix>
                     <preparationGoals>clean install</preparationGoals>
                     <goals>install</goals>
+                    <releaseProfiles>release</releaseProfiles>
                     <releaseProfiles>release</releaseProfiles>
                 </configuration>
             </plugin>
@@ -187,6 +188,23 @@ Bundle-DocURL:
                     </executions>
                     <dependencies>
                         <dependency>
+                            <groupId>org.apache.tika</groupId>
+                            <artifactId>tika-core</artifactId>
+                            <version>2.9.2</version>
+                            <type>pom</type>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.tika</groupId>
+                            <artifactId>tika-parsers</artifactId>
+                            <version>2.9.2</version>
+                            <type>pom</type>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.sling</groupId>
+                            <artifactId>org.apache.sling.models.api</artifactId>
+                            <version>1.4.2</version>
+                        </dependency>
+                        <dependency>
                             <groupId>org.apache.sling</groupId>
                             <artifactId>org.apache.sling.caconfig.bnd-plugin</artifactId>
                             <version>1.0.2</version>
@@ -200,6 +218,16 @@ Bundle-DocURL:
                             <groupId>org.apache.sling</groupId>
                             <artifactId>scriptingbundle-maven-plugin</artifactId>
                             <version>0.5.0</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.google.code.gson</groupId>
+                            <artifactId>gson</artifactId>
+                            <version>2.8.9</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.commons</groupId>
+                            <artifactId>commons-lang3</artifactId>
+                            <version>3.12.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -546,8 +574,10 @@ Bundle-DocURL:
             </dependency>
             <dependency>
                 <groupId>com.adobe.cq</groupId>
-                <artifactId>core.wcm.components.core</artifactId>
+                <artifactId>core.wcm.components.all</artifactId>
                 <version>${core.wcm.components.version}</version>
+                <type>zip</type>
+                <scope>provided</scope>
             </dependency>
 
             <!-- AEM Groovy Console -->

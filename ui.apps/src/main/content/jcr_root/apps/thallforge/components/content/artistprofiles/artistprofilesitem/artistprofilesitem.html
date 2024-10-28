@@ -1,0 +1,19 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistprofiles.artistprofilesitem.ArtistProfilesItemController"></sly>
+<sly data-sly-test.hasContent="${controller.model.hasContent}">
+    <div class="artistprofilesitem__header" data-toggle="accordion">
+        <h3 class="artistprofilesitem__header__artist-name">${controller.model.artist.name}</h3>
+    </div>
+    <div class="artistprofilesitem__content">
+        <div class="artistprofilesitem__content__artist-info">
+            <img data-sly-attribute.src="${controller.model.artist.image}"
+                 data-sly-attribute.alt="${controller.model.artist.name}"
+                 class="artistprofilesitem__content__artist-info__artist-image"/>
+            <p class="artistprofilesitem__content__artist-info__artist-biography">${controller.model.artist.biography @ context='html'}</p>
+        </div>
+        <div class="artistprofilesitem__content__star-rating"
+            data-sly-attribute.data-star-rating="${controller.model.artist.rating}">
+        </div>
+    </div>
+</sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

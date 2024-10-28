@@ -1,0 +1,38 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.artistspotlight.ArtistSpotlightController"></sly>
+<div class="mdl-artist-spotlight"
+     data-cmp-is="artistspotlight"
+     data-sly-test.hasContent="${controller.model.hasContent}">
+    <div class="mdl-artist-spotlight__artist-info">
+        <img class="mdl-artist-spotlight__artist-image"
+             data-sly-attribute.alt="${controller.model.artistName}"
+             data-sly-attribute.src="${controller.model.artistImage}"/>
+        <div>
+            <h2 class="mdl-artist-spotlight__artist-name">${controller.model.artistName}</h2>
+            <p class="mdl-artist-spotlight__artist-bio">${controller.model.artistBiography @ context='html'}</p>
+        </div>
+    </div>
+    <div class="mdl-artist-spotlight__artist-albums">
+        <div class="mdl-artist-spotlight__artist-albums__albums-list"
+             data-sly-list.album="${controller.model.albums}">
+            <div class="mdl-artist-spotlight__artist-albums__albums-list__album-item">
+                <img class="mdl-artist-spotlight__artist-albums__albums-list__album-image"
+                     data-sly-attribute.alt="${album.title}"
+                     data-sly-attribute.src="${album.thumbnail}"/>
+                <h4 class="mdl-artist-spotlight__artist-albums__albums-list__album-name">${album.title}</h4>
+                <div class="mdl-artist-spotlight__artist-albums__albums-list__songs-list hidden"
+                     data-sly-list.song="${album.songs}">
+                    <div class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item">
+                        <a class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-link"
+                           data-sly-attribute.href="${song.link}">
+                            <span class="mdl-artist-spotlight__artist-albums__albums-list__songs-list__song-item__song-title">
+                                ${song.title}
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

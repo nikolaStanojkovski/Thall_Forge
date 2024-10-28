@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="58234b27-8408-4790-9570-fea126429814">
+    <jcr:content
+        cq:name="emily-armstrong"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T16:00:57.372+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Emily Armstrong"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T16:00:57.372+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Emily Marcia Armstrong is an American musician, singer, and songwriter. The co-founder of Dead Sara, she joined Linkin Park as the band's new co-lead vocalist in September 2024, following the death of their long-time vocalist Chester Bennington in 2017.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T16:00:57.323+01:00"
+                image="/content/dam/thallforge/images/emily-armstrong.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T16:00:57.321+01:00"
+                name="Emily Armstrong"
+                name_x0040_LastModified="{Date}2024-10-28T16:00:57.320+01:00"
+                rating="{Long}5"
+                rating_x0040_LastModified="{Date}2024-10-28T16:00:57.323+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="97839d83-b29d-4e1b-a4c5-a6d28321d549"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}5"
+                string_x0040_biography="&lt;p>Emily Marcia Armstrong is an American musician, singer, and songwriter. The co-founder of Dead Sara, she joined Linkin Park as the band's new co-lead vocalist in September 2024, following the death of their long-time vocalist Chester Bennington in 2017.&lt;/p>&#xa;"
+                string_x0040_name="Emily Armstrong"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

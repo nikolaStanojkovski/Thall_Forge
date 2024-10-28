@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="wcm/core/components/policies/mappings"
+        cq:lastModified="{Date}2019-05-05T14:43:43.612Z"
+        cq:lastModifiedBy="admin"
+        cq:lastReplicated="{Date}2019-12-12T14:43:43.612Z"
+        cq:lastReplicatedBy="admin"
+        cq:lastReplicationAction="Activate"
+        cq:policy="thallforge/pages/basepage/thallforge-page">
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/core/components/policies/mapping"
+            cq:policy="wcm/foundation/components/main/thallforge-content-page">
+            <thallforge jcr:primaryType="nt:unstructured">
+                <components jcr:primaryType="nt:unstructured">
+                    <content jcr:primaryType="nt:unstructured">
+                        <artistprofiles
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="wcm/core/components/policies/mapping"
+                                cq:policy="thallforge/components/content/artistprofiles/policy_artistprofiles"/>
+                    </content>
+                </components>
+            </thallforge>
+        </main>
+    </jcr:content>
+</jcr:root>

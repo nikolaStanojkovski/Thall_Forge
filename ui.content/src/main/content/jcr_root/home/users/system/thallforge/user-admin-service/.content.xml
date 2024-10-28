@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:rep="internal"
+    jcr:primaryType="rep:SystemUser"
+    jcr:uuid="b18d3425-9fce-32df-8a13-aabc5e1b3568"
+    rep:authorizableId="user-admin-service"
+    rep:principalName="user-admin-service"
+    aboutMe="Thallforge Administrator"/>
+

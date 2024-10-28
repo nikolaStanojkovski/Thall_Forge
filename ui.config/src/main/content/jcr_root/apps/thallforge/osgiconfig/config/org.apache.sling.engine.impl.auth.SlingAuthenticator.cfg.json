@@ -1,0 +1,13 @@
+{
+  "auth.sudo.cookie": "sling.sudo",
+  "auth.sudo.parameter": "sling.sudo",
+  "sling.auth.requirements": [
+    "+/",
+    "-/libs/granite/core/content/login",
+    "-/etc.clientlibs",
+    "-/etc.clientlibs/granite",
+    "-/libs/dam/remoteassets/content/loginerror",
+    "-/aem/update.theme",
+    "-/bin/thallforge/artists/options"
+  ]
+}

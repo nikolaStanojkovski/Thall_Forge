@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:48:53.162+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biography: Chester Bennington"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:48:00.465+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:48:00.465+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:48:03.392+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:48:53.152+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>&lt;b>Chester Charles Bennington&lt;/b>&amp;nbsp;(March 20, 1976&amp;nbsp;– July 20, 2017) was an American singer who was the lead vocalist of the rock band&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Linkin_Park&quot; title=&quot;Linkin Park&quot;>Linkin Park&lt;/a>. He was also the lead vocalist of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Grey_Daze&quot; title=&quot;Grey Daze&quot;>Grey Daze&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Dead_by_Sunrise&quot; title=&quot;Dead by Sunrise&quot;>Dead by Sunrise&lt;/a>, and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Stone_Temple_Pilots&quot; title=&quot;Stone Temple Pilots&quot;>Stone Temple Pilots&lt;/a>&amp;nbsp;at various points.&lt;/p>&#xd;&#xa;&lt;p>Bennington first gained prominence as a vocalist following the release of Linkin Park's debut album,&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Hybrid_Theory&quot; title=&quot;Hybrid Theory&quot;>Hybrid Theory&lt;/a>&lt;/i>&amp;nbsp;(2000), which was a worldwide commercial success. The album was certified&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/RIAA_certification&quot; title=&quot;RIAA certification&quot;>Diamond&lt;/a>&amp;nbsp;by the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Recording_Industry_Association_of_America&quot; title=&quot;Recording Industry Association of America&quot;>Recording Industry Association of America&lt;/a>&amp;nbsp;in 2005, making it the bestselling debut album of the decade, as well as one of the few albums ever to achieve that many sales.&amp;nbsp;He continued as the band's lead vocalist for their next six studio albums, from&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Meteora_(album)&quot; title=&quot;Meteora (album)&quot;>Meteora&lt;/a>&lt;/i>&amp;nbsp;(2003) to&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/One_More_Light&quot; title=&quot;One More Light&quot;>One More Light&lt;/a>&lt;/i>&amp;nbsp;(2017), with each charting within the top three spots of the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Billboard_200&quot; title=&quot;Billboard 200&quot;>Billboard 200&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>Bennington formed his own band, Dead by Sunrise, as a side project in 2005. The band's debut album,&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Out_of_Ashes&quot; title=&quot;Out of Ashes&quot;>Out of Ashes&lt;/a>&lt;/i>, was released on October 13, 2009. He became the lead singer of Stone Temple Pilots in 2013 to release the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Extended_play&quot; title=&quot;Extended play&quot;>extended play&lt;/a>&amp;nbsp;record&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/High_Rise_(EP)&quot; title=&quot;High Rise (EP)&quot;>High Rise&lt;/a>&lt;/i>&amp;nbsp;on October 8, 2013, via their own record label, Play Pen, but left in 2015 to focus solely on Linkin Park. As an actor, he appeared in films such as&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Crank_(film)&quot; title=&quot;Crank (film)&quot;>Crank&lt;/a>&lt;/i>&amp;nbsp;(2006),&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Crank:_High_Voltage&quot; title=&quot;Crank: High Voltage&quot;>Crank: High Voltage&lt;/a>&lt;/i>&amp;nbsp;(2009), and&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Saw_3D&quot; title=&quot;Saw 3D&quot;>Saw 3D&lt;/a>&lt;/i>&amp;nbsp;(2010).&lt;/p>&#xd;&#xa;&lt;p>Bennington struggled with depression and substance abuse for most of his life, starting in his childhood. On July 20, 2017, he was found dead at his home in&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Palos_Verdes_Estates,_California&quot; title=&quot;Palos Verdes Estates, California&quot;>Palos Verdes Estates, California&lt;/a>. The coroner concluded that his death was a result of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Suicide_by_hanging&quot; title=&quot;Suicide by hanging&quot;>suicide by hanging&lt;/a>.&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Hit_Parader&quot; title=&quot;Hit Parader&quot;>Hit Parader&lt;/a>&lt;/i>&amp;nbsp;magazine placed Bennington at number 46 on their list of the &amp;quot;Top 100 Metal Vocalists of All Time.&amp;quot;&amp;nbsp;Bennington has been ranked by several publications as one of the greatest rock vocalists of his generation.&amp;nbsp;Writing for&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Billboard_(magazine)&quot; title=&quot;Billboard (magazine)&quot;>Billboard&lt;/a>&lt;/i>, Dan Weiss stated that Bennington &amp;quot;turned&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Nu_metal&quot; title=&quot;Nu metal&quot;>nu-metal&lt;/a>&amp;nbsp;universal.&amp;quot;&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/artists/chester-bennington.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

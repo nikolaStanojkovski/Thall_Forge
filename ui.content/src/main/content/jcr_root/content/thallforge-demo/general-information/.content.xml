@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T20:11:22.532+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="General Information"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T19:50:42.369+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T19:53:10.541+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                jcr:title="ThallForge"
+                sling:resourceType="thallforge/components/core/title"
+                linkTarget="_self"
+                type="h1"/>
+            <text
+                jcr:created="{Date}2024-10-28T19:40:16.139+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T19:50:37.765+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;h2>What?&lt;/h2>&#xd;&#xa;&lt;p>ThallForge&amp;nbsp;is a streaming platform dedicated to discovering, streaming, and promoting music. It offers curated music experiences, band recommendations, and access to exclusive content.&lt;/p>&#xd;&#xa;&lt;h2>How?&lt;/h2>&#xd;&#xa;&lt;p>The system user Adobe Experience Manager (AEM) as a main tool for building the website. The author can create pages from all the features that the system contains.&lt;/p>&#xd;&#xa;&lt;h2>Why?&lt;/h2>&#xd;&#xa;&lt;p>The authors need to define all the content that the final users will see on the final streaming platform. The users need a stable and secure background system that will reliable and will provide the data to them.&lt;/p>&#xd;&#xa;&lt;h2>When?&lt;/h2>&#xd;&#xa;&lt;p>The system is available at all times! It was developed in the period between September and October 2024.&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+            <image
+                jcr:created="{Date}2024-10-28T19:52:31.999+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T19:53:35.088+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/image"
+                alt="ThallForge Logo"
+                altValueFromDAM="false"
+                displayPopupTitle="true"
+                fileReference="/content/dam/thallforge/images/thallforge-logo.png"
+                imageFromPageImage="false"
+                isDecorative="false"
+                linkTarget="_self"
+                titleValueFromDAM="true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="5"/>
+                </cq:responsive>
+            </image>
+            <text_426660573
+                jcr:created="{Date}2024-10-28T19:53:46.952+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:01:49.366+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;div>&amp;nbsp;&lt;/div>&#xd;&#xa;&lt;h2>&amp;nbsp;&lt;/h2>&#xd;&#xa;&lt;h2>&amp;nbsp;&lt;/h2>&#xd;&#xa;&lt;h2>Core Functionalities&lt;/h2>&#xd;&#xa;&lt;h4>Player Component&lt;/h4>&#xd;&#xa;&lt;p>Basic functionality including play, pause, skip, volume control, and shuffle.&lt;/p>&#xd;&#xa;&lt;h4>Content Discovery&lt;/h4>&#xd;&#xa;&lt;p>Genre-based navigation and trending albums to help users discover music.&lt;/p>&#xd;&#xa;&lt;h4>Music Streaming&lt;/h4>&#xd;&#xa;&lt;p>Stream high-quality music tracks.&lt;/p>&#xd;&#xa;"
+                textIsRich="true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="4"/>
+                </cq:responsive>
+            </text_426660573>
+            <text_554608802
+                jcr:created="{Date}2024-10-28T19:59:47.853+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:00:41.501+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;h2>Custom Components&lt;/h2>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>&lt;b>Music Player&lt;/b>&amp;nbsp;- Configurable audio playback with repeat and shuffle features.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Album Tracklist&lt;/b>&amp;nbsp;- Displays tracks for a specified album with download links.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Genre Explorer&lt;/b>&amp;nbsp;- Displays filtered albums based on selected genres.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Artist Spotlight&lt;/b>&amp;nbsp;- Shows albums and songs for a specified artist.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Latest Releases&lt;/b>&amp;nbsp;- Carousel of the latest album releases based on author-defined limits.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Artist Profiles&lt;/b>&amp;nbsp;- Accordion items with nested components for artist information.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Footer&lt;/b>&amp;nbsp;- Configurable links and logo for the page footer.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Header&lt;/b>&amp;nbsp;- Configurable links and logo for the page header.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Top-Fans Banner&lt;/b>&amp;nbsp;- Displays a message to the top user based on interaction counts.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>XF Header&lt;/b>&amp;nbsp;- Imports header from page properties.&lt;/li>&#xd;&#xa;&lt;li>&lt;b>XF Footer&lt;/b>&amp;nbsp;- Imports footer from page properties.&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                textIsRich="true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="1"
+                        width="9"/>
+                </cq:responsive>
+            </text_554608802>
+            <text_554608802_copy
+                jcr:created="{Date}2024-10-28T19:59:47.853+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:05:53.090+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;h2>Core Components (Adobe Imported)&lt;/h2>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>&lt;b>Text&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Teaser&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Image&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Breadcrumb&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>List&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Experience Fragment&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Language Navigation&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Title&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Download&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Sharing&lt;/b>&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                textIsRich="true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="1"
+                        width="4"/>
+                </cq:responsive>
+            </text_554608802_copy>
+            <text_554608802_copy_
+                jcr:created="{Date}2024-10-28T19:59:47.853+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T20:05:45.134+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;h2>Feature Summary&lt;/h2>&#xd;&#xa;&lt;ol>&#xd;&#xa;&lt;li>&lt;b>Structure Components&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Content Components&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Content Fragments&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Custom Templates&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Experience Fragments&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Endpoints/Servlets&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Schedulers&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Filter Implementation&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Custom Clientlibs/Validators&lt;/b>&lt;/li>&#xd;&#xa;&lt;li>&lt;b>Custom Users&lt;/b>&lt;/li>&#xd;&#xa;&lt;/ol>&#xd;&#xa;"
+                textIsRich="true">
+                <cq:responsive jcr:primaryType="nt:unstructured">
+                    <default
+                        jcr:primaryType="nt:unstructured"
+                        offset="0"
+                        width="5"/>
+                </cq:responsive>
+            </text_554608802_copy_>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

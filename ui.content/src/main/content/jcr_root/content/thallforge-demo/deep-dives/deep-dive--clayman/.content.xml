@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:22:13.088+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Clayman"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:20:19.001+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:20:19.001+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:20:21.946+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:22:13.079+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>There’s a particular memory that I can’t seem to forget: years ago, when I started getting into the more extreme side of metal (meaning, beyond the usual heavy/thrash/power stuff), someone online told me to check In Flames out but, and here’s when things get odd, advised me not to listen to their old stuff as it was too raw and unpolished, and not as good as the newest albums. I’d love, if I may, to find that person again and tell them that I actually ended up far preferring the older material. And by the way, no I didn’t check out the band at that time, but much later.&lt;/p>&#xd;&#xa;&lt;p>In Flames is a band with a peculiar history, and the distinction, almost a fracture at this point, between the old and the new is probably the most prominent element of this story. Because, just like in every story involving a downfall, posterity will not only judge but also try to point out when and how, exactly, this downfall started. For the majority of people, it started twenty years ago, with this very album. Perhaps the most famous album ever made by In Flames, and a prelude to their future.&lt;/p>&#xd;&#xa;&lt;p>Throughout the eleven songs that make up the album the melodic death metal roots merge with new, more modern elements, such as a more melodic sound, the use of fry scream rather than growl and introspective lyrics. This process actually had already started with “Whoracle” and “Colony”, yet this is where it came into itself.&lt;br>&#xd;&#xa;“Clayman” is built upon this merging, and upon the contrast between the catchy parts and choruses versus the cleaner, sometimes even whispered interludes. The former are arguably the best bits of this album, the ones where your head has a really hard time not to bang along with the music.&lt;/p>&#xd;&#xa;&lt;p>The album starts with a killer combination of what I consider to be its three best songs, one after another, depicting a manifesto of what we are going to experience. “Bullet Ride” is a fantastic opener, with heavy and groovy riffs – later repeated during the chorus – then a slower verse, which even features electronic samples. “Pinball Map” is much more powerful and energetic, creating a tension which explodes in the chorus, accompanied by a pounding drum. Then, there’s “Only For The Weak”, nowadays ever-present at their shows; a mighty riff starts the song, followed by a clean-sung verse with a melodic line underneath: maybe here more than ever the shiny production and thick guitar sound, courtesy of producer Fredrik Nordström, can be appreciated.&lt;br>&#xd;&#xa;Worth mentioning, in my opinion, is “Square Nothing”, which starts disguised as a ballad and it reveals its brutal sound only later on, and “Satellites and Astronauts”, that builds up an introspective and melancholic atmosphere with a cadenced chorus.&lt;/p>&#xd;&#xa;&lt;p>A great strength of this album lies in the harmonic melodies and solos played by the two guitarists Jesper Strömblad and Björn Gelotte: “Swim” and “Another Day In Quicksand” are, among others, clear examples of this. Strömblad said that he founded that band with the intent of combining Iron Maiden’s melodic guitar style, with death metal brutality: it’s safe to say that this result is fully accomplished on this release.&lt;/p>&#xd;&#xa;&lt;p>“Clayman” creates a low-spirited feeling but at the same time it is incredibly fun to listen to. It is not the perfect melodeath album, nor the greatest ever made by In Flames, yet it’s the one that best summarize the band. A truce in the band’s timeline, a common ground within fans of the old and the new.&lt;br>&#xd;&#xa;It appears clearly, however, how this was an accomplishment too rare to be possible again; a balance too perfect, too well-crafted to be reached twice.&lt;br>&#xd;&#xa;When did the downfall start, and why, we wondered at the beginning of this review. Well, I’d say it started either with the introduction of the aforementioned new sounds, or with their increased presence of future albums; and the equilibrium on this album was bound not to stay, so things started going downhill.&lt;/p>&#xd;&#xa;&lt;p>I like to imagine album like an armistice between two very different ages – it’s almost symbolic that “Clayman” came out in the year 2000 – and between what many people consider to be almost two different bands. The “battle” might still be raging on, but every fan can enjoy this cease-fire.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/albums/clayman.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

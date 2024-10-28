@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:13:18.268+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Ace of Spades"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title_copy
+                jcr:created="{Date}2024-10-28T22:07:38.940+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:07:38.940+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text_copy
+                jcr:created="{Date}2024-10-28T22:07:42.558+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:13:18.257+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>So I was planning to start this review with a big spiel about how I first heard 'Ace of Spades' from the Tony Hawk's Pro Skater 3 soundtrack, and how my mind was blown when I found out Lemmy and Wendy O' were more than just Koopa Kids from Super Mario World. I toyed with the idea of using my geeky anecdotes to illustrate Motörhead's cultural omnipresence; how even a shut-in weirdo like me managed to stumble across them before the internet, and before my formal introduction to heavy metal. But ultimately, it felt like a cheap justification for a meaningless endeavor. I know no one cares. I know my life is irrelevant. Makes me wonder what I'm doing writing a review for this album at all. Or why I write at all. Or why I exist at all.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;...&lt;i>Ace of Spades&lt;/i>, to the seething disdain of their long-suffering and much-bereaved frontman, is&amp;nbsp;&lt;i>the&lt;/i>&amp;nbsp;Motörhead album. Not necessarily the most varied, nor the most interesting, nor the best. Just,&amp;nbsp;&lt;i>the&lt;/i>. It's the one we all think of first, and don't even deny it. No matter how big, small, or non-existent of a fan you are, the word 'Motörhead' conjures up an image of the classic lineup dressed as swarthy bandaleros in a valley. End of story. It's kinda like, no matter how smart you are, if someone says 'Frankenstein', you immediately picture the big groaning monster instead of the scientist. There's no shame in it; it's just how things are. I suppose the most pressing question on today's agenda is simple. Do you share my greed, and is the only album you need, the&amp;nbsp;&lt;i>Ace of Spades&lt;/i>? The&amp;nbsp;&lt;i>Ace of Spades&lt;/i>?&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;It's a blues metal barbecue that's every bit as invigorating, spicy, and artery-clogging as its reputation suggests, much like Saxon's&amp;nbsp;&lt;i>Wheels of Steel&lt;/i>. Released just a few months apart, and sharing quite a bit in terms of song structures, impetus, and public opinion, if you like one album you're almost guaranteed to like the other. A savage haymaker in the form of its title track is followed up by an onslaught of filthy, minimalist batterings. Considering the way people talk about this album, it'd be reasonable to assume&amp;nbsp;&lt;i>Ace of Spades&lt;/i>&amp;nbsp;is just half an hour of complete silence after the title track has had its fun. On the contrary, it's remarkable how &amp;quot;never&amp;quot; this album lets up. Bold and incursive in its proliferation of blues, rock, and proto-speed metal, Fast Eddie simply outdoes himself with luminiscent setpieces and teeth-kicking solos, and the ferocious tempos mean a constant workout for Philthy as well.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;On the flip side, dare I say&amp;nbsp;&lt;i>Ace of Spades&lt;/i>&amp;nbsp;is Motörhead's most accessible album, even moreso than the slow and moody&amp;nbsp;&lt;i>Bomber&lt;/i>. Stuffed with cherished favorites like '(We Are) The Roadcrew', 'The Chase is Better than the Catch', and of course the title track, if this album isn't commercial, it's certainly lent itself nicely to being commercial&lt;i>ized&lt;/i>, ex post facto. And don't mistake that for a criticism; when vulgar compositions are capturing the imagination of the mainstream audience, it speaks volumes of their songwriting quality and capacity for memorable melody. The mainstream audience in 1980, no less, when people were wondering whether Jethro Tull was heavy metal.&lt;br>&#xd;&#xa;&lt;br>&#xd;&#xa;At the risk of inverted crucifixion, I was never fond of '(We Are) The Roadcrew', and I can't stand 'Jailbait'. Subject matter notwithstanding (in both cases), I can't shake the feeling of meandering contrivance trammeling these tracks, in stark contrast to the natural, gutsy dynamism of, say, 'Damage Case'. Chalk that up as them being the rare few mid-tempo tracks surrounded by an album-full of bloodthirsty speed metal werewolves. I'm well aware I occupy a microscopic minority when I rag on '(We Are) The Roadcrew'. Sorry folks, that chorus gets stuck in my head in the worst way possible. But don't worry; I'm sure we'll all agree on their next album.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/albums/ace-of-spades.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

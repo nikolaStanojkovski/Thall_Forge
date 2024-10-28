@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:18:22.928+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Deep Dive: Master of Reality"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title_copy
+                jcr:created="{Date}2024-10-28T22:04:07.692+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:04:07.692+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text_copy
+                jcr:created="{Date}2024-10-28T22:04:13.267+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:18:22.919+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>It's strange to remember&amp;nbsp;&lt;a href=&quot;https://www.kerrang.com/artists/black-sabbath&quot;>Black Sabbath&lt;/a>&amp;nbsp;as a pop group. Not that the original heavy metal band were ever bubblegum; from the very first clang of the church bell that opened their self-titled album, the boys from Birmingham were making music more evil than anyone else's. But on their debut and the soon-to-follow&amp;nbsp;&lt;a href=&quot;https://www.kerrang.com/it-broke-down-barriers-tony-iommi-on-how-black-sabbath-paranoid-changed-the-game&quot;>Paranoid&lt;/a>, Sabbath were still establishing themselves, and part of that meant writing radio hits and trying to get onto Top Of The Pops. Though Black Sabbath had already thrust heavy metal in front of the world's gaze, they hadn’t immersed themselves in the doom of it all.&lt;/p>&#xd;&#xa;&lt;p>That changed with 1971’s Master Of Reality. Confrontational, immersive, and somehow tuned down even lower than its predecessors, Sabbath’s third full-length album is where fair-weather listeners drop off and the devoted begin their true love of the band. As such, it is the ultimate album about being a Black Sabbath fan, booming with the kind of raw nihilist anxiety and outlaw attitude that made this band the answer to so many people's lifelong question.&lt;/p>&#xd;&#xa;&lt;p>One certainly cannot overstate the importance of Sabbath’s first two albums, released in 1970. Black Sabbath and Paranoid introduced the world to two of the band’s defining characteristics: a murky, low-end roar, and the tackling of macabre and satanic subject matters. That said, both records feel more like echoes of- and reactions to the free love of the late ‘60s and the psychedelic music that came out of it.&amp;nbsp;&lt;a href=&quot;https://www.youtube.com/watch?v=LQUXuQ6Zd9w&quot;>War Pigs&lt;/a>&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://www.youtube.com/watch?v=Zxjz6VhUOr8&quot;>N.I.B.&lt;/a>&amp;nbsp;are dark and heavy, but are in many ways electrified southern rock songs, while the crazed befuddlement of a track like Fairies Wear Boots is still stuck on how freaky-deaky drugs are. It’s outsider music, to be sure, but it feels like it’s meant for everyone.&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>Master Of Reality, however, took a step firmly to the left of everything that came before it. Its music and lyrics seemed to focus on life’s great bummer, in plain view, defined in part by guitarist&amp;nbsp;&lt;a href=&quot;https://www.kerrang.com/tony-iommis-13-greatest-riffs&quot;>Tony Iommi&lt;/a>&amp;nbsp;tuning even lower and doubling down on his signature style. “We did some stuff that we had never done before [on Master Of Reality],” Iommi recalls in his autobiography Iron Man. “On Children Of The Grave, Lord Of This World, and Into The Void, we turned down three semitones. It was part of an experiment: tuning down together for a bigger, heavier sound.”&lt;/p>&#xd;&#xa;&lt;p>Meanwhile, the album opens with Sweet Leaf, a track that tossed aside thinly-veiled metaphors about drug use for a straight-up love song serenading weed itself. The track was, of course, written based on ample research. “While I was recording an acoustic guitar bit for one of the other songs, Ozzy brought me a bloody big joint,” recalls Tony in Iron Man. “...it bloody choked me. I coughed my head off, they taped that and we used it on the beginning of Sweet Leaf. How appropriate, coughing your way into a song about marijuana...and the finest vocal performance of my entire career!”&lt;br>&#xd;&#xa;&lt;/p>&#xd;&#xa;&lt;p>More than anything, Master Of Reality’s atmosphere is immersed in self-aware gloom. The band forsook references to Satan and literary fantasy this time around, and instead focused on an overwhelming sense of depressive dread. After Sweet Leaf’s heavy-riffing declaration of love, there’s Children Of The Grave, an ominous biker anthem warning of the mounting ills of humanity; Lord Of This World, which opens with a riff that sounds like a mushroom cloud erupting into the sky; and Into The Void, a creeping, droning epic about leaving the cursed earth for the vacuum of space. Even After Forever, the record’s ham-fisted attempt to clarify the claims of devil worshipped weighed against the band, has a malevolent riff at its core.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/deep-dives/deep-dive--master-of-reality.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

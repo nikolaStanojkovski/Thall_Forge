@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2024-10-28T22:41:24.239+01:00"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/thallforge/settings/wcm/templates/contentpage"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Biography: Emily Armstrong"
+        sling:resourceType="thallforge/pages/contentpage">
+        <topfansbanner
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/topfansbanner"/>
+        <experiencefragment-header
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xfheader"/>
+        <main
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <title
+                jcr:created="{Date}2024-10-28T22:39:22.195+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:39:22.195+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/title"/>
+            <text
+                jcr:created="{Date}2024-10-28T22:39:24.637+01:00"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2024-10-28T22:41:24.229+01:00"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="thallforge/components/core/text"
+                text="&lt;p>&lt;b>Emily Marcia Armstrong&lt;/b>&amp;nbsp;(born May 6, 1986) is an American musician, singer, and songwriter. The co-founder of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Dead_Sara&quot; title=&quot;Dead Sara&quot;>Dead Sara&lt;/a>, she joined&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Linkin_Park&quot; title=&quot;Linkin Park&quot;>Linkin Park&lt;/a>&amp;nbsp;as the band's new co-lead vocalist in September 2024, following the death of their long-time vocalist&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Chester_Bennington&quot; title=&quot;Chester Bennington&quot;>Chester Bennington&lt;/a>&amp;nbsp;in 2017.&lt;/p>&#xd;&#xa;&lt;p>Armstrong was born in&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Los_Angeles&quot; title=&quot;Los Angeles&quot;>Los Angeles&lt;/a>. Her parents were prominent members of the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Church_of_Scientology&quot; title=&quot;Church of Scientology&quot;>Church of Scientology&lt;/a>, and she was raised as a&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Scientologist&quot; title=&quot;Scientologist&quot;>Scientologist&lt;/a>.&amp;nbsp;She started to write songs and play guitar when she was 11 and began to sing when she was 15. She dropped out of high school; she knew she wanted to be in a rock band when she picked up the guitar and had no interest in pursuing anything else.&amp;nbsp;In an interview with the&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/El_Paso_Times&quot; title=&quot;El Paso Times&quot;>&lt;i>El Paso Times&lt;/i>&lt;/a>&amp;nbsp;in 2012, Armstrong said music was the one thing that kept her motivated in life.&lt;/p>&#xd;&#xa;&lt;p>In 2002, Armstrong began playing with guitarist&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Siouxsie_Medley&quot; title=&quot;Siouxsie Medley&quot;>Siouxsie Medley&lt;/a>, who she met through a mutual friend. They had similar taste in music; both Medley and Armstrong were influenced by&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Nirvana_(band)&quot;>Nirvana&lt;/a>&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/L7_(band)&quot; title=&quot;L7 (band)&quot;>L7&lt;/a>, among others, and 1960s and 1970s folk and blues artists and classic rock bands such as&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Led_Zeppelin&quot; title=&quot;Led Zeppelin&quot;>Led Zeppelin&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Stevie_Nicks&quot; title=&quot;Stevie Nicks&quot;>Stevie Nicks&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Joni_Mitchell&quot; title=&quot;Joni Mitchell&quot;>Joni Mitchell&lt;/a>, and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Fleetwood_Mac&quot; title=&quot;Fleetwood Mac&quot;>Fleetwood Mac&lt;/a>. As a songwriter, Armstrong was significantly influenced by folk rock. Her interest in&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Alternate_tunings&quot; title=&quot;Alternate tunings&quot;>open and alternate tunings&lt;/a>, such as those used by Mitchell, resulted in what&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Guitar_World&quot; title=&quot;Guitar World&quot;>Guitar World&lt;/a>&lt;/i>&amp;nbsp;referred to as Dead Sara's signature sound.&amp;nbsp;As a performer, she was influenced by artists including&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Iggy_Pop&quot; title=&quot;Iggy Pop&quot;>Iggy Pop&lt;/a>&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Janis_Joplin&quot; title=&quot;Janis Joplin&quot;>Janis Joplin&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>Initially known as Epiphany, Dead Sara's first gig was at the Los Angeles nightclub The Mint in March 2005. In addition to singing, Armstrong played the bass.&lt;/p>&#xd;&#xa;&lt;p>Armstrong received significant attention as a singer before Dead Sara's debut was released. Noting her &amp;quot;strong, urgent sound&amp;quot;,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Grace_Slick&quot; title=&quot;Grace Slick&quot;>Grace Slick&lt;/a>&amp;nbsp;said Armstrong was a singer she admired in an interview with the&amp;nbsp;&lt;i>Wall Street Journal&lt;/i>&amp;nbsp;in 2011,&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Courtney_Love&quot; title=&quot;Courtney Love&quot;>Courtney Love&lt;/a>&amp;nbsp;brought Armstrong to New York to sing on&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Hole_(band)&quot; title=&quot;Hole (band)&quot;>Hole's&lt;/a>&amp;nbsp;2010 album,&amp;nbsp;&lt;i>&lt;a href=&quot;https://en.wikipedia.org/wiki/Nobody%27s_Daughter&quot; title=&quot;Nobody's Daughter&quot;>Nobody's Daughter&lt;/a>&lt;/i>.&lt;/p>&#xd;&#xa;&lt;p>Prior to joining Linkin Park, she recorded and/or performed live with artists including&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Offspring&quot; title=&quot;The Offspring&quot;>the Offspring&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Beck&quot; title=&quot;Beck&quot;>Beck&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Demi_Lovato&quot; title=&quot;Demi Lovato&quot;>Demi Lovato&lt;/a>,&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Awolnation&quot; title=&quot;Awolnation&quot;>Awolnation&lt;/a>,&amp;nbsp;and&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/Robby_Krieger&quot; title=&quot;Robby Krieger&quot;>Robby Krieger&lt;/a>&amp;nbsp;of&amp;nbsp;&lt;a href=&quot;https://en.wikipedia.org/wiki/The_Doors&quot; title=&quot;The Doors&quot;>the Doors&lt;/a>.&lt;/p>&#xd;&#xa;&lt;p>&lt;a href=&quot;/content/thallforge-demo/discover/artists/spotlight--emily-armstrong.html&quot;>Listen&lt;/a>&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+        </main>
+        <experiencefragment-footer
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="thallforge/components/structure/experiencefragments/xffooter"/>
+    </jcr:content>
+</jcr:root>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="91c2b5f4-ba28-4b90-aaf8-f1d23fd305f6">
+    <jcr:content
+        cq:name="nick-hipp"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T15:59:14.292+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Nick Hippa"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T15:59:14.292+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Samuel Nicholas Hipa is an American heavy metal guitarist. He has performed with several notable acts. He is the current lead guitarist of Wovenwar and Mire, and was the longtime former lead guitarist of As I Lay Dying.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T15:59:14.226+01:00"
+                image="/content/dam/thallforge/images/nick-hippa.jpeg"
+                image_x0040_LastModified="{Date}2024-10-28T15:59:14.226+01:00"
+                name="Nick Hippa"
+                name_x0040_LastModified="{Date}2024-10-28T15:59:14.225+01:00"
+                rating="{Long}5"
+                rating_x0040_LastModified="{Date}2024-10-28T15:59:14.227+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="09ad7df9-c7b5-4fb9-87d6-0773feed7451"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}5"
+                string_x0040_biography="&lt;p>Samuel Nicholas Hipa is an American heavy metal guitarist. He has performed with several notable acts. He is the current lead guitarist of Wovenwar and Mire, and was the longtime former lead guitarist of As I Lay Dying.&lt;/p>&#xa;"
+                string_x0040_name="Nick Hippa"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

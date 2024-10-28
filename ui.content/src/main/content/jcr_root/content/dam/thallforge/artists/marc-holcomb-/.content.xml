@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="d0343cef-f942-49fb-9707-bcfa01bb07b3">
+    <jcr:content
+        cq:name="marc-holcomb-"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T15:58:39.790+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Marc Holcomb"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T15:58:39.790+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Mark Holcomb was born October 21, 1982 in the Philippines. He is 36 years old and&amp;nbsp;currently living in Austin, Texas. Marc is known for being a guitarist for the band Periphery.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T15:58:39.719+01:00"
+                image="/content/dam/thallforge/images/marc-holcomb.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T15:58:39.719+01:00"
+                name="Marc Holcomb"
+                name_x0040_LastModified="{Date}2024-10-28T15:58:39.718+01:00"
+                rating="{Long}4"
+                rating_x0040_LastModified="{Date}2024-10-28T15:58:39.719+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="3c14dabc-f9af-4528-a640-e13dec0bd032"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}4"
+                string_x0040_biography="&lt;p>Mark Holcomb was born October 21, 1982 in the Philippines. He is 36 years old and&amp;nbsp;currently living in Austin, Texas. Marc is known for being a guitarist for the band Periphery.&lt;/p>&#xa;"
+                string_x0040_name="Marc Holcomb"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

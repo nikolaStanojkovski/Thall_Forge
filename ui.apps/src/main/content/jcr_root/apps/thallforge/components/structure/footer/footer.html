@@ -1,0 +1,15 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.structure.footer.FooterController"></sly>
+<footer data-sly-test.hasContent="${controller.model.hasContent}"
+        class="mdl-site-footer">
+    <div class="mdl-site-footer__footer-container">
+        <div class="mdl-site-footer__footer-container__footer-logo">
+            <img src="/apps/thallforge/clientlibs/clientlib-site/resources/images/thallforge-logo.png" alt="Site Logo" />
+        </div>
+        <nav class="mdl-site-footer__footer-container__footer-links"
+            data-sly-list.item="${controller.model.items}">
+            <a data-sly-attribute.href="${item.link}">${item.title}</a>
+        </nav>
+    </div>
+</footer>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

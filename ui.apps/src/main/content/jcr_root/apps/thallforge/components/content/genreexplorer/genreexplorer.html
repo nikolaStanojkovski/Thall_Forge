@@ -1,0 +1,30 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.content.genreexplorer.GenreExplorerController"></sly>
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     class="mdl-genre-explorer" data-cmp-is="genreexplorer">
+    <div class="mdl-genre-explorer__selected-genre">Selected Genre: <b>${controller.model.selectedGenre}</b></div>
+    <div class="mdl-genre-explorer__album-container">
+        <sly data-sly-list.album="${controller.model.albums}">
+            <div class="mdl-genre-explorer__album-container__album-card"
+                 data-sly-attribute.data-album-id="${album.id}">
+                <img alt="Album Cover" class="mdl-genre-explorer__album-container__album-card__album-cover" src="${album.thumbnail}"/>
+                <div class="mdl-genre-explorer__album-container__album-card__album-title">${album.title}</div>
+                <div class="mdl-genre-explorer__album-container__album-card__artist-name">${album.artist}</div>
+            </div>
+        </sly>
+    </div>
+    <sly data-sly-list.albumSongs="${controller.model.albumSongs}">
+        <div class="mdl-genre-explorer__song-list hidden"
+             data-sly-attribute.album-songs-container-id="${albumSongs.albumId}">
+            <sly data-sly-list.song="${albumSongs.songs}">
+                <div class="mdl-genre-explorer__song-list__song-item">
+                    <a class="mdl-genre-explorer__song-list__song-item__song-link"
+                       data-sly-attribute.href="${song.link}">
+                        ${song.title}
+                    </a>
+                </div>
+            </sly>
+        </div>
+    </sly>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

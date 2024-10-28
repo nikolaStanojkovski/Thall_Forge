@@ -33,6 +33,7 @@
                     <name>thallforge.ui.content</name>
                     <packageType>content</packageType>
                     <accessControlHandling>merge</accessControlHandling>
+                    <acHandling>merge</acHandling>
                     <validatorsSettings>
                         <jackrabbit-filter>
                             <options>

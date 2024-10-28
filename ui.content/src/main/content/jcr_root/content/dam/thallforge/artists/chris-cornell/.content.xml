@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="322776ae-8813-4250-86a0-76de59a3ffcd">
+    <jcr:content
+        cq:name="chris-cornell"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T16:04:02.189+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Chris Cornell"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T16:04:02.189+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Christopher John Cornell was an American musician. He was best known as the lead vocalist, rhythm guitarist, and the primary lyricist for the rock bands Soundgarden and Audioslave. He also had a solo career and contributed to numerous movie soundtracks.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T15:59:43.433+01:00"
+                image="/content/dam/thallforge/images/chris-cornell.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T15:59:43.432+01:00"
+                name="Chris Cornell"
+                name_x0040_LastModified="{Date}2024-10-28T15:59:43.431+01:00"
+                rating="{Long}2"
+                rating_x0040_LastModified="{Date}2024-10-28T15:59:43.434+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="e23824c7-3547-4892-8bf2-392bdd3ad1cc"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}2"
+                string_x0040_biography="&lt;p>Christopher John Cornell was an American musician. He was best known as the lead vocalist, rhythm guitarist, and the primary lyricist for the rock bands Soundgarden and Audioslave. He also had a solo career and contributed to numerous movie soundtracks.&lt;/p>&#xa;"
+                string_x0040_name="Chris Cornell"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

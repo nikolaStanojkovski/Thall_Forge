@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jcr:root xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dam="http://www.day.com/dam/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:dc="http://purl.org/dc/elements/1.1/"
     jcr:mixinTypes="[mix:referenceable]"
-    jcr:primaryType="dam:Asset">
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="3d684103-e0f2-44fc-8aeb-c09a4430e89c">
     <jcr:content
         dam:assetState="processed"
         dam:relativePath="thallforge/images/play-icon-video.svg"
-        jcr:lastModified="{Date}2017-10-29T17:16:53.256Z"
-        jcr:lastModifiedBy="admin"
+        jcr:lastModified="{Date}2024-10-28T19:38:58.030+01:00"
+        jcr:lastModifiedBy="workflow-process-service"
         jcr:primaryType="dam:AssetContent">
         <metadata
-            dam:extracted="{Date}2017-10-29T17:16:52.731Z"
+            dam:extracted="{Date}2024-10-28T19:38:56.994+01:00"
             dam:sha1="2187751dccd6aa1137bcce4245cceefa2a19f51e"
             dam:size="{Long}1554"
             dc:format="image/svg+xml"

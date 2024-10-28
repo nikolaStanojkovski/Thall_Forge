@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:isCheckedOut="{Boolean}true"
+    jcr:mixinTypes="[mix:referenceable,mix:versionable]"
+    jcr:primaryType="dam:Asset"
+    jcr:uuid="d88d1a49-9dfe-4dd0-82c6-c91e473c8ec9">
+    <jcr:content
+        cq:name="plini"
+        cq:parentPath="/content/dam/thallforge/artists"
+        jcr:lastModified="{Date}2024-10-28T15:55:53.300+01:00"
+        jcr:lastModifiedBy="admin"
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="Plini"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2024-10-28T15:55:53.300+01:00">
+        <data
+            cq:model="/conf/thallforge/settings/dam/cfm/models/artist"
+            jcr:primaryType="nt:unstructured"
+            _strucVersion="{Long}1">
+            <master
+                jcr:mixinTypes="[cq:Taggable,dam:cfVariationNode]"
+                jcr:primaryType="nt:unstructured"
+                biography="&lt;p>Plini is&amp;nbsp;an Australian guitarist and songwriter. He began his career by releasing music under the name Halcyon, before switching to the use of his first name.&lt;/p>&#xa;"
+                biography_x0040_ContentType="text/html"
+                biography_x0040_LastModified="{Date}2024-10-28T15:55:53.200+01:00"
+                image="/content/dam/thallforge/images/plini.jpg"
+                image_x0040_LastModified="{Date}2024-10-28T15:55:53.199+01:00"
+                name="Plini"
+                name_x0040_LastModified="{Date}2024-10-28T15:55:53.198+01:00"
+                rating="{Long}4"
+                rating_x0040_LastModified="{Date}2024-10-28T15:55:53.201+01:00"/>
+        </data>
+        <indexedData jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[dam:IndexedFragmentData]"
+                jcr:primaryType="nt:unstructured"
+                jcr:uuid="e367aefc-3a82-498a-b06c-c5fe12d52e16"
+                _x0040_string_x0040_model="/conf/thallforge/settings/dam/cfm/models/artist"
+                _x0040_stringArray_x0040_variations="[]"
+                long_x0040_rating="{Long}4"
+                string_x0040_biography="&lt;p>Plini is&amp;nbsp;an Australian guitarist and songwriter. He began his career by releasing music under the name Halcyon, before switching to the use of his first name.&lt;/p>&#xa;"
+                string_x0040_name="Plini"/>
+        </indexedData>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

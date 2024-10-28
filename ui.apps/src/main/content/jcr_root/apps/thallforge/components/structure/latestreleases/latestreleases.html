@@ -1,0 +1,34 @@
+<sly data-sly-use.controller="com.musicdistribution.thallforge.components.structure.latestreleases.LatestReleasesController"></sly>
+<div data-sly-test.hasContent="${controller.model.hasContent}"
+     data-cmp-is="latestreleases"
+     class="mdl-latest-releases">
+    <h3 class="mdl-latest-releases__carousel-title">${controller.model.title}</h3>
+    <div class="mdl-latest-releases__carousel-track-container">
+        <div class="mdl-latest-releases__carousel-track-container__carousel-track"
+             data-sly-list.album="${controller.model.albums}">
+            <div class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item">
+                <img data-sly-attribute.src="${album.thumbnail}"
+                     data-sly-attribute.alt="${album.title}"
+                     class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item__album-image" />
+                <div class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item__album-info">
+                    <h4 class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item__album-title">${album.title}</h4>
+                    <h5 class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item__album-artist">${album.artist}</h5>
+                    <p class="mdl-latest-releases__carousel-track-container__carousel-track__carousel-item__album-release-date">Release Date: <b>${album.releaseDate}</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="mdl-latest-releases__carousel-control prev" aria-label="Previous">
+        &#10094;
+    </button>
+    <button class="mdl-latest-releases__carousel-control next" aria-label="Next">
+        &#10095;
+    </button>
+    <div class="mdl-latest-releases__carousel-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+</div>
+<sly data-sly-call="${template.placeholder @ isEmpty=!hasContent}"
+     data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

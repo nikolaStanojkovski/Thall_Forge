@@ -1,0 +1,5 @@
+#base=js
+
+itemlimit.js
+showhidedialogfields.js
+showhidedialogfieldstabs.js
